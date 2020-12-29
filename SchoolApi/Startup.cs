@@ -34,6 +34,7 @@ namespace SchoolApi
 
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlite(Configuration.GetConnectionString("SchoolContext")));
+            services.AddCors();
 
             services.AddSwaggerGen(c =>
             {
@@ -51,8 +52,8 @@ namespace SchoolApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolApi v1"));
             }
 
-            app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseRouting();
 
             app.UseAuthorization();
