@@ -1,4 +1,4 @@
-using ContosoUniversity.Models;
+using SchoolApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace SchoolApi.Data
