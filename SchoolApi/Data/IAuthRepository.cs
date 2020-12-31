@@ -9,7 +9,7 @@ namespace SchoolApi.Data
         
         Task<User> Register(User user, string password);
         Task<User> Login(string email, string login);
-        Task<User> UserExists(string email);
+        Task<bool> UserExists(string email);
 
     }
 }

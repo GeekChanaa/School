@@ -1,0 +1,21 @@
+
+
+<form #loginForm="ngForm" class="" (ngSubmit)="login()">
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input name="email" matInput placeholder="Placeholder" required [(ngModel)]="model.Email">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input name="password" matInput placeholder="Placeholder" required [(ngModel)]="model.Password">
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </p>
+  <p>
+    <button type="submit">Login</button>
+  </p>
+</form>

@@ -34,6 +34,10 @@ namespace SchoolApi.Models
         public string LastName {get;set;}
         [Required]
         [StringLength(50)]
+        [Display(Name = "E-mail")]
+        public string Email {get;set;}
+        [Required]
+        [StringLength(50)]
         [Display(Name = "Code Appoge")]
         public string CodeAppoge {get;set;}
         [Required]

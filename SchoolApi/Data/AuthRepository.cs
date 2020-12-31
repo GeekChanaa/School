@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using SchoolApi.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace SchoolApi.Data
 {
@@ -34,12 +35,35 @@ namespace SchoolApi.Data
             }
         }
 
-        public Task<User> Login(string email, string password){
-            throw new System.NotImplementedException();
+        public async Task<User> Login(string email, string password){
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+
+            if(user == null)
+                return null;
+            if(!VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
+                return null;
+            
+            return user;
+            
         }
 
-        public Task<User> UserExists(string email){
-            throw new System.NotImplementedException();    
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt){
+            using(var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
+            {
+                
+                var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+                for (int i=0; i< computedHash.Length; i++){
+                    if(computedHash[i] != passwordHash[i]) return false;
+                }
+            }
+            return true;
+        }
+
+        public async Task<bool> UserExists(string email){
+            if(await _context.Users.AnyAsync(x => x.Email == email)){
+                return true;
+            }
+            return false;
         }
     }
 }

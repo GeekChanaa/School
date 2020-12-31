@@ -19,7 +19,7 @@ namespace SchoolApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("ContosoUniversity.Models.AbsenceJustification", b =>
+            modelBuilder.Entity("SchoolApi.Models.AbsenceJustification", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("AbsenceJustifications");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Assignment", b =>
+            modelBuilder.Entity("SchoolApi.Models.Assignment", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -63,7 +63,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Assignments");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Attendance", b =>
+            modelBuilder.Entity("SchoolApi.Models.Attendance", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -75,7 +75,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Attendances");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Event", b =>
+            modelBuilder.Entity("SchoolApi.Models.Event", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -99,7 +99,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Faculty", b =>
+            modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Faculties");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Grade", b =>
+            modelBuilder.Entity("SchoolApi.Models.Grade", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -144,7 +144,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Grades");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Group", b =>
+            modelBuilder.Entity("SchoolApi.Models.Group", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -159,7 +159,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupComment", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupComment", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -182,7 +182,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("GroupComments");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupMembership", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupMembership", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -207,7 +207,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("GroupMemberships");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupPost", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -233,7 +233,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("GroupPosts");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Module", b =>
+            modelBuilder.Entity("SchoolApi.Models.Module", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -248,7 +248,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Modules");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Privilege", b =>
+            modelBuilder.Entity("SchoolApi.Models.Privilege", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -260,7 +260,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Privileges");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Subject", b =>
+            modelBuilder.Entity("SchoolApi.Models.Subject", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -280,7 +280,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Subjects");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.User", b =>
+            modelBuilder.Entity("SchoolApi.Models.User", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -302,6 +302,11 @@ namespace SchoolApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -312,6 +317,14 @@ namespace SchoolApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<DateTime>("date_birth")
                         .HasColumnType("datetime2");
 
@@ -320,7 +333,7 @@ namespace SchoolApi.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.UserPrivilege", b =>
+            modelBuilder.Entity("SchoolApi.Models.UserPrivilege", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -345,15 +358,15 @@ namespace SchoolApi.Migrations
                     b.ToTable("UserPrivileges");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.AbsenceJustification", b =>
+            modelBuilder.Entity("SchoolApi.Models.AbsenceJustification", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Attendance", "Attendance")
+                    b.HasOne("SchoolApi.Models.Attendance", "Attendance")
                         .WithMany()
                         .HasForeignKey("AttendanceID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContosoUniversity.Models.User", "User")
+                    b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -364,15 +377,15 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Assignment", b =>
+            modelBuilder.Entity("SchoolApi.Models.Assignment", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Event", "Event")
+                    b.HasOne("SchoolApi.Models.Event", "Event")
                         .WithMany()
                         .HasForeignKey("EventID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContosoUniversity.Models.User", "User")
+                    b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -383,9 +396,9 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Faculty", b =>
+            modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.User", "Chef")
+                    b.HasOne("SchoolApi.Models.User", "Chef")
                         .WithMany()
                         .HasForeignKey("ChefID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -394,15 +407,15 @@ namespace SchoolApi.Migrations
                     b.Navigation("Chef");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Grade", b =>
+            modelBuilder.Entity("SchoolApi.Models.Grade", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.User", "Student")
+                    b.HasOne("SchoolApi.Models.User", "Student")
                         .WithMany()
                         .HasForeignKey("StudentID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContosoUniversity.Models.Subject", "Subject")
+                    b.HasOne("SchoolApi.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -413,9 +426,9 @@ namespace SchoolApi.Migrations
                     b.Navigation("Subject");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupComment", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupComment", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.GroupPost", "Post")
+                    b.HasOne("SchoolApi.Models.GroupPost", "Post")
                         .WithMany("GroupComments")
                         .HasForeignKey("PostID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -424,15 +437,15 @@ namespace SchoolApi.Migrations
                     b.Navigation("Post");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupMembership", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupMembership", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Group", "Group")
+                    b.HasOne("SchoolApi.Models.Group", "Group")
                         .WithMany("GroupMemberships")
                         .HasForeignKey("GroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContosoUniversity.Models.User", "User")
+                    b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -443,9 +456,9 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupPost", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Group", "Group")
+                    b.HasOne("SchoolApi.Models.Group", "Group")
                         .WithMany("GroupsPosts")
                         .HasForeignKey("GroupID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -454,9 +467,9 @@ namespace SchoolApi.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Subject", b =>
+            modelBuilder.Entity("SchoolApi.Models.Subject", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Module", "Module")
+                    b.HasOne("SchoolApi.Models.Module", "Module")
                         .WithMany("Subjects")
                         .HasForeignKey("ModuleID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -465,15 +478,15 @@ namespace SchoolApi.Migrations
                     b.Navigation("Module");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.UserPrivilege", b =>
+            modelBuilder.Entity("SchoolApi.Models.UserPrivilege", b =>
                 {
-                    b.HasOne("ContosoUniversity.Models.Privilege", "Privilege")
+                    b.HasOne("SchoolApi.Models.Privilege", "Privilege")
                         .WithMany()
                         .HasForeignKey("PrivilegeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ContosoUniversity.Models.User", "User")
+                    b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -484,19 +497,19 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Group", b =>
+            modelBuilder.Entity("SchoolApi.Models.Group", b =>
                 {
                     b.Navigation("GroupMemberships");
 
                     b.Navigation("GroupsPosts");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.GroupPost", b =>
+            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
                 {
                     b.Navigation("GroupComments");
                 });
 
-            modelBuilder.Entity("ContosoUniversity.Models.Module", b =>
+            modelBuilder.Entity("SchoolApi.Models.Module", b =>
                 {
                     b.Navigation("Subjects");
                 });
