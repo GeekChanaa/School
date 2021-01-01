@@ -26,5 +26,6 @@ export const appRoutes: Routes = [
     { path : 'groups', component : GroupsComponent},
     { path : 'modules', component : ModulesComponent},
     { path : 'privileges', component : PrivilegesComponent},
-    { path : 'subjects', component : SubjectsComponent}
+    { path : 'subjects', component : SubjectsComponent},
+
 ];

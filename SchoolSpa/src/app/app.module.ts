@@ -65,7 +65,7 @@ import { AttendancesComponent } from './Attendances/Attendances.component';
 import { EventsComponent } from './Events/Events.component';
 import { FacultiesComponent } from './Faculties/Faculties.component';
 import { GradesComponent } from './Grades/Grades.component';
-import { GroupsComponent } from './Groups/Groups.component';
+import { DialogElementsExampleDialog, GroupsComponent } from './Groups/Groups.component';
 import { GroupPostsComponent } from './GroupPosts/GroupPosts.component';
 import { GroupMembershipsComponent } from './GroupMemberships/GroupMemberships.component';
 import { ModulesComponent } from './Modules/Modules.component';
@@ -76,7 +76,7 @@ import { UserPrivilegesComponent } from './UserPrivileges/UserPrivileges.compone
 
 
 @NgModule({
-  declarations: [																							
+  declarations: [																								
       AppComponent,
       UsersComponent,
       NavComponent,
@@ -98,7 +98,8 @@ import { UserPrivilegesComponent } from './UserPrivileges/UserPrivileges.compone
       ModulesComponent,
       PrivilegesComponent,
       SubjectsComponent,
-      UserPrivilegesComponent
+      UserPrivilegesComponent,
+      DialogElementsExampleDialog
    ],
   imports: [
     BrowserModule,
