@@ -1,0 +1,58 @@
+<mat-card class="register-card">
+  <h1>Register</h1>
+  <form #loginForm="ngForm" class="form-create" (ngSubmit)="create()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>CIN</mat-label>
+            <input matInput name="cin" [(ngModel)]="model.cin" placeholder="CIN">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>CNE</mat-label>
+            <input matInput name="cne" [(ngModel)]="model.cne" placeholder="CNE">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>First Name</mat-label>
+            <input matInput name="firstName" [(ngModel)]="model.firstName" placeholder="First Name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Last Name</mat-label>
+            <input matInput name="lastName" [(ngModel)]="model.lastName" placeholder="Last Name">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Email</mat-label>
+            <input matInput name="email" [(ngModel)]="model.email" placeholder="Email">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Code Appoge</mat-label>
+            <input matInput name="codeAppoge" [(ngModel)]="model.codeAppoge" placeholder="Code Appoge">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput name="dateBirth" [(ngModel)]="model.dateBirth" placeholder="Date of Birth">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput name="password" [(ngModel)]="model.password" placeholder="Password">
+            </mat-form-field>
+        </p>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-button type="submit">Register</button>
+    </div>
+</form>
+</mat-card>

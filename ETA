@@ -1,0 +1,126 @@
+Administrator
+    Crud Operations assignments
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations attendances
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Events
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Faculties
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Grades
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Groups
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Modules
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Privileges
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Subjects
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations User Privileges
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+    Crud Operations Users
+        Create
+        Update
+        Delete
+        Display 
+        Listing
+        Sorting in listing
+        Searching in listing
+        Pagination in listing
+        Filtering
+
+Teachers
+    Each teacher is assigned to a number of courses that he will be managing:
+    Each teacher can check his schedule
+    The schedule has the upcoming sessions (the past ones too).
+    The schedule has the upcoming holidays.
+    Each teacher can manage the attendance of his sessions. (this has to be very smooth to use)
+    Each teacher can add new assignments (which have multiple types TP/TD/Project..) to the whole class or to individuals.
+    Each teacher can attach files to the assignments he wants to do.
+    Sessions can cancel his classes or reschedule them. (The students have to be notified if this is occured)
+    Délibération
+    Each teacher can post notes and observations about his course on the plateform
+    Each teacher can check each student's attendances, assignments, marks ....
+    Each teacher can mark his students on the subject he's teaching.
+

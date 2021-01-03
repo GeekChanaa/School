@@ -34,5 +34,4 @@ export class PrivilegeService {
 
 export interface Privilege{
   id: number;
-  title: string;
 }

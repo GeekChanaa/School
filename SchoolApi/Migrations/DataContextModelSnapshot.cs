@@ -70,7 +70,23 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<DateTime>("DateEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EventID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("EventID");
+
+                    b.HasIndex("UserID");
 
                     b.ToTable("Attendances");
                 });
@@ -280,6 +296,43 @@ namespace SchoolApi.Migrations
                     b.ToTable("Subjects");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.Training", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Trainings");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.TrainingModule", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("ModuleID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TrainingID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ModuleID");
+
+                    b.HasIndex("TrainingID");
+
+                    b.ToTable("TrainingModules");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.User", b =>
                 {
                     b.Property<int>("ID")
@@ -369,7 +422,7 @@ namespace SchoolApi.Migrations
                     b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Attendance");
@@ -378,6 +431,25 @@ namespace SchoolApi.Migrations
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Assignment", b =>
+                {
+                    b.HasOne("SchoolApi.Models.Event", "Event")
+                        .WithMany()
+                        .HasForeignKey("EventID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolApi.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.Attendance", b =>
                 {
                     b.HasOne("SchoolApi.Models.Event", "Event")
                         .WithMany()
@@ -476,6 +548,25 @@ namespace SchoolApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Module");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.TrainingModule", b =>
+                {
+                    b.HasOne("SchoolApi.Models.Module", "Module")
+                        .WithMany()
+                        .HasForeignKey("ModuleID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolApi.Models.Training", "Training")
+                        .WithMany()
+                        .HasForeignKey("TrainingID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Module");
+
+                    b.Navigation("Training");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.UserPrivilege", b =>

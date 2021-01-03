@@ -34,5 +34,9 @@ export class AttendanceService {
 
 export interface Attendance{
   id: number;
-  title: string;
+  dateStart: string;
+  dateEnd : string;
+  userId : number;
+  eventId : number;
+
 }

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Dtos;
+using System.Globalization;
 
 namespace SchoolApi.Controllers
 {
@@ -76,8 +78,19 @@ namespace SchoolApi.Controllers
         // POST: api/Event
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Event>> PostEvent(Event @event)
+        public async Task<ActionResult<Event>> PostEvent([FromBody]EventDto eventDto)
         {
+            // Fixing Dates
+            DateTime start = DateTime.ParseExact(eventDto.StartDate, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
+            DateTime end = DateTime.ParseExact(eventDto.EndDate, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
+
+            Event @event = new Event{
+                Title = eventDto.Title,
+                DateStart = start,
+                DateEnd = end,
+                Type = eventDto.Type
+            };
+
             _context.Events.Add(@event);
             await _context.SaveChangesAsync();
 

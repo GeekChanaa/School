@@ -26,6 +26,7 @@ export class FacultyService {
   }
 
   createFaculty(model:any){
+    console.log(model);
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
@@ -35,4 +36,5 @@ export class FacultyService {
 export interface Faculty{
   id: number;
   title: string;
+  chefId: number;
 }

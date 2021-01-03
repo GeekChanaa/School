@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavComponent } from './nav/nav.component';
 
 import { MatButtonModule} from '@angular/material/button';
 import { MatCardModule} from '@angular/material/card';
@@ -21,6 +20,10 @@ import { HomeComponent } from './Home/Home.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { SideNavComponent } from './SideNav/SideNav.component';
+
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 
 import {A11yModule} from '@angular/cdk/a11y';
 import {ClipboardModule} from '@angular/cdk/clipboard';
@@ -57,51 +60,74 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { LoginFormComponent } from './LoginForm/LoginForm.component';
-import { RegisterFormComponent } from './RegisterForm/RegisterForm.component';
-import { UsersComponent } from './Users/Users.component';
-import { AssignmentsComponent } from './Assignments/Assignments.component';
-import { AttendancesComponent } from './Attendances/Attendances.component';
-import { EventsComponent } from './Events/Events.component';
-import { FacultiesComponent } from './Faculties/Faculties.component';
-import { GradesComponent } from './Grades/Grades.component';
-import { DialogElementsExampleDialog, GroupsComponent } from './Groups/Groups.component';
-import { GroupPostsComponent } from './GroupPosts/GroupPosts.component';
-import { GroupMembershipsComponent } from './GroupMemberships/GroupMemberships.component';
-import { ModulesComponent } from './Modules/Modules.component';
-import { PrivilegesComponent } from './Privileges/Privileges.component';
-import { SubjectsComponent } from './Subjects/Subjects.component';
-import { UserPrivilegesComponent } from './UserPrivileges/UserPrivileges.component';
+import { CreateUserDialog, UsersComponent } from './dashboard/Users/Users.component';
+import { AssignmentsComponent, CreateAssignmentDialog } from './dashboard/Assignments/Assignments.component';
+import { AttendancesComponent, CreateAttendanceDialog } from './dashboard/Attendances/Attendances.component';
+import { CreateEventDialog, EventsComponent } from './dashboard/Events/Events.component';
+import { CreateFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
+import { CreateGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
+import { CreateGroupDialog, GroupsComponent } from './dashboard/Groups/Groups.component';
+import { CreateModuleDialog, ModulesComponent } from './dashboard/Modules/Modules.component';
+import { CreatePrivilegeDialog, PrivilegesComponent } from './dashboard/Privileges/Privileges.component';
+import { CreateSubjectDialog, SubjectsComponent } from './dashboard/Subjects/Subjects.component';
+import { createUserPrivilegeDialog, UserPrivilegeComponent } from './dashboard/UserPrivileges/UserPrivileges.component';
+import { LoginComponent } from './Login/Login.component';
+import { LogoutComponent } from './Logout/Logout.component';
+import { RegisterComponent } from './Register/Register.component';
+import { RequestPasswordComponent } from './RequestPassword/RequestPassword.component';
+import { ResetPasswordComponent } from './ResetPassword/ResetPassword.component';
+import { CalendarComponent } from './dashboard/Calendar/Calendar.component';
+import { PagesComponent } from './pages/pages.component';
+import { TeachersComponent } from './Teachers/Teachers.component';
+import { CreateTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 
-
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
-  declarations: [																								
+  declarations: [					
+      CalendarComponent,																															
       AppComponent,
       UsersComponent,
-      NavComponent,
       HomeComponent,
       SideNavComponent,
-      LoginFormComponent,
-      RegisterFormComponent,
-      RegisterFormComponent,
       UsersComponent,
       AssignmentsComponent,
       AttendancesComponent,
+      TrainingsComponent,
       EventsComponent,
       EventsComponent,
       FacultiesComponent,
       GradesComponent,
       GroupsComponent,
-      GroupPostsComponent,
-      GroupMembershipsComponent,
       ModulesComponent,
       PrivilegesComponent,
       SubjectsComponent,
-      UserPrivilegesComponent,
-      DialogElementsExampleDialog
+      UserPrivilegeComponent,
+      CreateUserDialog,
+      CreateAttendanceDialog,
+      CreateAssignmentDialog,
+      CreateEventDialog,
+      CreateFacultyDialog,
+      CreateGradeDialog,
+      CreateGroupDialog,
+      CreatePrivilegeDialog,
+      CreateSubjectDialog,
+      CreateModuleDialog,
+      CreateTrainingDialog,
+      createUserPrivilegeDialog,
+      LoginComponent,
+      LogoutComponent,
+      RegisterComponent,
+      RequestPasswordComponent,
+      ResetPasswordComponent,
+      PagesComponent,
+      TeachersComponent
    ],
   imports: [
+    FullCalendarModule,
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,

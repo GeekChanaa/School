@@ -34,5 +34,12 @@ export class UserService {
 
 export interface User{
   id: number;
-  title: string;
+  cin: string;
+  cne: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  codeAppoge: string;
+  date_birth: string;
+  password: string;
 }

@@ -1,0 +1,22 @@
+<mat-card class="register-card">
+  <h1>Login</h1>
+  <form #loginForm="ngForm" class="form-create" (ngSubmit)="login()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Email</mat-label>
+            <input matInput name="email" [(ngModel)]="model.email" placeholder="Email">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field class="w-80" appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input matInput name="password" [(ngModel)]="model.password" placeholder="Password">
+            </mat-form-field>
+        </p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button type="submit">Login</button>
+    </div>
+  </form>
+</mat-card>

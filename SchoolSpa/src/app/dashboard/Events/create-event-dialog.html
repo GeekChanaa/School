@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>Add Event</h1>
+
+<form #loginForm="ngForm" class="" (ngSubmit)="create()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" [(ngModel)]="model.title" placeholder="Title">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Start Date</mat-label>
+            <input matInput name="startDate" type="date" [(ngModel)]="model.startDate" placeholder="Start Date">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Start Time</mat-label>
+            <input matInput name="startTime" type="time" [(ngModel)]="model.startTime" placeholder="Start Time">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>End date</mat-label>
+            <input matInput name="endDate" type="date" [(ngModel)]="model.endDate" placeholder="End Date">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>End Time</mat-label>
+            <input matInput name="endTime" type="time" [(ngModel)]="model.endTime" placeholder="End Time">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Type</mat-label>
+            <input matInput name="type" [(ngModel)]="model.type" placeholder="Type">
+            </mat-form-field>
+        </p>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-dialog-close mat-button type="submit">Save</button>
+    <button mat-dialog-close mat-button type="button">Close</button>
+    </div>
+</form>

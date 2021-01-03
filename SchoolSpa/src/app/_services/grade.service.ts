@@ -34,5 +34,7 @@ export class GradeService {
 
 export interface Grade{
   id: number;
-  title: string;
+  value: number;
+  subjectId: number;
+  studentId: number;
 }

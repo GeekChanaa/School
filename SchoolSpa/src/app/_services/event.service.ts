@@ -26,6 +26,10 @@ export class EventService {
   }
 
   createEvent(model:any){
+    console.log(model.startDate +" "+ model.startTime);
+    model.startDate = model.startDate +" "+ model.startTime ;
+    model.endDate = model.endDate +" "+ model.endTime;
+    console.log(model);
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
@@ -35,4 +39,7 @@ export class EventService {
 export interface Event{
   id: number;
   title: string;
+  dateStart : string;
+  dateEnd : string;
+  type : string;
 }

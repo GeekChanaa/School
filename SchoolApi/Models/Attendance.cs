@@ -9,15 +9,15 @@ namespace SchoolApi.Models
     {
         public int ID { get; set; }
         [Display(Name = "From")]
-        public DateTime DateStart;
+        public DateTime DateStart{ get; set; }
         [Display(Name = "To")]
-        public DateTime DateEnd;
-        public int UserID;
-        public int EventID;
+        public DateTime DateEnd{ get; set; }
+        public int UserID{ get; set; }
+        public int EventID{ get; set; }
         
         // Navigation Properties
-        public User User;
-        public Event Event;
+        public User User{ get; set; }
+        public Event Event{ get; set; }
         
     }
 }

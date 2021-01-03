@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Dtos;
 
 namespace SchoolApi.Controllers
 {
@@ -15,10 +16,12 @@ namespace SchoolApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly IAuthRepository _repo;
 
-        public UserController(DataContext context)
+        public UserController(IAuthRepository repo,DataContext context)
         {
             _context = context;
+            _repo = repo;
         }
 
         // GET: api/User
@@ -76,12 +79,30 @@ namespace SchoolApi.Controllers
         // POST: api/User
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public async Task<ActionResult<User>> PostUser([FromBody]UserForRegisterDto userForRegisterDto)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            // Validating request
+            Console.WriteLine("THIS IS WORKING");
+            Console.WriteLine(userForRegisterDto.CIN);
+            userForRegisterDto.Email = userForRegisterDto.Email.ToLower();
 
-            return CreatedAtAction("GetUser", new { id = user.ID }, user);
+            if(await _repo.UserExists(userForRegisterDto.Email)){
+                return BadRequest("Email already exists");
+            }
+
+            var userToCreate = new User{
+                Email = userForRegisterDto.Email, 
+                CIN=userForRegisterDto.CIN,
+                CNE= userForRegisterDto.CNE,
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
+                CodeAppoge = userForRegisterDto.CodeAppoge,
+                date_birth = userForRegisterDto.date_birth
+            };
+
+            var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
+
+            return StatusCode(201);
         }
 
         // DELETE: api/User/5

@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class ModuleService {
 
-  baseUrl = 'https://localhost:5001/api/module/';
+  baseUrl = 'https://localhost:5001/api/modules/';
 
   constructor(private http: HttpClient) { }
 

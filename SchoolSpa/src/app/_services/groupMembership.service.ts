@@ -34,5 +34,7 @@ export class GroupMembershipService {
 
 export interface GroupMembership{
   id: number;
-  title: string;
+  userId: number;
+  groupId: number;
+  rank : string;
 }

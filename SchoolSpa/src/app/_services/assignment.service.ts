@@ -34,5 +34,6 @@ export class AssignmentService {
 
 export interface Assignment{
   id: number;
-  title: string;
+  userId: number;
+  eventId: number;
 }
