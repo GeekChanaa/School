@@ -16,9 +16,8 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
-import { HomeComponent } from './Home/Home.component';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
+import { appRoutes, AppRoutingModule } from './routes';
 import { SideNavComponent } from './SideNav/SideNav.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
@@ -61,8 +60,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { CreateUserDialog, UsersComponent } from './dashboard/Users/Users.component';
-import { AssignmentsComponent, CreateAssignmentDialog } from './dashboard/Assignments/Assignments.component';
-import { AttendancesComponent, CreateAttendanceDialog } from './dashboard/Attendances/Attendances.component';
 import { CreateEventDialog, EventsComponent } from './dashboard/Events/Events.component';
 import { CreateFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
 import { CreateGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
@@ -77,9 +74,10 @@ import { RegisterComponent } from './Register/Register.component';
 import { RequestPasswordComponent } from './RequestPassword/RequestPassword.component';
 import { ResetPasswordComponent } from './ResetPassword/ResetPassword.component';
 import { CalendarComponent } from './dashboard/Calendar/Calendar.component';
-import { PagesComponent } from './pages/pages.component';
 import { TeachersComponent } from './Teachers/Teachers.component';
 import { CreateTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
+import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
+import { TodoComponent } from './todo/todo.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -87,15 +85,11 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 ]);
 
 @NgModule({
-  declarations: [					
+  declarations: [						
       CalendarComponent,																															
       AppComponent,
       UsersComponent,
-      HomeComponent,
-      SideNavComponent,
       UsersComponent,
-      AssignmentsComponent,
-      AttendancesComponent,
       TrainingsComponent,
       EventsComponent,
       EventsComponent,
@@ -107,8 +101,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       SubjectsComponent,
       UserPrivilegeComponent,
       CreateUserDialog,
-      CreateAttendanceDialog,
-      CreateAssignmentDialog,
       CreateEventDialog,
       CreateFacultyDialog,
       CreateGradeDialog,
@@ -123,8 +115,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       RegisterComponent,
       RequestPasswordComponent,
       ResetPasswordComponent,
-      PagesComponent,
-      TeachersComponent
+      TeachersComponent,
+      TrainingModulesComponent,
+      CreateTrainingModulesDialog,
+      TodoComponent
    ],
   imports: [
     FullCalendarModule,
@@ -177,7 +171,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatTreeModule,
     OverlayModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
     AuthService,

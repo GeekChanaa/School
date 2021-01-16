@@ -8,6 +8,16 @@
             <input matInput name="title" [(ngModel)]="model.title" placeholder="Title">
             </mat-form-field>
         </p>
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Chef</mat-label>
+              <mat-select name="moduleId" [(ngModel)]="model.moduleId"> 
+                <mat-option *ngFor="let module of modules" [value]="module.id">
+                  {{module.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
     </div>
     <div mat-dialog-actions>
     <button mat-dialog-close mat-button type="submit">Save</button>

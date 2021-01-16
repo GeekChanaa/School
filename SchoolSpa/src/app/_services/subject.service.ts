@@ -35,4 +35,5 @@ export class SubjectService {
 export interface Subject{
   id: number;
   title: string;
+  moduleId: string;
 }

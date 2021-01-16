@@ -10,14 +10,24 @@
         </p>
         <p>
           <mat-form-field appearance="fill">
-            <mat-label>Chef</mat-label>
-            <mat-select name="chefId" [(ngModel)]="model.chefId"> 
-              <mat-option *ngFor="let user of users" [value]="user.id">
-                {{user.firstName}}
+            <mat-label>Training</mat-label>
+            <mat-select name="trainingId" [(ngModel)]="model.trainingId"> 
+              <mat-option *ngFor="let training of trainings" [value]="training.id">
+                {{training.title}}
               </mat-option>
             </mat-select>
-        </mat-form-field>
+          </mat-form-field>
         </p>
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Module</mat-label>
+              <mat-select name="moduleId" [(ngModel)]="model.moduleId"> 
+                <mat-option *ngFor="let module of modules" [value]="module.id">
+                  {{module.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
     </div>
     <div mat-dialog-actions>
     <button mat-dialog-close mat-button type="submit">Save</button>

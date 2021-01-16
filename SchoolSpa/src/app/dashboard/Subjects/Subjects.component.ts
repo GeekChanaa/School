@@ -3,6 +3,7 @@ import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular
 import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { ModuleService } from 'src/app/_services/module.service';
 import { SubjectService } from '../../_services/subject.service';
 
 @Component({
@@ -62,6 +63,7 @@ export class SubjectsComponent implements AfterViewInit {
 export interface Group {
   ID: string;
   Title: string;
+  moduleId: string;
 }
 
 
@@ -71,13 +73,28 @@ export interface Group {
 })
 export class CreateSubjectDialog {
   model:any ={};
+  modules:any;
+
   /**
    *
    */
-  constructor(private _subjectService: SubjectService) {
+  constructor(private _moduleService: ModuleService, private _subjectService: SubjectService) {
     
   }
-  // Creating a group
+
+  /**
+   *
+   */
+  ngAfterViewInit() {
+    console.log('this is the view init');
+    this._moduleService.getModules()
+      .subscribe(data => {
+        this.modules = data;
+      });
+    
+  }
+
+  // Creating a subject
   create(){
     this._subjectService.createSubject(this.model).subscribe(() => {
       console.log("created subject");

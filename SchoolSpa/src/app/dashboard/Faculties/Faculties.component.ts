@@ -78,7 +78,7 @@ export class CreateFacultyDialog implements AfterViewInit{
    *
    */
   constructor(private _facultyService: FacultyService, private _userService: UserService) {
-    this.users = this._userService.getUsers().subscribe(() => console.log('success'));
+    
   }
   ngAfterViewInit() {
     console.log('this is the view init');
