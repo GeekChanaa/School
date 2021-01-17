@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
 using SchoolApi.Dtos;
+using SchoolApi.Helpers;
+using AutoMapper;
+using System.Security.Claims;   
 
 namespace SchoolApi.Controllers
 {
@@ -17,11 +20,13 @@ namespace SchoolApi.Controllers
     {
         private readonly DataContext _context;
         private readonly IAuthRepository _repo;
+        private readonly IMapper _mapper;
 
-        public UserController(IAuthRepository repo,DataContext context)
+        public UserController(IAuthRepository repo,DataContext context, IMapper mapper)
         {
             _context = context;
             _repo = repo;
+            _mapper = mapper;
         }
 
         // GET: api/User
@@ -48,15 +53,26 @@ namespace SchoolApi.Controllers
         // PUT: api/User/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> PutUser(int id, UserForUpdateDto userToUpdateDto)
         {
-            if (id != user.ID)
-            {
-                return BadRequest();
-            }
+            Console.WriteLine("this is the id : "+id);
 
+            
+            User user = await _repo.GetUser(id);
+            Console.WriteLine("this is the userDTO CIN : "+userToUpdateDto.CIN);
+            Console.WriteLine("this is the user CIN : "+user.CIN);
+
+
+
+
+            _mapper.Map(userToUpdateDto,user);
+
+            Console.WriteLine(user);
+            Console.WriteLine("this is the user CIN : "+userToUpdateDto.CIN);
+            Console.WriteLine("this is the user CNE: "+user.CNE); 
+            
+            
             _context.Entry(user).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();

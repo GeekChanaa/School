@@ -7,6 +7,7 @@ import { LoginComponent } from './Login/Login.component';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
+import { TeachersComponent } from './Teachers/Teachers.component';
 
 export const appRoutes: Routes = [
     {
@@ -20,6 +21,12 @@ export const appRoutes: Routes = [
       component : PagesComponent,
       loadChildren: () => import('./pages/pages.module')
         .then(m => m.PagesModule),
+    },
+    {
+      path: 'teachers',
+      component : TeachersComponent,
+      loadChildren: () => import('./Teachers/Teachers.module')
+        .then(m => m.TeachersModule),
     },
     {
         path: 'auth',

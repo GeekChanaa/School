@@ -1,0 +1,55 @@
+<h1 mat-dialog-title>Edit User</h1>
+
+<form #loginForm="ngForm" class="create-form" (ngSubmit)="edit()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>CIN</mat-label>
+            <input matInput name="cin" [(ngModel)]="model.cin" placeholder="CIN" value="{{user.cin}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>CNE</mat-label>
+            <input matInput name="cne" [(ngModel)]="model.cne" placeholder="CNE" value="{{user.cne}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>First Name</mat-label>
+            <input matInput name="firstName" [(ngModel)]="model.firstName" placeholder="First Name" value="{{user.firstName}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Last Name</mat-label>
+            <input matInput name="lastName" [(ngModel)]="model.lastName" placeholder="Last Name" value="{{user.lastName}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Email</mat-label>
+            <input matInput name="email" [(ngModel)]="model.email" placeholder="Email" value="{{user.email}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Code Appoge</mat-label>
+            <input matInput name="codeAppoge" [(ngModel)]="model.codeAppoge" placeholder="Code Appoge" value="{{user.codeAppoge}}">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" name="dateBirth" [(ngModel)]="model.dateBirth" placeholder="Date of Birth" value="{{user.dateBirth}}">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+        </p>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-dialog-close mat-button type="submit">Save</button>
+    <button mat-dialog-close mat-button type="button">Close</button>
+    </div>
+</form>

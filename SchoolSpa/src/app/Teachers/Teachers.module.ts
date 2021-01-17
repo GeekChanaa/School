@@ -1,30 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DashboardComponent } from './dashboard.component';
+import { TeachersComponent } from './Teachers.component';
 import { RouterModule } from '@angular/router';
-import { DashboardRoutingModule } from './dashboard.routing';
+import { TeachersRoutingModule } from './Teachers.routing';
 import { SideNavComponent } from '../SideNav/SideNav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    TeachersRoutingModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   declarations: [
-    DashboardComponent,
-    SideNavComponent,
+    TeachersComponent,
   ]
 })
 
-export class DashboardModule { }
+export class TeachersModule { }

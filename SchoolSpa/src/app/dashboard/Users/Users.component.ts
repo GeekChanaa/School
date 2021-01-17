@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { UserService } from '../../_services/user.service';
@@ -27,6 +27,13 @@ export class UsersComponent implements AfterViewInit {
   openDialog() {
     this.dialog.open(CreateUserDialog);
   }
+
+  openEditDialog(id:number){
+    this.dialog.open(EditUserDialog, {
+      data: id,
+    });
+  }
+
   ngAfterViewInit() {
     console.log('this is the view init');
     this._userService.getUsers()
@@ -83,6 +90,41 @@ export class CreateUserDialog {
   create(){
     this._userService.createUser(this.model).subscribe(() => {
       console.log("created user");
+    });
+  }
+}
+
+
+
+
+@Component({
+  selector: 'edit-user-dialog',
+  templateUrl: 'edit-user-dialog.html',
+  styleUrls: ['./Users.component.sass']
+})
+export class EditUserDialog {
+  model:any ={};
+  local_data:any = {};
+  user:any = {};
+  /**
+   *
+   */
+  constructor(private _userService: UserService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._userService.getUser(data).subscribe((data) => {
+      console.log("got user");
+      this.user = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a user
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._userService.editUser(this.local_data,this.model).subscribe(() => {
+      console.log("Edited user");
     });
   }
 }

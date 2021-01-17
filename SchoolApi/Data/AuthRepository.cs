@@ -65,5 +65,10 @@ namespace SchoolApi.Data
             }
             return false;
         }
+
+        public Task<User> GetUser(int id){
+            var user = _context.Users.FirstOrDefaultAsync(u => u.ID == id);
+            return user;
+        }
     }
 }

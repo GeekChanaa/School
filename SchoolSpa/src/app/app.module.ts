@@ -59,7 +59,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
-import { CreateUserDialog, UsersComponent } from './dashboard/Users/Users.component';
+import { CreateUserDialog, EditUserDialog, UsersComponent } from './dashboard/Users/Users.component';
 import { CreateEventDialog, EventsComponent } from './dashboard/Events/Events.component';
 import { CreateFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
 import { CreateGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
@@ -77,7 +77,6 @@ import { CalendarComponent } from './dashboard/Calendar/Calendar.component';
 import { TeachersComponent } from './Teachers/Teachers.component';
 import { CreateTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
-import { TodoComponent } from './todo/todo.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -101,6 +100,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       SubjectsComponent,
       UserPrivilegeComponent,
       CreateUserDialog,
+      EditUserDialog,
       CreateEventDialog,
       CreateFacultyDialog,
       CreateGradeDialog,
@@ -115,10 +115,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       RegisterComponent,
       RequestPasswordComponent,
       ResetPasswordComponent,
-      TeachersComponent,
       TrainingModulesComponent,
       CreateTrainingModulesDialog,
-      TodoComponent
    ],
   imports: [
     FullCalendarModule,

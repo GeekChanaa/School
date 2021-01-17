@@ -16,6 +16,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMapper;
+using SchoolApi.Helpers;
 
 
 namespace SchoolApi
@@ -39,6 +41,7 @@ namespace SchoolApi
                 options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
 
             services.AddCors();
+            services.AddAutoMapper(typeof(AutoMapperData).Assembly);
 
             services.AddSwaggerGen(c =>
             {

@@ -53,9 +53,10 @@
           </button>
         </form>
         
-        <button mat-button mat-icon-button>
-          <mat-icon>edit</mat-icon>
-        </button>
+        
+      <button mat-button color="primary" (click)="openEditDialog(element.id)">
+        Edit
+      </button>
 
       </td>
     </ng-container>
