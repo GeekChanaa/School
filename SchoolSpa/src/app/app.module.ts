@@ -185,4 +185,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}
