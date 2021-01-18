@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { GradeService } from '../../_services/grade.service';
@@ -81,6 +81,38 @@ export class CreateGradeDialog {
   create(){
     this._gradeService.createGrade(this.model).subscribe(() => {
       console.log("created grade");
+    });
+  }
+}
+
+@Component({
+  selector: 'edit-grade-dialog',
+  templateUrl: 'edit-grade-dialog.html',
+  styleUrls: ['./Grades.component.sass']
+})
+export class EditGradeDialog {
+  model:any ={};
+  local_data:any = {};
+  grade:any = {};
+  /**
+   *
+   */
+  constructor(private _gradeService: GradeService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._gradeService.getGrade(data).subscribe((data) => {
+      console.log("got grade");
+      this.grade = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a grade
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._gradeService.editGrade(this.local_data,this.model).subscribe(() => {
+      console.log("Edited grade");
     });
   }
 }

@@ -29,6 +29,14 @@ export class GroupService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getGroup(id:number){
+    return this.http.get<Group>(this.baseUrl+id);
+  }
+
+  editGroup(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

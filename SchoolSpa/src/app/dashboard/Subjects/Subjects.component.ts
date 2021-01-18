@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { ModuleService } from 'src/app/_services/module.service';
@@ -98,6 +98,39 @@ export class CreateSubjectDialog {
   create(){
     this._subjectService.createSubject(this.model).subscribe(() => {
       console.log("created subject");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'edit-subject-dialog',
+  templateUrl: 'edit-subject-dialog.html',
+  styleUrls: ['./Subjects.component.sass']
+})
+export class EditSubjectDialog {
+  model:any ={};
+  local_data:any = {};
+  subject:any = {};
+  /**
+   *
+   */
+  constructor(private _subjectService: SubjectService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._subjectService.getSubject(data).subscribe((data) => {
+      console.log("got subject");
+      this.subject = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a subject
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._subjectService.editSubject(this.local_data,this.model).subscribe(() => {
+      console.log("Edited subject");
     });
   }
 }

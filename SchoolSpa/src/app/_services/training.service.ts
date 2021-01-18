@@ -27,6 +27,14 @@ export class TrainingService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getTraining(id:number){
+    return this.http.get<Training>(this.baseUrl+id);
+  }
+
+  editTraining(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
 }
 
 

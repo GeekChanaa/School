@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { ModuleService } from 'src/app/_services/module.service';
@@ -34,7 +34,7 @@ export class TrainingModulesComponent implements AfterViewInit {
     this._trainingModuleService.getTrainingModules()
       .subscribe(data => {
         this.trainingmodules = data;
-        this.dataSource = new MatTableDataSource<User>(this.trainingmodules);
+        this.dataSource = new MatTableDataSource<TrainingModule>(this.trainingmodules);
         this.dataSource.paginator = this.paginator;
         console.log(this.trainingmodules);
       });
@@ -45,7 +45,7 @@ export class TrainingModulesComponent implements AfterViewInit {
   model:any ={};
 
 
-  // Deleting a User
+  // Deleting a TrainingModule
   delete(id: any){
     this._trainingModuleService.deleteTrainingModuleById(id)
       .subscribe(() => console.log("trainingmodule deleted"));
@@ -55,7 +55,7 @@ export class TrainingModulesComponent implements AfterViewInit {
 }
 
 
-export interface User {
+export interface TrainingModule {
   id: string;
   TrainingId : number;
   ModuleId : number;
@@ -94,6 +94,39 @@ export class CreateTrainingModulesDialog {
   create(){
     this._trainingModuleService.createTrainingModule(this.model).subscribe(() => {
       console.log("created training module");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'edit-training-module-dialog',
+  templateUrl: 'edit-training-module-dialog.html',
+  styleUrls: ['./TrainingModules.component.sass']
+})
+export class EditTrainingModuleDialog {
+  model:any ={};
+  local_data:any = {};
+  trainingModule:any = {};
+  /**
+   *
+   */
+  constructor(private _trainingModuleService: TrainingModuleService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._trainingModuleService.getTrainingModule(data).subscribe((data) => {
+      console.log("got trainingModule");
+      this.trainingModule = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a trainingModule
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._trainingModuleService.editTrainingModule(this.local_data,this.model).subscribe(() => {
+      console.log("Edited trainingModule");
     });
   }
 }

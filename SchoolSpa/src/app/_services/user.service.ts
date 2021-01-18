@@ -31,7 +31,6 @@ export class UserService {
   }
 
   editUser(id:number,model:any){
-    console.log("this is the edit service for users");
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 

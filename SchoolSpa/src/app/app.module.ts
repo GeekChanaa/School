@@ -60,22 +60,22 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { CreateUserDialog, EditUserDialog, UsersComponent } from './dashboard/Users/Users.component';
-import { CreateEventDialog, EventsComponent } from './dashboard/Events/Events.component';
-import { CreateFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
-import { CreateGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
-import { CreateGroupDialog, GroupsComponent } from './dashboard/Groups/Groups.component';
-import { CreateModuleDialog, ModulesComponent } from './dashboard/Modules/Modules.component';
-import { CreatePrivilegeDialog, PrivilegesComponent } from './dashboard/Privileges/Privileges.component';
-import { CreateSubjectDialog, SubjectsComponent } from './dashboard/Subjects/Subjects.component';
-import { createUserPrivilegeDialog, UserPrivilegeComponent } from './dashboard/UserPrivileges/UserPrivileges.component';
-import { LoginComponent } from './Login/Login.component';
-import { LogoutComponent } from './Logout/Logout.component';
-import { RegisterComponent } from './Register/Register.component';
-import { RequestPasswordComponent } from './RequestPassword/RequestPassword.component';
-import { ResetPasswordComponent } from './ResetPassword/ResetPassword.component';
+import { CreateEventDialog, EditEventDialog, EventsComponent } from './dashboard/Events/Events.component';
+import { CreateFacultyDialog, EditFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
+import { CreateGradeDialog, EditGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
+import { CreateGroupDialog, EditGroupDialog, GroupsComponent } from './dashboard/Groups/Groups.component';
+import { CreateModuleDialog, EditModuleDialog, ModulesComponent } from './dashboard/Modules/Modules.component';
+import { CreatePrivilegeDialog, EditPrivilegeDialog, PrivilegesComponent } from './dashboard/Privileges/Privileges.component';
+import { CreateSubjectDialog, EditSubjectDialog, SubjectsComponent } from './dashboard/Subjects/Subjects.component';
+import { createUserPrivilegeDialog, EditUserPrivilegesDialog, UserPrivilegeComponent } from './dashboard/UserPrivileges/UserPrivileges.component';
+import { LoginComponent } from './auth/Login/Login.component';
+import { LogoutComponent } from './auth/Logout/Logout.component';
+import { RegisterComponent } from './auth/Register/Register.component';
+import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword.component';
+import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
 import { CalendarComponent } from './dashboard/Calendar/Calendar.component';
 import { TeachersComponent } from './Teachers/Teachers.component';
-import { CreateTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
+import { CreateTrainingDialog, EditTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -109,6 +109,15 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       CreateSubjectDialog,
       CreateModuleDialog,
       CreateTrainingDialog,
+      EditEventDialog,
+      EditFacultyDialog,
+      EditGradeDialog,
+      EditGroupDialog,
+      EditPrivilegeDialog,
+      EditSubjectDialog,
+      EditModuleDialog,
+      EditTrainingDialog,
+      EditUserPrivilegesDialog,
       createUserPrivilegeDialog,
       LoginComponent,
       LogoutComponent,
@@ -116,7 +125,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       RequestPasswordComponent,
       ResetPasswordComponent,
       TrainingModulesComponent,
-      CreateTrainingModulesDialog,
+      CreateTrainingModulesDialog
    ],
   imports: [
     FullCalendarModule,

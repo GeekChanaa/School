@@ -59,17 +59,11 @@ namespace SchoolApi.Controllers
 
             
             User user = await _repo.GetUser(id);
-            Console.WriteLine("this is the userDTO CIN : "+userToUpdateDto.CIN);
-            Console.WriteLine("this is the user CIN : "+user.CIN);
-
-
 
 
             _mapper.Map(userToUpdateDto,user);
 
             Console.WriteLine(user);
-            Console.WriteLine("this is the user CIN : "+userToUpdateDto.CIN);
-            Console.WriteLine("this is the user CNE: "+user.CNE); 
             
             
             _context.Entry(user).State = EntityState.Modified;

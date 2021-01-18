@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { GroupService } from '../../_services/group.service';
@@ -93,6 +93,39 @@ export class CreateGroupDialog {
     this._groupService.createGroup(this.model).subscribe(() => {
       
       console.log("created group");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'edit-group-dialog',
+  templateUrl: 'edit-group-dialog.html',
+  styleUrls: ['./Groups.component.sass']
+})
+export class EditGroupDialog {
+  model:any ={};
+  local_data:any = {};
+  group:any = {};
+  /**
+   *
+   */
+  constructor(private _groupService: GroupService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._groupService.getGroup(data).subscribe((data) => {
+      console.log("got group");
+      this.group = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a group
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._groupService.editGroup(this.local_data,this.model).subscribe(() => {
+      console.log("Edited group");
     });
   }
 }

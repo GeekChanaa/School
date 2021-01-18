@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Inject } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { EventService } from '../../_services/event.service';
@@ -84,6 +85,39 @@ export class CreateEventDialog {
   create(){
     this._eventService.createEvent(this.model).subscribe(() => {
       console.log("created event");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'edit-event-dialog',
+  templateUrl: 'edit-event-dialog.html',
+  styleUrls: ['./Events.component.sass']
+})
+export class EditEventDialog {
+  model:any ={};
+  local_data:any = {};
+  event:any = {};
+  /**
+   *
+   */
+  constructor(private _eventService: EventService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._eventService.getEvent(data).subscribe((data) => {
+      console.log("got event");
+      this.event = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a event
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._eventService.editEvent(this.local_data,this.model).subscribe(() => {
+      console.log("Edited event");
     });
   }
 }

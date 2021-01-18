@@ -29,6 +29,14 @@ export class SubjectService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getSubject(id:number){
+    return this.http.get<Subject>(this.baseUrl+id);
+  }
+
+  editSubject(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

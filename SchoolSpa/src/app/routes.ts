@@ -1,13 +1,14 @@
 import {RouterModule, Routes} from '@angular/router';
-import { RequestPasswordComponent } from './RequestPassword/RequestPassword.component';
-import { ResetPasswordComponent } from './ResetPassword/ResetPassword.component';
-import { LogoutComponent } from './Logout/Logout.component';
-import { RegisterComponent } from './Register/Register.component';
-import { LoginComponent } from './Login/Login.component';
+import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword.component';
+import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
+import { LogoutComponent } from './auth/Logout/Logout.component';
+import { RegisterComponent } from './auth/Register/Register.component';
+import { LoginComponent } from './auth/Login/Login.component';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
 import { TeachersComponent } from './Teachers/Teachers.component';
+import { AuthComponent } from './auth/auth.component';
 
 export const appRoutes: Routes = [
     {
@@ -29,30 +30,11 @@ export const appRoutes: Routes = [
         .then(m => m.TeachersModule),
     },
     {
-        path: 'auth',
-        children: [
-          {
-            path: '',
-            component: LoginComponent,
-          },
-          {
-            path: 'login',
-            component: LoginComponent,
-          },
-          {
-            path: 'register',
-            component: RegisterComponent,
-          },
-          {
-            path: 'request-password',
-            component: RequestPasswordComponent,
-          },
-          {
-            path: 'reset-password',
-            component: ResetPasswordComponent,
-          },
-        ],
-      },
+      path: 'auth',
+      component : AuthComponent,
+      loadChildren: () => import('./auth/auth.module')
+        .then(m => m.AuthModule),
+    },
 
 ];
 

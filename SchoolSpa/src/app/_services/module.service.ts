@@ -29,6 +29,14 @@ export class ModuleService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getModule(id:number){
+    return this.http.get<Module>(this.baseUrl+id);
+  }
+
+  editModule(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

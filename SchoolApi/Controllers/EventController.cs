@@ -49,11 +49,6 @@ namespace SchoolApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutEvent(int id, Event @event)
         {
-            if (id != @event.ID)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(@event).State = EntityState.Modified;
 
             try

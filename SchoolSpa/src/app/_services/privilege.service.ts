@@ -29,6 +29,14 @@ export class PrivilegeService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getPrivilege(id:number){
+    return this.http.get<Privilege>(this.baseUrl+id);
+  }
+
+  editPrivilege(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

@@ -30,6 +30,14 @@ export class FacultyService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getFaculty(id:number){
+    return this.http.get<Faculty>(this.baseUrl+id);
+  }
+
+  editFaculty(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

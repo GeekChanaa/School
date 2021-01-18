@@ -17,6 +17,7 @@ export class UserPrivilegeService {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
   };
   
+
   getUserPrivileges(): Observable<UserPrivilege[]>{
     return this.http.get<UserPrivilege[]>(this.baseUrl);
   }
@@ -27,6 +28,14 @@ export class UserPrivilegeService {
 
   createUserPrivilege(model:any){
     return this.http.post(this.baseUrl,model,this.httpOptions);
+  }
+
+  getUserPrivilege(id:number){
+    return this.http.get<UserPrivilege>(this.baseUrl+id);
+  }
+
+  editUserPrivilege(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 
   

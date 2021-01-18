@@ -27,6 +27,14 @@ export class TrainingModuleService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getTrainingModule(id:number){
+    return this.http.get<TrainingModule>(this.baseUrl+id);
+  }
+
+  editTrainingModule(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
 }
 
 export interface TrainingModule{

@@ -29,6 +29,14 @@ export class AttendanceService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getAttendance(id:number){
+    return this.http.get<Attendance>(this.baseUrl+id);
+  }
+
+  editAttendance(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

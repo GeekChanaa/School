@@ -29,6 +29,14 @@ export class GroupMembershipService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getGroupMembership(id:number){
+    return this.http.get<GroupMembership>(this.baseUrl+id);
+  }
+
+  editGroupMembership(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

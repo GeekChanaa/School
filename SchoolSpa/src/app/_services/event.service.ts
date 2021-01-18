@@ -33,6 +33,14 @@ export class EventService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getEvent(id:number){
+    return this.http.get<Event>(this.baseUrl+id);
+  }
+
+  editEvent(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

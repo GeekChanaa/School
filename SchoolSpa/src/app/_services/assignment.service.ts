@@ -29,6 +29,14 @@ export class AssignmentService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getAssignment(id:number){
+    return this.http.get<Assignment>(this.baseUrl+id);
+  }
+
+  editAssignment(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

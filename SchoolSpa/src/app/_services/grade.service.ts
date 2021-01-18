@@ -29,6 +29,14 @@ export class GradeService {
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
+  getGrade(id:number){
+    return this.http.get<Grade>(this.baseUrl+id);
+  }
+
+  editGrade(id:number,model:any){
+    return this.http.put(this.baseUrl+id,model,this.httpOptions);
+  }
+
   
 }
 

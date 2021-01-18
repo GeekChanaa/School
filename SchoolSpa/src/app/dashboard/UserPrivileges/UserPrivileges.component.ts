@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AfterViewInit, Component, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { UserPrivilegeService } from '../../_services/userPrivilege.service';
@@ -81,6 +81,39 @@ export class createUserPrivilegeDialog {
   create(){
     this._userPrivilegeService.createUserPrivilege(this.model).subscribe(() => {
       console.log("created group");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'edit-user-privilege-dialog',
+  templateUrl: 'edit-user-privilege-dialog.html',
+  styleUrls: ['./UserPrivileges.component.sass']
+})
+export class EditUserPrivilegesDialog {
+  model:any ={};
+  local_data:any = {};
+  userPrivilege:any = {};
+  /**
+   *
+   */
+  constructor(private _userPrivilegeService: UserPrivilegeService,@Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(data);
+    this.local_data = data;
+    this._userPrivilegeService.getUserPrivilege(data).subscribe((data) => {
+      console.log("got userPrivilege");
+      this.userPrivilege = data;
+      this.model = data;
+    })
+    console.log("this is the local data : "+this.local_data)
+  }
+  // Editing a userPrivilege
+  edit(){
+    console.log("this is the model that we're putting for update");
+    console.log(this.model);
+    this._userPrivilegeService.editUserPrivilege(this.local_data,this.model).subscribe(() => {
+      console.log("Edited userPrivilege");
     });
   }
 }
