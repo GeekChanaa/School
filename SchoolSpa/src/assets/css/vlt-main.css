@@ -2505,12 +2505,12 @@ select:focus::-webkit-input-placeholder
 
 /* PORTFOLIO: SINGLE PRODUCT
 -------------------------------------------- */
-.vlt-is--single-product .vlt-main .vlt-product-hero-title
+ .vlt-main .vlt-product-hero-title
 {
     padding-top: 25rem;
     padding-bottom: 6.25rem;
 }
-.vlt-is--single-product .vlt-main .vlt-product-hero-title__details
+.vlt-main .vlt-product-hero-title__details
 {
     display: grid;
 
@@ -2521,19 +2521,19 @@ select:focus::-webkit-input-placeholder
 }
 @media only screen and (max-width: 991px)
 {
-    .vlt-is--single-product .vlt-main .vlt-product-hero-title__details
+     .vlt-main .vlt-product-hero-title__details
     {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 @media only screen and (max-width: 767px)
 {
-    .vlt-is--single-product .vlt-main .vlt-product-hero-title__details
+     .vlt-main .vlt-product-hero-title__details
     {
         grid-template-columns: repeat(1, 1fr);
     }
 }
-.vlt-is--single-product .vlt-main .vlt-product-hero-title__details p
+ .vlt-main .vlt-product-hero-title__details p
 {
     font-size: 1rem;
 
@@ -2542,11 +2542,11 @@ select:focus::-webkit-input-placeholder
     color: rgba(255, 255, 255, .7);
 }
 
-.vlt-is--single-product .vlt-main p
+ .vlt-main p
 {
     color: rgba(255, 255, 255, .6);
 }
-.vlt-is--single-product .vlt-main p.large
+ .vlt-main p.large
 {
     font-size: 1.375rem;
 }

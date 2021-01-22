@@ -3,12 +3,15 @@ import { CommonModule } from '@angular/common';
 import { TeachersComponent } from './Teachers.component';
 import { RouterModule } from '@angular/router';
 import { TeachersRoutingModule } from './Teachers.routing';
-import { SideNavComponent } from '../SideNav/SideNav.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule, MatNavList } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { CalendarComponent } from '../Teachers/Calendar/Calendar.component';
+import { HomeComponent } from '../Teachers/Home/Home.component';
+import { NavbarTComponent } from './NavbarT/NavbarT.component';
+import { SidebarTComponent } from './SidebarT/SidebarT.component';
 
 @NgModule({
   imports: [
@@ -19,9 +22,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatListModule,
+    MatSidenavModule,
   ],
   declarations: [
     TeachersComponent,
+    CalendarComponent,
+    HomeComponent,
+    NavbarTComponent,
+    SidebarTComponent
   ]
 })
 

@@ -22,6 +22,9 @@ import { HomeComponent } from './Home/Home.component';
     MatButtonModule,
     MatToolbarModule,
   ],
+  exports : [
+    NavbarComponent,
+  ],
   declarations: [
     PagesComponent,
     NavbarComponent,

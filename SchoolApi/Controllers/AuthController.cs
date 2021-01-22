@@ -16,7 +16,6 @@ namespace SchoolApi.Controllers
     [ApiController]    
     public class AuthController : ControllerBase
     {
-
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
 

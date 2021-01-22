@@ -10,8 +10,8 @@ using SchoolApi.Data;
 namespace SchoolApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210103163730_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210122145859_Recreation")]
+    partial class Recreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -285,6 +285,9 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ChefID")
+                        .HasColumnType("int");
+
                     b.Property<int>("ModuleID")
                         .HasColumnType("int");
 
@@ -292,6 +295,8 @@ namespace SchoolApi.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ChefID");
 
                     b.HasIndex("ModuleID");
 
@@ -424,7 +429,7 @@ namespace SchoolApi.Migrations
                     b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Attendance");
@@ -486,7 +491,7 @@ namespace SchoolApi.Migrations
                     b.HasOne("SchoolApi.Models.User", "Student")
                         .WithMany()
                         .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("SchoolApi.Models.Subject", "Subject")
@@ -543,11 +548,19 @@ namespace SchoolApi.Migrations
 
             modelBuilder.Entity("SchoolApi.Models.Subject", b =>
                 {
+                    b.HasOne("SchoolApi.Models.User", "Chef")
+                        .WithMany()
+                        .HasForeignKey("ChefID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolApi.Models.Module", "Module")
                         .WithMany("Subjects")
                         .HasForeignKey("ModuleID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Chef");
 
                     b.Navigation("Module");
                 });

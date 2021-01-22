@@ -7,14 +7,16 @@ namespace SchoolApi.Models
 {
     public class Subject
     {
-        public int ID { get; set; }
+        public int ID { get; set;}
         [Display(Name = "Title")]
 
         public string Title { get; set; }
         public int ModuleID { get; set; }
+        public int ChefID { get; set; }
 
         // Navigation Properties
         public Module Module {get; set;}
+        public User Chef{get; set;}
 
     }
 }

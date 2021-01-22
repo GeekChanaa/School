@@ -9,7 +9,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FormsModule } from '@angular/forms';
+import { MatCard, MatCardModule } from '@angular/material/card';
+import { CalendarComponent } from './Calendar/Calendar.component';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 
 @NgModule({
   imports: [
@@ -19,11 +21,14 @@ import { FormsModule } from '@angular/forms';
     MatListModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    FullCalendarModule
   ],
   declarations: [
     DashboardComponent,
     SideNavComponent,
+    CalendarComponent,
   ]
 })
 

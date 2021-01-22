@@ -4,6 +4,7 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { ModuleService } from 'src/app/_services/module.service';
+import { UserService } from 'src/app/_services/user.service';
 import { SubjectService } from '../../_services/subject.service';
 
 @Component({
@@ -74,11 +75,12 @@ export interface Group {
 export class CreateSubjectDialog {
   model:any ={};
   modules:any;
+  teachers:any;
 
   /**
    *
    */
-  constructor(private _moduleService: ModuleService, private _subjectService: SubjectService) {
+  constructor(private _moduleService: ModuleService, private _subjectService: SubjectService, private _userService: UserService) {
     
   }
 
@@ -91,11 +93,16 @@ export class CreateSubjectDialog {
       .subscribe(data => {
         this.modules = data;
       });
+    this._userService.getUsers()
+      .subscribe((data) => {
+        this.teachers = data;
+      })
     
   }
 
   // Creating a subject
   create(){
+    console.log(this.model);
     this._subjectService.createSubject(this.model).subscribe(() => {
       console.log("created subject");
     });

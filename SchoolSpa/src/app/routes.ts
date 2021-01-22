@@ -1,9 +1,4 @@
 import {RouterModule, Routes} from '@angular/router';
-import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword.component';
-import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
-import { LogoutComponent } from './auth/Logout/Logout.component';
-import { RegisterComponent } from './auth/Register/Register.component';
-import { LoginComponent } from './auth/Login/Login.component';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';

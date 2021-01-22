@@ -73,8 +73,6 @@ import { LogoutComponent } from './auth/Logout/Logout.component';
 import { RegisterComponent } from './auth/Register/Register.component';
 import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword.component';
 import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
-import { CalendarComponent } from './dashboard/Calendar/Calendar.component';
-import { TeachersComponent } from './Teachers/Teachers.component';
 import { CreateTrainingDialog, EditTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
 
@@ -84,8 +82,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 ]);
 
 @NgModule({
-  declarations: [						
-      CalendarComponent,																															
+  declarations: [																																
       AppComponent,
       UsersComponent,
       UsersComponent,

@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Add Group</h1>
+<h1 mat-dialog-title>Add Subject</h1>
 
 <form #loginForm="ngForm" class="" (ngSubmit)="create()">
     <div mat-dialog-content>
@@ -10,14 +10,24 @@
         </p>
         <p>
             <mat-form-field appearance="fill">
-              <mat-label>Chef</mat-label>
+              <mat-label>Module</mat-label>
               <mat-select name="moduleId" [(ngModel)]="model.moduleId"> 
                 <mat-option *ngFor="let module of modules" [value]="module.id">
                   {{module.title}}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-          </p>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Subject Chef</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.chefId"> 
+              <mat-option *ngFor="let user of teachers" [value]="user.id">
+                {{user.firstName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </p>
     </div>
     <div mat-dialog-actions>
     <button mat-dialog-close mat-button type="submit">Save</button>

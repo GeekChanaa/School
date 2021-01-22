@@ -6,10 +6,6 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
     <p>School</p>
-    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-    <button (click)="showFiller = !showFiller" mat-raised-button>
-      Toggle extra text
-    </button>
     <mat-nav-list>
       <a mat-list-item routerLink="/dashboard/users" >Users</a>
     </mat-nav-list>

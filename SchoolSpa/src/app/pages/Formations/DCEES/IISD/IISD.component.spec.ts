@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { MainSectionComponent } from './MainSection.component';
+import { IISDComponent } from './IISD.component';
 
-describe('MainSectionComponent', () => {
-  let component: MainSectionComponent;
-  let fixture: ComponentFixture<MainSectionComponent>;
+describe('IISDComponent', () => {
+  let component: IISDComponent;
+  let fixture: ComponentFixture<IISDComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MainSectionComponent ]
+      declarations: [ IISDComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainSectionComponent);
+    fixture = TestBed.createComponent(IISDComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

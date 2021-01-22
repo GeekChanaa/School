@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchoolApi.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Recreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -113,26 +113,6 @@ namespace SchoolApi.Migrations
                         name: "FK_GroupPosts_Groups_GroupID",
                         column: x => x.GroupID,
                         principalTable: "Groups",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Subjects",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ModuleID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Subjects", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Subjects_Modules_ModuleID",
-                        column: x => x.ModuleID,
-                        principalTable: "Modules",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -265,6 +245,33 @@ namespace SchoolApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Subjects",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ModuleID = table.Column<int>(type: "int", nullable: false),
+                    ChefID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Subjects", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Subjects_Modules_ModuleID",
+                        column: x => x.ModuleID,
+                        principalTable: "Modules",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Subjects_Users_ChefID",
+                        column: x => x.ChefID,
+                        principalTable: "Users",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "UserPrivileges",
                 columns: table => new
                 {
@@ -313,6 +320,32 @@ namespace SchoolApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AbsenceJustifications",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AttendanceID = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AbsenceJustifications", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_AbsenceJustifications_Attendances_AttendanceID",
+                        column: x => x.AttendanceID,
+                        principalTable: "Attendances",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AbsenceJustifications_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Grades",
                 columns: table => new
                 {
@@ -336,33 +369,7 @@ namespace SchoolApi.Migrations
                         column: x => x.StudentID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AbsenceJustifications",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AttendanceID = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AbsenceJustifications", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_AbsenceJustifications_Attendances_AttendanceID",
-                        column: x => x.AttendanceID,
-                        principalTable: "Attendances",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AbsenceJustifications_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
@@ -429,6 +436,11 @@ namespace SchoolApi.Migrations
                 name: "IX_GroupPosts_GroupID",
                 table: "GroupPosts",
                 column: "GroupID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Subjects_ChefID",
+                table: "Subjects",
+                column: "ChefID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Subjects_ModuleID",
@@ -501,10 +513,10 @@ namespace SchoolApi.Migrations
                 name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Modules");
 
             migrationBuilder.DropTable(
-                name: "Modules");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Groups");
