@@ -3,10 +3,24 @@
 <form #loginForm="ngForm" class="" (ngSubmit)="create()">
     <div mat-dialog-content>
         <p>
-            <mat-form-field appearance="legacy">
-            <mat-label>Title</mat-label>
-            <input matInput name="title" [(ngModel)]="model.title" placeholder="Title">
+            <mat-form-field appearance="fill">
+              <mat-label>User (by email)</mat-label>
+              <mat-select name="moduleId" [(ngModel)]="model.userId">
+                <mat-option *ngFor="let user of users" [value]="user.id">
+                  {{user.email}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Privilege</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.privilegeId"> 
+              <mat-option *ngFor="let privilege of privileges" [value]="privilege.id">
+                {{privilege.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </p>
     </div>
     <div mat-dialog-actions>

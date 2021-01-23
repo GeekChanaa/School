@@ -3,6 +3,8 @@ import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Injec
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { PrivilegeService } from 'src/app/_services/privilege.service';
+import { UserService } from 'src/app/_services/user.service';
 import { UserPrivilegeService } from '../../_services/userPrivilege.service';
 
 @Component({
@@ -47,14 +49,6 @@ export class UserPrivilegeComponent implements AfterViewInit {
     this._userPrivilegeService.deleteUserPrivilegeById(id)
       .subscribe(() => console.log("userPrivilege deleted"));
   }
-
-  // Creating a userPrivilege
-  create(){
-    this._userPrivilegeService.createUserPrivilege(this.model).subscribe(() => {
-      console.log("created userPrivilege");
-    });
-  }
-
   
 }
 
@@ -71,16 +65,30 @@ export interface UserPrivilege {
 })
 export class createUserPrivilegeDialog {
   model:any ={};
+  users: any;
+  privileges: any;
   /**
    *
    */
-  constructor(private _userPrivilegeService: UserPrivilegeService) {
+  constructor(private _userPrivilegeService: UserPrivilegeService, private _userService: UserService, private _privilegeService : PrivilegeService) {
     
   }
-  // Creating a group
+
+  ngAfterViewInit(){
+    this._privilegeService.getPrivileges()
+      .subscribe(data => {
+        this.privileges = data;
+      });
+    this._userService.getUsers()
+      .subscribe(data => {
+        this.users = data;
+      })
+  }
+  // Creating a User Privilege
   create(){
     this._userPrivilegeService.createUserPrivilege(this.model).subscribe(() => {
-      console.log("created group");
+      console.log("this is the model I m pushing to the api");
+      console.log(this.model);
     });
   }
 }

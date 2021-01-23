@@ -19,6 +19,8 @@ export class AuthService {
         const user = response;
         if(user) {
           localStorage.setItem('token', user.token);
+          var decode = this.jwtHelper.decodeToken(user.token);
+          console.log(decode); 
         }
       })
     );
@@ -28,7 +30,7 @@ export class AuthService {
     return this.http.post(this.baseUrl + 'register', model);
   }
 
-  logged_in(){
+  loggedIn(){
 
     const token = localStorage.getItem('token');
     if(token)

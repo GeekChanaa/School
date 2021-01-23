@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../_guards/auth.guard';
 import { CalendarComponent } from './Calendar/Calendar.component';
 import { EventsComponent } from './Events/Events.component';
 import { FacultiesComponent } from './Faculties/Faculties.component';
@@ -10,6 +11,7 @@ import { PrivilegesComponent } from './Privileges/Privileges.component';
 import { SubjectsComponent } from './Subjects/Subjects.component';
 import { TrainingModulesComponent } from './TrainingModules/TrainingModules.component';
 import { TrainingsComponent } from './Trainings/Trainings.component';
+import { UserPrivilegeComponent } from './UserPrivileges/UserPrivileges.component';
 import { UsersComponent } from './Users/Users.component';
 
 const routes: Routes = [
@@ -24,6 +26,7 @@ const routes: Routes = [
     { path : 'calendar', component : CalendarComponent},
     { path : 'training', component : TrainingsComponent},
     { path : 'trainingModules', component : TrainingModulesComponent},
+    { path : 'userPrivileges', component : UserPrivilegeComponent},
 ];
 
 @NgModule({

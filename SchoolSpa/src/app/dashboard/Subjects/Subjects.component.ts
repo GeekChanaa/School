@@ -97,7 +97,6 @@ export class CreateSubjectDialog {
       .subscribe((data) => {
         this.teachers = data;
       })
-    
   }
 
   // Creating a subject

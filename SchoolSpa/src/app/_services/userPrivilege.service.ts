@@ -43,4 +43,6 @@ export class UserPrivilegeService {
 
 export interface UserPrivilege{
   id: number;
+  userId : number;
+  privilegeId : number;
 }
