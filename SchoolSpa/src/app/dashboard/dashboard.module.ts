@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { CalendarComponent } from './Calendar/Calendar.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -23,7 +24,9 @@ import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MatMenuModule,
+    MatMenuModule
   ],
   declarations: [
     DashboardComponent,

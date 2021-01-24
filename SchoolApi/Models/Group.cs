@@ -11,7 +11,7 @@ namespace SchoolApi.Models
         [Display(Name = "Title")]
         public string Title { get; set; }
 
-        public ICollection<GroupPost> GroupsPosts { get; set; }
-        public ICollection<GroupMembership> GroupMemberships { get; set; }
+        public virtual ICollection<GroupPost> GroupsPosts { get; set; }
+        public virtual ICollection<GroupMembership> GroupMemberships { get; set; }
     }
 }

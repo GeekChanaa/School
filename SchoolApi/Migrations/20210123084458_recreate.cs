@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SchoolApi.Migrations
 {
-    public partial class Recreation : Migration
+    public partial class recreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,8 @@ namespace SchoolApi.Migrations
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1")
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,7 +278,6 @@ namespace SchoolApi.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PrivilegeID = table.Column<int>(type: "int", nullable: false),
                     UserID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -326,7 +326,7 @@ namespace SchoolApi.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AttendanceID = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -342,7 +342,7 @@ namespace SchoolApi.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -353,7 +353,7 @@ namespace SchoolApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Value = table.Column<float>(type: "real", nullable: false),
                     SubjectID = table.Column<int>(type: "int", nullable: false),
-                    StudentID = table.Column<int>(type: "int", nullable: false)
+                    StudentID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -369,7 +369,7 @@ namespace SchoolApi.Migrations
                         column: x => x.StudentID,
                         principalTable: "Users",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -465,7 +465,8 @@ namespace SchoolApi.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserPrivileges_UserID",
                 table: "UserPrivileges",
-                column: "UserID");
+                column: "UserID",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

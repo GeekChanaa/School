@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-SideNav',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
   showFiller = false;
-  constructor() { }
+  constructor(private _authService : AuthService) { }
 
   ngOnInit() {
+  }
+
+  // Logging out 
+  logout(){
+    this._authService.logout();
   }
 
 }

@@ -10,6 +10,7 @@ export class AuthService {
 
   baseUrl = 'https://localhost:5001/api/auth/';
   jwtHelper = new JwtHelperService();
+  decodedToken: any;
 
   constructor(private http: HttpClient) {}
 
@@ -39,9 +40,20 @@ export class AuthService {
     return false
   }
 
-  logout(){
-    localStorage.removeItem("token");
-    console.log('logged out');
+  isAdmin() : boolean{
+    const token = localStorage.getItem("token");
+    if(token){
+      this.decodedToken = this.jwtHelper.decodeToken(token);
+      console.log("this is the decoded token user privilege");
+      console.log(this.decodedToken);
+      return true;
+    }
+
+    return false
   }
 
+  logout(){
+    localStorage.removeItem("token");
   }
+
+}

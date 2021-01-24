@@ -10,7 +10,8 @@ using SchoolApi.Models;
 using SchoolApi.Dtos;
 using SchoolApi.Helpers;
 using AutoMapper;
-using System.Security.Claims;   
+using System.Security.Claims;
+using Microsoft.EntityFrameworkCore.Proxies;
 
 namespace SchoolApi.Controllers
 {
@@ -33,8 +34,20 @@ namespace SchoolApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] UserParams userParams)
         {
-            return await _context.Users.ToListAsync();
+                Console.WriteLine(userParams.Rank);
+                if(userParams.Rank != null){
+                    Console.WriteLine("this"+userParams.Rank+"ok");
+                    return await _context.Users.Where(u => u.userPrivilege.Privilege.Title == userParams.Rank).ToListAsync();
+                }
+                else {
+
+                Console.WriteLine("this is not right");
+                return await _context.Users.ToListAsync();
+                }
+            
         }
+
+
 
         // GET: api/User/5
         [HttpGet("{id}")]
@@ -92,8 +105,6 @@ namespace SchoolApi.Controllers
         public async Task<ActionResult<User>> PostUser([FromBody]UserForRegisterDto userForRegisterDto)
         {
             // Validating request
-            Console.WriteLine("THIS IS WORKING");
-            Console.WriteLine(userForRegisterDto.CIN);
             userForRegisterDto.Email = userForRegisterDto.Email.ToLower();
 
             if(await _repo.UserExists(userForRegisterDto.Email)){

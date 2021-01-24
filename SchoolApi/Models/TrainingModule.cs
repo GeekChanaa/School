@@ -12,7 +12,8 @@ namespace SchoolApi.Models
         public int TrainingID {get; set;}
         public int ModuleID {get; set;}
 
-        public Training Training {get; set;}
-        public Module Module {get; set;}
+        // Navigation Properties
+        public virtual Training Training {get; set;}
+        public virtual Module Module {get; set;}
     }
 }

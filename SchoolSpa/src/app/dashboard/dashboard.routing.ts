@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminGuard } from '../_guards/admin.guard';
 import { AuthGuard } from '../_guards/auth.guard';
 import { CalendarComponent } from './Calendar/Calendar.component';
 import { EventsComponent } from './Events/Events.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
     { path : 'groups', component : GroupsComponent},
     { path : 'modules', component : ModulesComponent},
     { path : 'privileges', component : PrivilegesComponent},
-    { path : 'subjects', component : SubjectsComponent},
+    { path : 'subjects', component : SubjectsComponent, canActivate : [AdminGuard]},
     { path : 'calendar', component : CalendarComponent},
     { path : 'training', component : TrainingsComponent},
     { path : 'trainingModules', component : TrainingModulesComponent},

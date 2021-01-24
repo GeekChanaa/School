@@ -9,11 +9,11 @@ namespace SchoolApi.Models
     {
         public int ID { get; set; }
         public int AttendanceID {get; set;}
-        public int UserId {get; set;}
+        public int? UserId {get; set;}
         
         
         // Navigation properties
-        public Attendance Attendance {get; set;}
-        public User User {get; set;}
+        public virtual Attendance Attendance {get; set;}
+        public virtual User User {get; set;}
     }
 }

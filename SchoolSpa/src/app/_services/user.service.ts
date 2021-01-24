@@ -2,8 +2,10 @@ import { group } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,9 @@ export class UserService {
 
   baseUrl = 'https://localhost:5001/api/user/';
 
-  constructor(private http: HttpClient) { }
+  jwtHelper = new JwtHelperService();
+
+  constructor(private http: HttpClient, private authService: AuthService) { }
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
@@ -36,6 +40,24 @@ export class UserService {
 
   getUser(id:number){
     return this.http.get<User>(this.baseUrl+id);
+  }
+
+  isAdmin(){
+    if(this.authService.isAdmin()){
+      return true;
+    }
+    return false;
+  }
+
+  loggedInUser(){
+    const token = localStorage.getItem("token");
+    if(token){
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      var user = this.getUser(decodedToken.nameid);
+      return user;
+    }
+    console.log('the user is not logged in or the token is weird');
+    return null;
   }
 
   

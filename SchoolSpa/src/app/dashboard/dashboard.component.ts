@@ -10,9 +10,28 @@ import { SideNavComponent } from '../SideNav/SideNav.component';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+
+   }
+
+  loadCss(){
+    const Styles = [
+      "https://fonts.googleapis.com/icon?family=Material+Icons",
+    ];
+
+    for (let i = 0; i < Styles.length; i++) { 
+      const node = document.createElement('link'); 
+      node.href = Styles[i]; 
+      node.rel = 'stylesheet';
+      document.getElementsByTagName('head')[0].appendChild(node); 
+    } 
+
+
+
+  }
 
   ngOnInit() {
+    this.loadCss();
   }
 
 }

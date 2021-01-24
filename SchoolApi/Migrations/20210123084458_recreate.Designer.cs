@@ -10,8 +10,8 @@ using SchoolApi.Data;
 namespace SchoolApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210122145859_Recreation")]
-    partial class Recreation
+    [Migration("20210123084458_recreate")]
+    partial class recreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,7 +19,7 @@ namespace SchoolApi.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.2");
 
             modelBuilder.Entity("SchoolApi.Models.AbsenceJustification", b =>
                 {
@@ -31,7 +31,7 @@ namespace SchoolApi.Migrations
                     b.Property<int>("AttendanceID")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -144,7 +144,7 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("StudentID")
+                    b.Property<int?>("StudentID")
                         .HasColumnType("int");
 
                     b.Property<int>("SubjectID")
@@ -272,6 +272,9 @@ namespace SchoolApi.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -403,9 +406,6 @@ namespace SchoolApi.Migrations
                     b.Property<int>("PrivilegeID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("UserID")
                         .HasColumnType("int");
 
@@ -413,7 +413,8 @@ namespace SchoolApi.Migrations
 
                     b.HasIndex("PrivilegeID");
 
-                    b.HasIndex("UserID");
+                    b.HasIndex("UserID")
+                        .IsUnique();
 
                     b.ToTable("UserPrivileges");
                 });
@@ -428,9 +429,7 @@ namespace SchoolApi.Migrations
 
                     b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Attendance");
 
@@ -490,9 +489,7 @@ namespace SchoolApi.Migrations
                 {
                     b.HasOne("SchoolApi.Models.User", "Student")
                         .WithMany()
-                        .HasForeignKey("StudentID")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .HasForeignKey("StudentID");
 
                     b.HasOne("SchoolApi.Models.Subject", "Subject")
                         .WithMany()
@@ -593,8 +590,8 @@ namespace SchoolApi.Migrations
                         .IsRequired();
 
                     b.HasOne("SchoolApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
+                        .WithOne("userPrivilege")
+                        .HasForeignKey("SchoolApi.Models.UserPrivilege", "UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -618,6 +615,11 @@ namespace SchoolApi.Migrations
             modelBuilder.Entity("SchoolApi.Models.Module", b =>
                 {
                     b.Navigation("Subjects");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.User", b =>
+                {
+                    b.Navigation("userPrivilege");
                 });
 #pragma warning restore 612, 618
         }

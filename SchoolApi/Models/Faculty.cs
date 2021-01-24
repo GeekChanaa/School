@@ -14,6 +14,6 @@ namespace SchoolApi.Models
         public int ChefID { get; set; }
 
         // Navigation Properties
-        public User Chef {get;set;}
+        public virtual User Chef {get;set;}
     }
 }

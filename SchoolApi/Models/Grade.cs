@@ -11,10 +11,10 @@ namespace SchoolApi.Models
         [Display(Name = "Value")]
         public float Value { get; set; }
         public int SubjectID { get; set; }
-        public int StudentID { get; set; }
+        public int? StudentID { get; set; }
 
         // Navigation Properties
-        public Subject Subject {get; set;}
-        public User Student {get;set;}
+        public virtual Subject Subject {get; set;}
+        public virtual User Student {get;set;}
     }
 }

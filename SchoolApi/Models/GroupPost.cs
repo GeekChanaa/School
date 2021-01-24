@@ -16,9 +16,9 @@ namespace SchoolApi.Models
         public int GroupID { get; set; }
 
         // Navigation properties
-        public Group Group {get; set;}
+        public virtual Group Group {get; set;}
 
-        public ICollection<GroupComment> GroupComments { get; set; }
+        public virtual ICollection<GroupComment> GroupComments { get; set; }
 
     }
 }

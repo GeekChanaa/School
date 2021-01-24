@@ -7,6 +7,7 @@ namespace SchoolApi.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+            
         }
 
         public DbSet<User> Users { get; set; }
@@ -31,6 +32,7 @@ namespace SchoolApi.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
+            
             modelBuilder.Entity<AbsenceJustification>().ToTable("AbsenceJustifications");
             modelBuilder.Entity<Assignment>().ToTable("Assignments");
             modelBuilder.Entity<Attendance>().ToTable("Attendances");

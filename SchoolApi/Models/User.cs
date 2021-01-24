@@ -55,5 +55,11 @@ namespace SchoolApi.Models
             }
         }
 
+        // Subjects
+        public virtual ICollection<Subject> Subjects {get; set;}
+
+        // User Privileges
+        public virtual UserPrivilege userPrivilege {get; set;}
+
     }
 }

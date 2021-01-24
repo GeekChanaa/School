@@ -78,6 +78,7 @@ namespace SchoolApi.Controllers
         [HttpPost]
         public async Task<ActionResult<UserPrivilege>> PostUserPrivilege(UserPrivilege userPrivilege)
         {
+            Console.WriteLine("PrivilegeID : "+userPrivilege.PrivilegeID);
             _context.UserPrivileges.Add(userPrivilege);
             await _context.SaveChangesAsync();
 

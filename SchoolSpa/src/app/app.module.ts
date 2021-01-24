@@ -18,7 +18,6 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
 import { RouterModule } from '@angular/router';
 import { appRoutes, AppRoutingModule } from './routes';
-import { SideNavComponent } from './SideNav/SideNav.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin

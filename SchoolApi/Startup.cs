@@ -35,10 +35,14 @@ namespace SchoolApi
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
             services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
+                options
+                    .UseLazyLoadingProxies()
+                    .UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
 
             services.AddCors();
             services.AddAutoMapper(typeof(AutoMapperData).Assembly);
@@ -46,7 +50,7 @@ namespace SchoolApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolApi", Version = "v1" });
-            });
+            }); 
 
             services.AddScoped<IAuthRepository,AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

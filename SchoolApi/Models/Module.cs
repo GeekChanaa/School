@@ -12,6 +12,6 @@ namespace SchoolApi.Models
         public string Title { get; set; }
         
         // Navigation propery
-        public ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Subject> Subjects { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace SchoolApi.Models
         public string Content { get; set; }
         public int PostID { get; set; }
 
-        public GroupPost Post{get;set;}
+        public virtual GroupPost Post{get;set;}
 
     }
 }

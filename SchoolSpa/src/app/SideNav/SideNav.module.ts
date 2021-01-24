@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { SideNavComponent } from './SideNav.component';
 import { MatNavList } from '@angular/material/list';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
