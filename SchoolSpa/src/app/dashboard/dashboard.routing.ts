@@ -7,6 +7,7 @@ import { EventsComponent } from './Events/Events.component';
 import { FacultiesComponent } from './Faculties/Faculties.component';
 import { GradesComponent } from './Grades/Grades.component';
 import { GroupsComponent } from './Groups/Groups.component';
+import { HomeComponent } from './Home/Home.component';
 import { ModulesComponent } from './Modules/Modules.component';
 import { PrivilegesComponent } from './Privileges/Privileges.component';
 import { SubjectsComponent } from './Subjects/Subjects.component';
@@ -16,6 +17,7 @@ import { UserPrivilegeComponent } from './UserPrivileges/UserPrivileges.componen
 import { UsersComponent } from './Users/Users.component';
 
 const routes: Routes = [
+    { path : '' , component : HomeComponent},
     { path : 'users', component : UsersComponent},
     { path : 'events', component : EventsComponent},
     { path : 'faculties', component : FacultiesComponent},

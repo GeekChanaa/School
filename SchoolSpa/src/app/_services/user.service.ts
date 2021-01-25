@@ -16,7 +16,7 @@ export class UserService {
 
   jwtHelper = new JwtHelperService();
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
@@ -42,12 +42,7 @@ export class UserService {
     return this.http.get<User>(this.baseUrl+id);
   }
 
-  isAdmin(){
-    if(this.authService.isAdmin()){
-      return true;
-    }
-    return false;
-  }
+ 
 
   loggedInUser(){
     const token = localStorage.getItem("token");
@@ -56,7 +51,7 @@ export class UserService {
       var user = this.getUser(decodedToken.nameid);
       return user;
     }
-    console.log('the user is not logged in or the token is weird');
+    console.log('no user is logged in');
     return null;
   }
 
@@ -73,4 +68,5 @@ export interface User{
   codeAppoge: string;
   date_birth: string;
   password: string;
+  subjects: any;
 }

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/_services/user.service';
+
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-CourseCard',
@@ -7,14 +7,13 @@ import { UserService } from 'src/app/_services/user.service';
   styleUrls: ['./CourseCard.component.sass']
 })
 export class CourseCardComponent implements OnInit {
-
-  constructor(private _userService : UserService) { }
+  @Input() title: string;
+  constructor() {
+    
+  }
 
   ngOnInit() {
-    console.log("this is the on init method");
-    this._userService.loggedInUser()?.subscribe(data => {
-      console.log(data);
-    });
+    
   }
 
 }

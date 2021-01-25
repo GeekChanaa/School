@@ -12,7 +12,9 @@ import { CalendarComponent } from '../Teachers/Calendar/Calendar.component';
 import { HomeComponent } from '../Teachers/Home/Home.component';
 import { NavbarTComponent } from './NavbarT/NavbarT.component';
 import { SidebarTComponent } from './SidebarT/SidebarT.component';
-
+import { CourseCardComponent } from './CourseCard/CourseCard.component';
+import { SubjectComponent } from './Subject/Subject.component';
+import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,14 +26,17 @@ import { SidebarTComponent } from './SidebarT/SidebarT.component';
     MatToolbarModule,
     MatListModule,
     MatSidenavModule,
+    MatTabsModule
   ],
-  declarations: [
+  declarations: [	
     TeachersComponent,
     CalendarComponent,
     HomeComponent,
     NavbarTComponent,
-    SidebarTComponent
-  ]
+    SidebarTComponent,
+    CourseCardComponent,
+    SubjectComponent
+   ]
 })
 
 export class TeachersModule { }

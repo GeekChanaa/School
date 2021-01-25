@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../_services/auth.service';
 
 @Component({
@@ -9,15 +10,20 @@ import { AuthService } from '../../_services/auth.service';
 export class LoginComponent implements OnInit {
   model:any ={};
 
-  constructor(private _authService: AuthService) { }
+  constructor(private _authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   login(){
     console.log("this is not working properly");
-    this._authService.login(this.model).subscribe(() => {
-      console.log('logged in !!!');
+    this._authService.login(this.model).subscribe((data) => {
+      console.log("this is getting here");
+      console.log(data); 
+      if(data == "Admin") this.router.navigate(['/dashboard']);
+      else if( data == "Teacher") this.router.navigate(['/teachers']);
+      else if( data == "Student") this.router.navigate(['/students']);
+      else this.router.navigate(['/']);
     });
   }
 

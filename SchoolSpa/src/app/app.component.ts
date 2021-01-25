@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt'
 import { timeout } from 'rxjs/operators';
 import { AuthService } from './_services/auth.service';
+import { UserService } from './_services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
 
   jwtHelper = new JwtHelperService();
   
-  constructor(private _authService: AuthService){
+  constructor(private _authService: AuthService, private _userService : UserService){
     
   }
 
@@ -21,7 +22,11 @@ export class AppComponent {
     if(token){
       this._authService.decodedToken = this.jwtHelper.decodeToken(token);
     }
-    
+    var user : any;
+    this._userService.getUser(this._authService.decodedToken.nameid).subscribe(data =>{
+        user = data;
+        this._authService.rank = user.userPrivilege.privilege.title;
+    });
   }
 
   title = 'Application';

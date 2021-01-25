@@ -17,6 +17,5 @@ namespace SchoolApi.Models
         // Navigation Properties
         public virtual Module Module {get; set;}
         public virtual User Chef{get; set;}
-
     }
 }

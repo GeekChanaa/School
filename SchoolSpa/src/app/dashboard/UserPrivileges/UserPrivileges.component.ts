@@ -14,7 +14,7 @@ import { UserPrivilegeService } from '../../_services/userPrivilege.service';
 })
 export class UserPrivilegeComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['ID','Title','Actions'];
+  displayedColumns: string[] = ['ID','User','Privilege','Actions'];
   dataSource :any;
   userPrivileges: any;
   makes: any[] = [];

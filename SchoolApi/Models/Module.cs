@@ -10,8 +10,14 @@ namespace SchoolApi.Models
         public int ID { get; set; }
         [Display(Name = "Title")]
         public string Title { get; set; }
+
+        public int TrainingID { get; set; }
+
+        public int ChefID {get; set;}
         
         // Navigation propery
+        public virtual User Chef {get; set;}
+        public virtual Training Training { get; set;}
         public virtual ICollection<Subject> Subjects { get; set; }
     }
 }
