@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-SIMD',
   templateUrl: './SIMD.component.html',
-  styleUrls: ['./SIMD.component.scss']
+  styleUrls: ['./SIMD.component.sass']
 })
 export class SIMDComponent implements OnInit {
 

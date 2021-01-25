@@ -3407,7 +3407,7 @@ select:focus::-webkit-input-placeholder
 .vlt-simple-image
 {
     position: relative;
-
+    
     overflow: hidden;
 }
 .vlt-simple-image__mask

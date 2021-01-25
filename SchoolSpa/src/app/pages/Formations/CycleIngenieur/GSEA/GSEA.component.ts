@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-GSEA',
   templateUrl: './GSEA.component.html',
-  styleUrls: ['./GSEA.component.scss']
+  styleUrls: ['./GSEA.component.sass']
 })
 export class GSEAComponent implements OnInit {
 
