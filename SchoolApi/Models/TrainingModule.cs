@@ -9,7 +9,7 @@ namespace SchoolApi.Models
     public class TrainingModule
     {
         public int ID {get; set;}
-        public int TrainingID {get; set;}
+        public int? TrainingID {get; set;}
         public int ModuleID {get; set;}
 
         // Navigation Properties

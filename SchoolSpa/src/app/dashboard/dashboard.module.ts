@@ -11,8 +11,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCard, MatCardModule } from '@angular/material/card';
 import { CalendarComponent } from './Calendar/Calendar.component';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { MatMenuModule } from '@angular/material/menu';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   imports: [

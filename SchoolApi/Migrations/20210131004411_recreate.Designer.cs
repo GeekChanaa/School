@@ -10,7 +10,7 @@ using SchoolApi.Data;
 namespace SchoolApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210123084458_recreate")]
+    [Migration("20210131004411_recreate")]
     partial class recreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -91,6 +91,54 @@ namespace SchoolApi.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.CourseDate", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<DateTime>("DateEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ModuleID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Prof")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Salle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("SubjectID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TrainingID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ModuleID");
+
+                    b.HasIndex("SubjectID");
+
+                    b.HasIndex("TrainingID");
+
+                    b.ToTable("CourseDates");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Event", b =>
@@ -258,10 +306,20 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<int>("ChefID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TrainingID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("ChefID");
+
+                    b.HasIndex("TrainingID");
 
                     b.ToTable("Modules");
                 });
@@ -281,6 +339,28 @@ namespace SchoolApi.Migrations
                     b.ToTable("Privileges");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.StudentTraining", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("StudentID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TrainingID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("StudentID");
+
+                    b.HasIndex("TrainingID");
+
+                    b.ToTable("StudentTraining");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.Subject", b =>
                 {
                     b.Property<int>("ID")
@@ -288,7 +368,7 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<int>("ChefID")
+                    b.Property<int?>("ChefID")
                         .HasColumnType("int");
 
                     b.Property<int>("ModuleID")
@@ -331,7 +411,7 @@ namespace SchoolApi.Migrations
                     b.Property<int>("ModuleID")
                         .HasColumnType("int");
 
-                    b.Property<int>("TrainingID")
+                    b.Property<int?>("TrainingID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -474,6 +554,27 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.CourseDate", b =>
+                {
+                    b.HasOne("SchoolApi.Models.Module", "Module")
+                        .WithMany()
+                        .HasForeignKey("ModuleID");
+
+                    b.HasOne("SchoolApi.Models.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("SubjectID");
+
+                    b.HasOne("SchoolApi.Models.Training", "Training")
+                        .WithMany()
+                        .HasForeignKey("TrainingID");
+
+                    b.Navigation("Module");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Training");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
                 {
                     b.HasOne("SchoolApi.Models.User", "Chef")
@@ -543,13 +644,45 @@ namespace SchoolApi.Migrations
                     b.Navigation("Group");
                 });
 
-            modelBuilder.Entity("SchoolApi.Models.Subject", b =>
+            modelBuilder.Entity("SchoolApi.Models.Module", b =>
                 {
                     b.HasOne("SchoolApi.Models.User", "Chef")
                         .WithMany()
                         .HasForeignKey("ChefID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("SchoolApi.Models.Training", "Training")
+                        .WithMany()
+                        .HasForeignKey("TrainingID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chef");
+
+                    b.Navigation("Training");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.StudentTraining", b =>
+                {
+                    b.HasOne("SchoolApi.Models.User", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentID");
+
+                    b.HasOne("SchoolApi.Models.Training", "Training")
+                        .WithMany()
+                        .HasForeignKey("TrainingID");
+
+                    b.Navigation("Student");
+
+                    b.Navigation("Training");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.Subject", b =>
+                {
+                    b.HasOne("SchoolApi.Models.User", "Chef")
+                        .WithMany("Subjects")
+                        .HasForeignKey("ChefID");
 
                     b.HasOne("SchoolApi.Models.Module", "Module")
                         .WithMany("Subjects")
@@ -572,9 +705,7 @@ namespace SchoolApi.Migrations
 
                     b.HasOne("SchoolApi.Models.Training", "Training")
                         .WithMany()
-                        .HasForeignKey("TrainingID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TrainingID");
 
                     b.Navigation("Module");
 
@@ -619,6 +750,8 @@ namespace SchoolApi.Migrations
 
             modelBuilder.Entity("SchoolApi.Models.User", b =>
                 {
+                    b.Navigation("Subjects");
+
                     b.Navigation("userPrivilege");
                 });
 #pragma warning restore 612, 618

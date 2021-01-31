@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from '../_guards/admin.guard';
 import { AuthGuard } from '../_guards/auth.guard';
 import { CalendarComponent } from './Calendar/Calendar.component';
+import { CourseDateComponent } from './CourseDate/CourseDate.component';
 import { EventsComponent } from './Events/Events.component';
 import { FacultiesComponent } from './Faculties/Faculties.component';
 import { GradesComponent } from './Grades/Grades.component';
@@ -17,7 +18,7 @@ import { UserPrivilegeComponent } from './UserPrivileges/UserPrivileges.componen
 import { UsersComponent } from './Users/Users.component';
 
 const routes: Routes = [
-    { path : '' , component : HomeComponent},
+    { path : '' , component : HomeComponent, canActivate : [AdminGuard]},
     { path : 'users', component : UsersComponent},
     { path : 'events', component : EventsComponent},
     { path : 'faculties', component : FacultiesComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path : 'training', component : TrainingsComponent},
     { path : 'trainingModules', component : TrainingModulesComponent},
     { path : 'userPrivileges', component : UserPrivilegeComponent},
+    { path : 'courseDates', component : CourseDateComponent},
 ];
 
 @NgModule({

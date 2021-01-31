@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {JwtHelperService} from '@auth0/angular-jwt'
-import { timeout } from 'rxjs/operators';
 import { AuthService } from './_services/auth.service';
 import { UserService } from './_services/user.service';
 
@@ -21,12 +20,8 @@ export class AppComponent {
     const token = localStorage.getItem("token");
     if(token){
       this._authService.decodedToken = this.jwtHelper.decodeToken(token);
+      this._authService.rank = this._authService.decodedToken.role;
     }
-    var user : any;
-    this._userService.getUser(this._authService.decodedToken.nameid).subscribe(data =>{
-        user = data;
-        this._authService.rank = user.userPrivilege.privilege.title;
-    });
   }
 
   title = 'Application';

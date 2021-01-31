@@ -57,6 +57,7 @@ namespace SchoolApi.Controllers
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.ID.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.Email),
+                new Claim(ClaimTypes.Role, user.userPrivilege.Privilege.Title)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8
@@ -77,7 +78,6 @@ namespace SchoolApi.Controllers
 
             return Ok(new {
                 token = TokenHandler.WriteToken(token),
-                rank = user.userPrivilege.Privilege.Title,
             });
         }
     }

@@ -4,6 +4,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages/pages.component';
 import { TeachersComponent } from './Teachers/Teachers.component';
 import { AuthComponent } from './auth/auth.component';
+import { StudentsComponent } from './students/students.component';
+import { StudentGuard } from './_guards/student.guard';
 
 export const appRoutes: Routes = [
     {
@@ -30,6 +32,12 @@ export const appRoutes: Routes = [
       loadChildren: () => import('./auth/auth.module')
         .then(m => m.AuthModule),
     },
+    {
+      path: 'students',
+      component : StudentsComponent,
+      loadChildren : () => import('./students/students.module')
+        .then(m => m.StudentsModule),
+    }
 
 ];
 

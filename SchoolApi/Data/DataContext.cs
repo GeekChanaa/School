@@ -27,6 +27,7 @@ namespace SchoolApi.Data
         public DbSet<UserPrivilege> UserPrivileges { get; set; }
         public DbSet<Training> Trainings {get; set;}
         public DbSet<TrainingModule> TrainingModules {get; set;}
+        public DbSet<CourseDate> CourseDate {get; set;}
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,6 +50,10 @@ namespace SchoolApi.Data
             modelBuilder.Entity<UserPrivilege>().ToTable("UserPrivileges");
             modelBuilder.Entity<Training>().ToTable("Trainings");
             modelBuilder.Entity<TrainingModule>().ToTable("TrainingModules");
+            modelBuilder.Entity<CourseDate>().ToTable("CourseDates");
         }
+
+
+        public DbSet<SchoolApi.Models.StudentTraining> StudentTraining { get; set; }
     }
 }

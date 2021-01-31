@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../_guards/auth.guard';
 import { AboutComponent } from './About/About.component';
 import { G3EIComponent } from './Formations/CycleIngenieur/G3EI/G3EI.component';
 import { GINDComponent } from './Formations/CycleIngenieur/GIND/GIND.component';
@@ -27,6 +28,7 @@ import { GEIComponent } from './Formations/Departements/GEI/GEI.component';
 import { MIComponent } from './Formations/Departements/MI/MI.component';
 import { SICComponent } from './Formations/Departements/SIC/SIC.component';
 import { HomeComponent } from './Home/Home.component';
+import { ProfileComponent } from './Profile/Profile.component';
 
 const routes: Routes = [
   {path : '', component: HomeComponent},
@@ -56,6 +58,7 @@ const routes: Routes = [
   {path : 'Departements/SIC', component: SICComponent},
   {path : 'Departements/GEI', component: GEIComponent},
   {path : 'Departements/MI', component: MIComponent},
+  {path : 'Profile', component: ProfileComponent, canActivate : [AuthGuard]},
 
 ];
 

@@ -12,7 +12,7 @@ namespace SchoolApi.Models
 
         public string Title { get; set; }
         public int ModuleID { get; set; }
-        public int ChefID { get; set; }
+        public int? ChefID { get; set; }
 
         // Navigation Properties
         public virtual Module Module {get; set;}

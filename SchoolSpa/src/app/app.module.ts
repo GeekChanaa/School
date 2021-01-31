@@ -74,6 +74,7 @@ import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword
 import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
 import { CreateTrainingDialog, EditTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
+import { CourseDateComponent, CreateCourseDateDialog, EditCourseDateDialog } from './dashboard/CourseDate/CourseDate.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -121,7 +122,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       RequestPasswordComponent,
       ResetPasswordComponent,
       TrainingModulesComponent,
-      CreateTrainingModulesDialog
+      CreateTrainingModulesDialog,
+      CreateCourseDateDialog,
+      EditCourseDateDialog,
+      CourseDateComponent
    ],
   imports: [
     FullCalendarModule,

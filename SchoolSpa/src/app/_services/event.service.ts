@@ -1,8 +1,6 @@
-import { group } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +24,8 @@ export class EventService {
   }
 
   createEvent(model:any){
-    console.log(model.startDate +" "+ model.startTime);
     model.startDate = model.startDate +" "+ model.startTime ;
     model.endDate = model.endDate +" "+ model.endTime;
-    console.log(model);
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
