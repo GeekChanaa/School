@@ -53,11 +53,14 @@ namespace SchoolApi.Controllers
             if(userFromRepo == null)
                 return Unauthorized();
             
+            
+            
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.ID.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.Email),
-                new Claim(ClaimTypes.Role, user.userPrivilege.Privilege.Title)
+                new Claim(ClaimTypes.Role, user.userPrivilege.Privilege.Title),
+                new Claim(ClaimTypes.Role, user.StudentTraining.Training.Title)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8

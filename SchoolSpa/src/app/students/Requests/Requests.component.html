@@ -1,3 +1,32 @@
-<p>
-  Requests works!
-</p>
+
+<mat-card>
+  <form #requestForm="ngForm" class="" (ngSubmit)="createRequest()">
+    <mat-form-field appearance="fill">
+      <mat-label>Training</mat-label>
+      <mat-select name="training" [(ngModel)]="model.training"> 
+        <mat-option *ngFor="let training of trainings" [value]="training.title">
+          {{training.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select name="type" [(ngModel)]="model.type"> 
+        <mat-option  value="releve">
+          Relevé de notes
+        </mat-option>
+        <mat-option  value="attestation de reussite">
+          Attestation de réussite
+        </mat-option>
+        <mat-option  value="attestation de scolarité">
+          Attestation de scolarité
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button type="submit">Save</button>
+
+    
+  </form>
+</mat-card>

@@ -349,6 +349,40 @@ namespace SchoolApi.Models
                 // 
 
                 context.SaveChanges();
+
+                context.StudentTraining.AddRange(
+                    new Models.StudentTraining{ StudentID = 1 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 2 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 3 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 4 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 5 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 6 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 7 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 8 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 9 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 10 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 11 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 12 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 13 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 14 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 15 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 16 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 17 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 18 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 19 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 20 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 21 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 22 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 23 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 24 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 25 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 26 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 27 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 28 , TrainingID = 18},
+                    new Models.StudentTraining{ StudentID = 29 , TrainingID = 18}
+                );
+
+                context.SaveChanges();
             }
         }
     }

@@ -70,21 +70,15 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<DateTime>("DateEnd")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateStart")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("EventID")
+                    b.Property<int?>("CourseDateID")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserID")
+                    b.Property<int?>("UserID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("EventID");
+                    b.HasIndex("CourseDateID");
 
                     b.HasIndex("UserID");
 
@@ -137,6 +131,29 @@ namespace SchoolApi.Migrations
                     b.HasIndex("TrainingID");
 
                     b.ToTable("CourseDates");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.DocumentRequest", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("StudentID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Training")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("StudentID");
+
+                    b.ToTable("DocumentRequest");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Event", b =>
@@ -352,7 +369,9 @@ namespace SchoolApi.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("StudentID");
+                    b.HasIndex("StudentID")
+                        .IsUnique()
+                        .HasFilter("[StudentID] IS NOT NULL");
 
                     b.HasIndex("TrainingID");
 
@@ -535,19 +554,15 @@ namespace SchoolApi.Migrations
 
             modelBuilder.Entity("SchoolApi.Models.Attendance", b =>
                 {
-                    b.HasOne("SchoolApi.Models.Event", "Event")
+                    b.HasOne("SchoolApi.Models.CourseDate", "CourseDate")
                         .WithMany()
-                        .HasForeignKey("EventID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CourseDateID");
 
                     b.HasOne("SchoolApi.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserID");
 
-                    b.Navigation("Event");
+                    b.Navigation("CourseDate");
 
                     b.Navigation("User");
                 });
@@ -571,6 +586,17 @@ namespace SchoolApi.Migrations
                     b.Navigation("Subject");
 
                     b.Navigation("Training");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.DocumentRequest", b =>
+                {
+                    b.HasOne("SchoolApi.Models.User", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
@@ -664,8 +690,8 @@ namespace SchoolApi.Migrations
             modelBuilder.Entity("SchoolApi.Models.StudentTraining", b =>
                 {
                     b.HasOne("SchoolApi.Models.User", "Student")
-                        .WithMany()
-                        .HasForeignKey("StudentID");
+                        .WithOne("StudentTraining")
+                        .HasForeignKey("SchoolApi.Models.StudentTraining", "StudentID");
 
                     b.HasOne("SchoolApi.Models.Training", "Training")
                         .WithMany()
@@ -748,6 +774,8 @@ namespace SchoolApi.Migrations
 
             modelBuilder.Entity("SchoolApi.Models.User", b =>
                 {
+                    b.Navigation("StudentTraining");
+
                     b.Navigation("Subjects");
 
                     b.Navigation("userPrivilege");

@@ -16,7 +16,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    console.log("this is not working properly");
     this._authService.login(this.model).subscribe((data) => {
       console.log("this is getting here");
       console.log(data); 

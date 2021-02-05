@@ -61,5 +61,7 @@ namespace SchoolApi.Models
         // User Privileges
         public virtual UserPrivilege userPrivilege {get; set;}
 
+        public virtual StudentTraining StudentTraining {get; set;}
+
     }
 }

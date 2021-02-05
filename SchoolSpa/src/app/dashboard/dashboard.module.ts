@@ -34,7 +34,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatToolbarModule,
     MatCardModule,
     FullCalendarModule,
-    MatMenuModule,
     MatMenuModule
   ],
   declarations: [

@@ -36,10 +36,6 @@ export class CalendarComponent implements OnInit {
     })
   }
 
-  getEvents(){
-    this.calendarOptions = this.events;
-  }
-
   ngOnInit() {
     this.getCourseDates();
     

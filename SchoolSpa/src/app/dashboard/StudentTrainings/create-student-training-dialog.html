@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Affect Training to Student</h1>
+
+<form #loginForm="ngForm" class="" (ngSubmit)="create()">
+    <div mat-dialog-content>
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Student</mat-label>
+            <mat-select name="studentId" [(ngModel)]="model.studentId"> 
+              <mat-option *ngFor="let student of students" [value]="student.id">
+                {{student.firstName}}  {{student.lastName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Training</mat-label>
+              <mat-select name="trainingId" [(ngModel)]="model.trainingId"> 
+                <mat-option *ngFor="let training of trainings" [value]="training.id">
+                  {{training.title}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-dialog-close mat-button type="submit">Save</button>
+    <button mat-dialog-close mat-button type="button">Close</button>
+    </div>
+</form>

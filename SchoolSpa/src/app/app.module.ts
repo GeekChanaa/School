@@ -75,6 +75,10 @@ import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.compo
 import { CreateTrainingDialog, EditTrainingDialog, TrainingsComponent } from './dashboard/Trainings/Trainings.component';
 import { CreateTrainingModulesDialog, TrainingModulesComponent } from './dashboard/TrainingModules/TrainingModules.component';
 import { CourseDateComponent, CreateCourseDateDialog, EditCourseDateDialog } from './dashboard/CourseDate/CourseDate.component';
+import { AbsenceComponent } from './Teachers/Absence/Absence.component';
+import { RequestsComponent } from './students/Requests/Requests.component';
+import { CreateDocumentRequestDialog, DocumentRequestsComponent, EditDocumentRequestDialog } from './dashboard/DocumentRequests/DocumentRequests.component';
+import { CreateStudentTrainingsDialog, EditStudentTrainingDialog, StudentTrainingsComponent } from './dashboard/StudentTrainings/StudentTrainings.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -119,13 +123,21 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       LoginComponent,
       LogoutComponent,
       RegisterComponent,
+      AbsenceComponent,
       RequestPasswordComponent,
       ResetPasswordComponent,
       TrainingModulesComponent,
       CreateTrainingModulesDialog,
       CreateCourseDateDialog,
       EditCourseDateDialog,
-      CourseDateComponent
+      CourseDateComponent,
+      RequestsComponent,
+      CreateDocumentRequestDialog,
+      EditDocumentRequestDialog,
+      DocumentRequestsComponent,
+      StudentTrainingsComponent,
+      CreateStudentTrainingsDialog,
+      EditStudentTrainingDialog,
    ],
   imports: [
     FullCalendarModule,

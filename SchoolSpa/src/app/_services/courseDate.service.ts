@@ -24,14 +24,8 @@ export class CourseDateService {
   }
 
   createCourseDate(model:any){
-    console.log("before");
-    console.log(model.startDate + " time : " + model.startTime);
-    console.log(model.endDate +  " time : " + model.endTime);
     model.startDate = model.startDate +" "+ model.startTime ;
     model.endDate = model.endDate + " " + model.endTime;
-    console.log("these are the datetime formats im pushing");
-    console.log(model.startDate);
-    console.log(model.endDate);
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 

@@ -9,6 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { RequestsComponent } from './Requests/Requests.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { MatOptionModule } from '@angular/material/core';
+import { CalendarComponent } from './Calendar/Calendar.component';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin
+]);
 
 @NgModule({
   imports:[
@@ -20,8 +33,13 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatToolbarModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    FullCalendarModule,
+    
   ],
-  declarations: [StudentsComponent]
+  declarations: [
+    StudentsComponent,
+    CalendarComponent
+  ]
 })
 export class StudentsModule { }

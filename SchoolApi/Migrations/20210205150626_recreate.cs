@@ -132,28 +132,21 @@ namespace SchoolApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Attendances",
+                name: "DocumentRequest",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DateStart = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    EventID = table.Column<int>(type: "int", nullable: false)
+                    StudentID = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Training = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Attendances", x => x.ID);
+                    table.PrimaryKey("PK_DocumentRequest", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Attendances_Events_EventID",
-                        column: x => x.EventID,
-                        principalTable: "Events",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Attendances_Users_UserID",
-                        column: x => x.UserID,
+                        name: "FK_DocumentRequest_Users_StudentID",
+                        column: x => x.StudentID,
                         principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -307,32 +300,6 @@ namespace SchoolApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "AbsenceJustifications",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    AttendanceID = table.Column<int>(type: "int", nullable: false),
-                    UserId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AbsenceJustifications", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_AbsenceJustifications_Attendances_AttendanceID",
-                        column: x => x.AttendanceID,
-                        principalTable: "Attendances",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_AbsenceJustifications_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Subjects",
                 columns: table => new
                 {
@@ -452,6 +419,58 @@ namespace SchoolApi.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Attendances",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserID = table.Column<int>(type: "int", nullable: true),
+                    CourseDateID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Attendances", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Attendances_CourseDates_CourseDateID",
+                        column: x => x.CourseDateID,
+                        principalTable: "CourseDates",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Attendances_Users_UserID",
+                        column: x => x.UserID,
+                        principalTable: "Users",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AbsenceJustifications",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AttendanceID = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AbsenceJustifications", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_AbsenceJustifications_Attendances_AttendanceID",
+                        column: x => x.AttendanceID,
+                        principalTable: "Attendances",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AbsenceJustifications_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AbsenceJustifications_AttendanceID",
                 table: "AbsenceJustifications",
@@ -473,9 +492,9 @@ namespace SchoolApi.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Attendances_EventID",
+                name: "IX_Attendances_CourseDateID",
                 table: "Attendances",
-                column: "EventID");
+                column: "CourseDateID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Attendances_UserID",
@@ -496,6 +515,11 @@ namespace SchoolApi.Migrations
                 name: "IX_CourseDates_TrainingID",
                 table: "CourseDates",
                 column: "TrainingID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DocumentRequest_StudentID",
+                table: "DocumentRequest",
+                column: "StudentID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Faculties_ChefID",
@@ -545,7 +569,9 @@ namespace SchoolApi.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_StudentTraining_StudentID",
                 table: "StudentTraining",
-                column: "StudentID");
+                column: "StudentID",
+                unique: true,
+                filter: "[StudentID] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_StudentTraining_TrainingID",
@@ -593,7 +619,7 @@ namespace SchoolApi.Migrations
                 name: "Assignments");
 
             migrationBuilder.DropTable(
-                name: "CourseDates");
+                name: "DocumentRequest");
 
             migrationBuilder.DropTable(
                 name: "Faculties");
@@ -620,7 +646,7 @@ namespace SchoolApi.Migrations
                 name: "Attendances");
 
             migrationBuilder.DropTable(
-                name: "Subjects");
+                name: "Events");
 
             migrationBuilder.DropTable(
                 name: "GroupPosts");
@@ -629,13 +655,16 @@ namespace SchoolApi.Migrations
                 name: "Privileges");
 
             migrationBuilder.DropTable(
-                name: "Events");
-
-            migrationBuilder.DropTable(
-                name: "Modules");
+                name: "CourseDates");
 
             migrationBuilder.DropTable(
                 name: "Groups");
+
+            migrationBuilder.DropTable(
+                name: "Subjects");
+
+            migrationBuilder.DropTable(
+                name: "Modules");
 
             migrationBuilder.DropTable(
                 name: "Trainings");

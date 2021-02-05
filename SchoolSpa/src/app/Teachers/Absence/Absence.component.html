@@ -1,0 +1,52 @@
+
+
+<mat-card class="search-card col-8 offset-2">
+  <div class="row text-center col-10 offset-1">
+
+      <div class="col-4">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Training</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.trainingID"> 
+              <mat-option *ngFor="let training of trainings" [value]="training.id">
+                {{training.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="col-4">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Module</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.moduleID"> 
+              <mat-option *ngFor="let module of modules" [value]="module.id">
+                {{module.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+      </div>
+      <div class="col-4">
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Subject</mat-label>
+            <mat-select name="subjetID" [(ngModel)]="model.subjectID"> 
+              <mat-option *ngFor="let subject of subjects" [value]="subject.id">
+                {{subject.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+      </div>
+    
+    
+    
+
+    
+    <button mat-button mat-icon-button>
+      Search
+    </button>
+  </div>
+  
+</mat-card>

@@ -15,18 +15,29 @@ import { SidebarTComponent } from './SidebarT/SidebarT.component';
 import { CourseCardComponent } from './CourseCard/CourseCard.component';
 import { SubjectComponent } from './Subject/Subject.component';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { AbsenceComponent } from './Absence/Absence.component';
+import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 @NgModule({
   imports: [
     CommonModule,
     TeachersRoutingModule,
     MatSidenavModule,
+    MatInputModule,
     MatListModule,
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    MatListModule,
-    MatSidenavModule,
-    MatTabsModule
+    MatCardModule,
+    FullCalendarModule,
+    MatMenuModule,
+    MatTabsModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   declarations: [	
     TeachersComponent,
@@ -35,7 +46,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     NavbarTComponent,
     SidebarTComponent,
     CourseCardComponent,
-    SubjectComponent
+    SubjectComponent,
+    
    ]
 })
 
