@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
 using SchoolApi.Dtos;
+using SchoolApi.Helpers;
 using System.Globalization;
 
 
@@ -26,8 +27,12 @@ namespace SchoolApi.Controllers
 
         // GET: api/CourseDate
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CourseDate>>> GetCourseDate()
+        public async Task<ActionResult<IEnumerable<CourseDate>>> GetCourseDate([FromQuery] CourseDateParams courseDateParams)
         {
+            Console.WriteLine("this is the course date api");
+            Console.WriteLine(courseDateParams.Training);
+            if(courseDateParams.Training != null)
+                return await _context.CourseDate.Where(c => c.Training.Title == courseDateParams.Training).ToListAsync();
             return await _context.CourseDate.ToListAsync();
         }
 

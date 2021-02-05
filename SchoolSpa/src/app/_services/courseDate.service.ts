@@ -15,10 +15,18 @@ export class CourseDateService {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
   };
   
-  getCourseDates(): Observable<CourseDate[]>{
-    return this.http.get<CourseDate[]>(this.baseUrl);
+  getCourseDates(training?:string): Observable<CourseDate[]>{
+    if(training == null){
+      console.log("no training specified");
+      return this.http.get<CourseDate[]>(this.baseUrl);
+    }
+    else{
+      console.log("training : "+ training);
+      return this.http.get<CourseDate[]>(this.baseUrl + "?Training="+training);
+      
+    }
+    
   }
-
   deleteCourseDateById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

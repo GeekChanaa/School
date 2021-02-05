@@ -34,9 +34,12 @@ namespace SchoolApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] UserParams userParams)
         {
-                Console.WriteLine(userParams.Rank);
+            Console.WriteLine("this is users api");
+                Console.WriteLine(userParams.Training);
+                if(userParams.Training != null){
+                    return await _context.Users.Where(u => u.StudentTraining.Training.Title == userParams.Training).ToListAsync();
+                }
                 if(userParams.Rank != null){
-                    Console.WriteLine("this"+userParams.Rank+"ok");
                     return await _context.Users.Where(u => u.userPrivilege.Privilege.Title == userParams.Rank).ToListAsync();
                 }
                 else {

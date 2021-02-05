@@ -26,7 +26,7 @@ export class CalendarComponent implements OnInit {
     this.authTraining = this._authService.decodedToken.role[1];
     console.log(this.authTraining);
     // Getting Training Courses
-    this._courseDateService.getCourseDates().subscribe((data) => {
+    this._courseDateService.getCourseDates(this.authTraining).subscribe((data) => {
       this.courseDates = data;
       var tempArr: any[] = [];
       this.courseDates.forEach((obj: { title: any; dateStart: string;}) => {
