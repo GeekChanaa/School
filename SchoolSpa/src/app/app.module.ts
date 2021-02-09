@@ -79,6 +79,8 @@ import { AbsenceComponent } from './Teachers/Absence/Absence.component';
 import { RequestsComponent } from './students/Requests/Requests.component';
 import { CreateDocumentRequestDialog, DocumentRequestsComponent, EditDocumentRequestDialog } from './dashboard/DocumentRequests/DocumentRequests.component';
 import { CreateStudentTrainingsDialog, EditStudentTrainingDialog, StudentTrainingsComponent } from './dashboard/StudentTrainings/StudentTrainings.component';
+import { ErrorInterceptorProvider } from './_services/error.interceptor';
+import { ClassroomsComponent, CreateClassroomDialog, EditClassroomDialog } from './dashboard/Classrooms/Classrooms.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -138,6 +140,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       StudentTrainingsComponent,
       CreateStudentTrainingsDialog,
       EditStudentTrainingDialog,
+      ClassroomsComponent,
+      CreateClassroomDialog,
+      EditClassroomDialog
    ],
   imports: [
     FullCalendarModule,
@@ -194,6 +199,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   ],
   providers: [
     AuthService,
+    ErrorInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })

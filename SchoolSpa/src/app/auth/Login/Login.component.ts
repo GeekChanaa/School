@@ -9,6 +9,9 @@ import { AuthService } from '../../_services/auth.service';
 })
 export class LoginComponent implements OnInit {
   model:any ={};
+  validationError = false;
+  errors: string = "";
+
 
   constructor(private _authService: AuthService, private router: Router) { }
 
@@ -16,13 +19,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this._authService.login(this.model).subscribe((data) => {
-      console.log("this is getting here");
-      console.log(data); 
-      if(data == "Admin") this.router.navigate(['/dashboard']);
-      else if( data == "Teacher") this.router.navigate(['/teachers']);
-      else if( data == "Student") this.router.navigate(['/students']);
-      else this.router.navigate(['/']);
+    this._authService.login(this.model).subscribe(next => {
+        // Redirecting the user based on his privileges
+        var rank =this._authService.decodedToken.role[0];
+        if(rank == "Admin") this.router.navigate(['/dashboard']);
+        else if( rank == "Teacher") this.router.navigate(['/teachers']);
+        else if( rank == "Student") this.router.navigate(['/students']);
+        else this.router.navigate(['/']);
+    }, error => {
+      console.log(error);
+      this.validationError = true;
+      this.errors = error;
     });
   }
 

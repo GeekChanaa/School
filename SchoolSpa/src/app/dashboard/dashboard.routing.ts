@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from '../_guards/admin.guard';
 import { AuthGuard } from '../_guards/auth.guard';
 import { CalendarComponent } from './Calendar/Calendar.component';
+import { ClassroomsComponent } from './Classrooms/Classrooms.component';
 import { CourseDateComponent } from './CourseDate/CourseDate.component';
 import { DocumentRequestsComponent } from './DocumentRequests/DocumentRequests.component';
 import { EventsComponent } from './Events/Events.component';
@@ -36,6 +37,7 @@ const routes: Routes = [
     { path : 'courseDates', component : CourseDateComponent},
     { path : 'documentRequests', component : DocumentRequestsComponent},
     { path : 'studentTrainings', component : StudentTrainingsComponent},
+    { path : 'classrooms', component : ClassroomsComponent},
 ];
 
 @NgModule({

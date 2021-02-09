@@ -42,6 +42,16 @@ export class UserService {
     return this.http.get<User>(this.baseUrl+id);
   }
 
+  // Getting students 
+  getStudents(){
+    return this.http.get<User[]>(this.baseUrl+"?Rank=Student");
+  }
+
+  // Getting Teachers
+  getTeachers(){
+    return this.http.get<User[]>(this.baseUrl+"?Rank=Teacher")
+  }
+
  
 
   loggedInUser(){

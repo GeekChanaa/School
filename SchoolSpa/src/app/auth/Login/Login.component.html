@@ -23,12 +23,11 @@
 						<input type="password" [(ngModel)]="model.password" id="name" name="password" required="required" placeholder="Password">
 					</div>
 					
-					<div class="message success">Your message is successfully sent...</div>
-					<div class="message danger">Sorry something went wrong!</div>
+					<div *ngIf="validationError" class="message danger">{{errors}}</div>
 					<!--Button-->
 					<button class="vlt-btn vlt-btn--primary vlt-btn--md">Login</button>
 
-					<a href="/auth/register">Register</a>
+					<a class="vlt-btn btn-register vlt-btn--primary vlt-btn--md" href="/auth/register">Register</a>
 					
 				</form>
 			</div>

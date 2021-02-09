@@ -132,6 +132,33 @@ namespace SchoolApi.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Classroom",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfessorID = table.Column<int>(type: "int", nullable: false),
+                    ClassroomID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Classroom", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Classroom_Classroom_ClassroomID",
+                        column: x => x.ClassroomID,
+                        principalTable: "Classroom",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Classroom_Users_ProfessorID",
+                        column: x => x.ProfessorID,
+                        principalTable: "Users",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "DocumentRequest",
                 columns: table => new
                 {
@@ -502,6 +529,16 @@ namespace SchoolApi.Migrations
                 column: "UserID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Classroom_ClassroomID",
+                table: "Classroom",
+                column: "ClassroomID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Classroom_ProfessorID",
+                table: "Classroom",
+                column: "ProfessorID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CourseDates_ModuleID",
                 table: "CourseDates",
                 column: "ModuleID");
@@ -617,6 +654,9 @@ namespace SchoolApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "Assignments");
+
+            migrationBuilder.DropTable(
+                name: "Classroom");
 
             migrationBuilder.DropTable(
                 name: "DocumentRequest");

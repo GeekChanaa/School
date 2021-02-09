@@ -49,9 +49,11 @@ namespace SchoolApi.Controllers
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
             var userFromRepo = await _repo.Login(userForLoginDto.Email.ToLower(), userForLoginDto.Password);
-            var user = await _repo.GetUser(userFromRepo.ID);
+            
             if(userFromRepo == null)
                 return Unauthorized();
+            
+            var user = await _repo.GetUser(userFromRepo.ID);
             
             
             

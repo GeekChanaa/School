@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './Navbar/Navbar.component';
 import { HomeComponent } from './Home/Home.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { HomeComponent } from './Home/Home.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
+    MatMenuModule,
   ],
   exports : [
     NavbarComponent,

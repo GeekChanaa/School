@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>Add Subject</h1>
+
+<form #loginForm="ngForm" class="" (ngSubmit)="create()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" [(ngModel)]="model.title" placeholder="Title">
+            </mat-form-field>
+        </p>
+        
+        <p>
+          <mat-form-field appearance="fill">
+            <mat-label>Subject Chef</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.professorID"> 
+              <mat-option *ngFor="let user of teachers" [value]="user.id">
+                {{user.firstName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+    </div>
+    <div mat-dialog-actions>
+    <button mat-dialog-close mat-button type="submit">Save</button>
+    <button mat-dialog-close mat-button type="button">Close</button>
+    </div>
+</form>

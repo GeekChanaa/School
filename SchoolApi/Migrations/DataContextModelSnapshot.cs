@@ -85,6 +85,31 @@ namespace SchoolApi.Migrations
                     b.ToTable("Attendances");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.Classroom", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int?>("ClassroomID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfessorID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ClassroomID");
+
+                    b.HasIndex("ProfessorID");
+
+                    b.ToTable("Classroom");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.CourseDate", b =>
                 {
                     b.Property<int>("ID")
@@ -567,6 +592,21 @@ namespace SchoolApi.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.Classroom", b =>
+                {
+                    b.HasOne("SchoolApi.Models.Classroom", null)
+                        .WithMany("Classrooms")
+                        .HasForeignKey("ClassroomID");
+
+                    b.HasOne("SchoolApi.Models.User", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Professor");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.CourseDate", b =>
                 {
                     b.HasOne("SchoolApi.Models.Module", "Module")
@@ -753,6 +793,11 @@ namespace SchoolApi.Migrations
                     b.Navigation("Privilege");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.Classroom", b =>
+                {
+                    b.Navigation("Classrooms");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Group", b =>

@@ -58,5 +58,6 @@ namespace SchoolApi.Data
 
 
         public DbSet<SchoolApi.Models.DocumentRequest> DocumentRequest { get; set; }
+        public DbSet<SchoolApi.Models.Classroom> Classroom { get; set; }
     }
 }
