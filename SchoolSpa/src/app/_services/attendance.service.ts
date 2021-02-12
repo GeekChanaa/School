@@ -46,5 +46,6 @@ export interface Attendance{
   dateEnd : string;
   userId : number;
   eventId : number;
+  attendance : boolean;
 
 }

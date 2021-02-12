@@ -3,6 +3,8 @@ import { AfterViewInit, Component, ViewChild, ChangeDetectorRef, Optional, Injec
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import { SubjectService } from 'src/app/_services/subject.service';
+import { UserService } from 'src/app/_services/user.service';
 import { GradeService } from '../../_services/grade.service';
 
 @Component({
@@ -24,6 +26,9 @@ export class GradesComponent implements AfterViewInit {
   /**
    *
    */
+  openDialogGradesByStudent(){
+    this.dialog.open(EnterStudentGradesComponent);
+  }
   openDialog() {
     this.dialog.open(CreateGradeDialog);
   }
@@ -71,12 +76,21 @@ export interface Grade {
 })
 export class CreateGradeDialog {
   model:any ={};
+  students: any[] = [];
+  subjects: any[] = [];
+
   /**
    *
    */
-  constructor(private _gradeService: GradeService) {
-    
+  constructor(private _gradeService: GradeService, private _userService: UserService, private _subjectService : SubjectService) {
+    this._userService.getStudents().subscribe((data) => {
+      this.students = data;
+    });
+    this._subjectService.getSubjects().subscribe((data) => {
+      this.subjects = data;
+    })
   }
+
   // Creating a grade
   create(){
     this._gradeService.createGrade(this.model).subscribe(() => {
@@ -91,7 +105,10 @@ export class CreateGradeDialog {
   styleUrls: ['./Grades.component.sass']
 })
 export class EditGradeDialog {
-  model:any ={};
+  model:any = {
+    
+  };
+  
   local_data:any = {};
   grade:any = {};
   /**
@@ -113,6 +130,55 @@ export class EditGradeDialog {
     console.log(this.model);
     this._gradeService.editGrade(this.local_data,this.model).subscribe(() => {
       console.log("Edited grade");
+    });
+  }
+}
+
+
+@Component({
+  selector: 'enter-student-grades-dialog',
+  templateUrl: 'enter-student-grades-dialog.html',
+  styleUrls: ['./Grades.component.sass']
+})
+export class EnterStudentGradesComponent {
+  model:any ={};
+  studentGrades : any[] = [];
+  students : any[] = [];
+  modules : any[]= [];
+  grade : any;
+  /**
+   *
+   */
+  constructor(private _gradeService: GradeService,private _userService : UserService) {
+    this._userService.getStudents().subscribe((data) => {
+      this.students = data;
+    });
+  }
+  // Change based on option
+  change(event: { isUserInput: any; source: { value: number; }; })
+  {
+    if(event.isUserInput) {
+      console.log(event.source.value);
+      this._userService.getUser(event.source.value).subscribe((data) => {
+        this.modules = data.studentTraining.training.modules;
+      });
+    }
+  }
+
+  log(){
+    console.log(this.studentGrades);
+  }
+  create(){
+    
+    this.modules.forEach(item => {
+      item.subjects.forEach(iteme => {
+        let grade = {
+          value : this.studentGrades[iteme.id],
+          studentID : this.model.studentID,
+          subjectID : iteme.id,
+        }
+        this._gradeService.createGrade(grade).subscribe(() => console.log("created grade"));
+      });
     });
   }
 }

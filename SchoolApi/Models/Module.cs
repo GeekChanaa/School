@@ -18,6 +18,6 @@ namespace SchoolApi.Models
         // Navigation propery
         public virtual User Chef {get; set;}
         public virtual Training Training { get; set;}
-        public virtual ICollection<Subject> Subjects { get; set; }
+        public virtual ICollection<Subject> Subjects {get; set;}
     }
 }

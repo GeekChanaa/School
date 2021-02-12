@@ -14,7 +14,7 @@ namespace SchoolApi.Models
         public int? StudentID { get; set; }
 
         // Navigation Properties
-        public virtual Subject Subject {get; set;}
-        public virtual User Student {get;set;}
+        public virtual Subject Subject { get; set;}
+        public virtual User Student { get; set;}
     }
 }

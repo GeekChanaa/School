@@ -6,6 +6,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ModuleService } from 'src/app/_services/module.service';
 import { SubjectService } from 'src/app/_services/subject.service';
 import { TrainingService } from 'src/app/_services/training.service';
+import { UserService } from 'src/app/_services/user.service';
 import { CourseDateService } from '../../_services/courseDate.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class CourseDateComponent implements AfterViewInit {
   courseDates: any;
   makes: any[] = [];
   
-  constructor(private _courseDateService: CourseDateService,public dialog: MatDialog, private http : HttpClient, private cdr: ChangeDetectorRef) {
+  constructor(private _userService : UserService ,private _courseDateService: CourseDateService,public dialog: MatDialog, private http : HttpClient, private cdr: ChangeDetectorRef) {
     
    }
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -46,6 +47,8 @@ export class CourseDateComponent implements AfterViewInit {
         this.dataSource.paginator = this.paginator;
         console.log(this.courseDates);
       });
+
+    
     
     this.cdr.detectChanges();
   }
@@ -57,13 +60,6 @@ export class CourseDateComponent implements AfterViewInit {
   delete(id: any){
     this._courseDateService.deleteCourseDateById(id)
       .subscribe(() => console.log("courseDate deleted"));
-  }
-
-  // Creating a courseDate
-  create(){
-    this._courseDateService.createCourseDate(this.model).subscribe(() => {
-      console.log("created courseDate");
-    });
   }
 
   
@@ -95,10 +91,11 @@ export class CreateCourseDateDialog {
   trainings : any;
   modules : any;
   subjects : any;
+  teachers : any;
   /**
    *
    */
-  constructor(private _courseDateService: CourseDateService, private _moduleService : ModuleService, private _trainingService: TrainingService, private _subjectService: SubjectService) {
+  constructor(private _userService : UserService,private _courseDateService: CourseDateService, private _moduleService : ModuleService, private _trainingService: TrainingService, private _subjectService: SubjectService) {
     
   }
 
@@ -106,6 +103,9 @@ export class CreateCourseDateDialog {
     this.initModules();
     this.initSubjects();
     this.initTrainings();
+    this._userService.getTeachers().subscribe((data)=> {
+      this.teachers = data;
+    });
   }
 
   // init Trainings property 

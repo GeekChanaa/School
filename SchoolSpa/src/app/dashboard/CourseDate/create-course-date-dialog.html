@@ -39,10 +39,14 @@
             </mat-form-field>
         </p>
         <p>
-            <mat-form-field appearance="legacy">
-            <mat-label>Prof</mat-label>
-            <input matInput name="prof" [(ngModel)]="model.prof" placeholder="prof">
-            </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Teacher</mat-label>
+            <mat-select name="moduleId" [(ngModel)]="model.professorId"> 
+              <mat-option *ngFor="let teacher of teachers" [value]="teacher.id">
+                {{teacher.firstName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="legacy">

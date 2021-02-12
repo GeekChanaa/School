@@ -4,11 +4,11 @@
 
     Redirect to home page after logout (done)
     Middlewares to pages 
-    Fix design left sidebar
+    Fix design left sidebar 
     --show User Picture in navbar (if there is none show the first letter of his firstName)
 
     Main Page : 
-        Show number of students / teachers / Guests / Administrators
+        Show number of students / teachers / Guests / Administrators 
         Number of students by training 
 
     Users : 
@@ -27,9 +27,9 @@
         Put Training Route in the sidebar (done)
 
     Grades : 
-        Listing 
-        Create 
-        Delete 
+        Listing (done)
+        Create (done)
+        Delete (done)
         Update 
     
     Classrooms : 
@@ -56,8 +56,8 @@
     Calendar
         Fix Calendar Design
     Grades
-        Display all the modules then subjects of the student's training 
-        Display the grades of the student (if for a given subject no grade is given the grade will be none)
+        Display all the modules then subjects of the student's training (done)
+        Display the grades of the student (if for a given subject no grade is given the grade will be none) (done)
         Total will be calculated only if all grades are entered
     Requests
         Fix Requests Design 

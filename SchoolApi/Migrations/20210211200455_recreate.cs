@@ -386,7 +386,7 @@ namespace SchoolApi.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Prof = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProfessorID = table.Column<int>(type: "int", nullable: true),
                     Salle = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TrainingID = table.Column<int>(type: "int", nullable: true),
                     ModuleID = table.Column<int>(type: "int", nullable: true),
@@ -415,6 +415,12 @@ namespace SchoolApi.Migrations
                         name: "FK_CourseDates_Trainings_TrainingID",
                         column: x => x.TrainingID,
                         principalTable: "Trainings",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_CourseDates_Users_ProfessorID",
+                        column: x => x.ProfessorID,
+                        principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -453,7 +459,8 @@ namespace SchoolApi.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UserID = table.Column<int>(type: "int", nullable: true),
-                    CourseDateID = table.Column<int>(type: "int", nullable: true)
+                    CourseDateID = table.Column<int>(type: "int", nullable: true),
+                    Attended = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -542,6 +549,11 @@ namespace SchoolApi.Migrations
                 name: "IX_CourseDates_ModuleID",
                 table: "CourseDates",
                 column: "ModuleID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CourseDates_ProfessorID",
+                table: "CourseDates",
+                column: "ProfessorID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CourseDates_SubjectID",

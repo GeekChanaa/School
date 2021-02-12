@@ -79,4 +79,6 @@ export interface User{
   date_birth: string;
   password: string;
   subjects: any;
+  studentTraining : any;
+  grades : any;
 }

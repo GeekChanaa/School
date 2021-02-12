@@ -63,5 +63,7 @@ namespace SchoolApi.Models
 
         public virtual StudentTraining StudentTraining {get; set;}
 
+        public virtual ICollection<Grade> Grades {get; set;}
+
     }
 }

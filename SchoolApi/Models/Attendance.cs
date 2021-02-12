@@ -10,6 +10,8 @@ namespace SchoolApi.Models
         public int ID { get; set; }
         public int? UserID{ get; set; }
         public int? CourseDateID{ get; set; }
+
+        public Boolean Attended {get; set;}
         
         // Navigation Properties
         public virtual User User{ get; set; }

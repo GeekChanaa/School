@@ -67,7 +67,12 @@ namespace SchoolApi.Data
         }
 
         public Task<User> GetUser(int id){
-            var user = _context.Users.FirstOrDefaultAsync(u => u.ID == id);
+            var user = _context.Users
+                .Include(u => u.userPrivilege)
+                    .ThenInclude(p => p.Privilege)
+                .Include(u => u.StudentTraining)
+                    .ThenInclude(p => p.Training)
+                .FirstOrDefaultAsync(u => u.ID == id);
             return user;
         }
     }

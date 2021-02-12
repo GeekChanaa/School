@@ -10,7 +10,7 @@ using SchoolApi.Data;
 namespace SchoolApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210209132712_recreate")]
+    [Migration("20210211200455_recreate")]
     partial class recreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -72,6 +72,9 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<bool>("Attended")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("CourseDateID")
                         .HasColumnType("int");
 
@@ -131,8 +134,8 @@ namespace SchoolApi.Migrations
                     b.Property<int?>("ModuleID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Prof")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("ProfessorID")
+                        .HasColumnType("int");
 
                     b.Property<string>("Salle")
                         .HasColumnType("nvarchar(max)");
@@ -152,6 +155,8 @@ namespace SchoolApi.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("ModuleID");
+
+                    b.HasIndex("ProfessorID");
 
                     b.HasIndex("SubjectID");
 
@@ -615,6 +620,10 @@ namespace SchoolApi.Migrations
                         .WithMany()
                         .HasForeignKey("ModuleID");
 
+                    b.HasOne("SchoolApi.Models.User", "Professor")
+                        .WithMany()
+                        .HasForeignKey("ProfessorID");
+
                     b.HasOne("SchoolApi.Models.Subject", "Subject")
                         .WithMany()
                         .HasForeignKey("SubjectID");
@@ -624,6 +633,8 @@ namespace SchoolApi.Migrations
                         .HasForeignKey("TrainingID");
 
                     b.Navigation("Module");
+
+                    b.Navigation("Professor");
 
                     b.Navigation("Subject");
 
@@ -655,7 +666,7 @@ namespace SchoolApi.Migrations
             modelBuilder.Entity("SchoolApi.Models.Grade", b =>
                 {
                     b.HasOne("SchoolApi.Models.User", "Student")
-                        .WithMany()
+                        .WithMany("Grades")
                         .HasForeignKey("StudentID");
 
                     b.HasOne("SchoolApi.Models.Subject", "Subject")
@@ -719,7 +730,7 @@ namespace SchoolApi.Migrations
                         .IsRequired();
 
                     b.HasOne("SchoolApi.Models.Training", "Training")
-                        .WithMany()
+                        .WithMany("Modules")
                         .HasForeignKey("TrainingID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -736,7 +747,7 @@ namespace SchoolApi.Migrations
                         .HasForeignKey("SchoolApi.Models.StudentTraining", "StudentID");
 
                     b.HasOne("SchoolApi.Models.Training", "Training")
-                        .WithMany()
+                        .WithMany("StudentTrainings")
                         .HasForeignKey("TrainingID");
 
                     b.Navigation("Student");
@@ -819,8 +830,17 @@ namespace SchoolApi.Migrations
                     b.Navigation("Subjects");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.Training", b =>
+                {
+                    b.Navigation("Modules");
+
+                    b.Navigation("StudentTrainings");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.User", b =>
                 {
+                    b.Navigation("Grades");
+
                     b.Navigation("StudentTraining");
 
                     b.Navigation("Subjects");

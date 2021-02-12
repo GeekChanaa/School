@@ -61,7 +61,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
 import { CreateUserDialog, EditUserDialog, UsersComponent } from './dashboard/Users/Users.component';
 import { CreateEventDialog, EditEventDialog, EventsComponent } from './dashboard/Events/Events.component';
 import { CreateFacultyDialog, EditFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
-import { CreateGradeDialog, EditGradeDialog, GradesComponent } from './dashboard/Grades/Grades.component';
+import { CreateGradeDialog, EditGradeDialog, EnterStudentGradesComponent, GradesComponent } from './dashboard/Grades/Grades.component';
 import { CreateGroupDialog, EditGroupDialog, GroupsComponent } from './dashboard/Groups/Groups.component';
 import { CreateModuleDialog, EditModuleDialog, ModulesComponent } from './dashboard/Modules/Modules.component';
 import { CreatePrivilegeDialog, EditPrivilegeDialog, PrivilegesComponent } from './dashboard/Privileges/Privileges.component';
@@ -81,6 +81,8 @@ import { CreateDocumentRequestDialog, DocumentRequestsComponent, EditDocumentReq
 import { CreateStudentTrainingsDialog, EditStudentTrainingDialog, StudentTrainingsComponent } from './dashboard/StudentTrainings/StudentTrainings.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { ClassroomsComponent, CreateClassroomDialog, EditClassroomDialog } from './dashboard/Classrooms/Classrooms.component';
+import { MarksComponent } from './students/Marks/Marks.component';
+import { AttendanceComponent } from './Teachers/Attendance/Attendance.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -142,7 +144,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       EditStudentTrainingDialog,
       ClassroomsComponent,
       CreateClassroomDialog,
-      EditClassroomDialog
+      EditClassroomDialog,
+      MarksComponent,
+      EnterStudentGradesComponent,
+      AttendanceComponent
    ],
   imports: [
     FullCalendarModule,

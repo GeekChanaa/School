@@ -44,7 +44,7 @@ namespace SchoolApi
 
             services.AddDbContext<DataContext>(options =>
                 options
-                    .UseLazyLoadingProxies()
+                    //.UseLazyLoadingProxies()
                     .UseSqlServer(Configuration.GetConnectionString("SchoolContext")));
 
             services.AddCors();

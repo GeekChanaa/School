@@ -10,7 +10,7 @@ namespace SchoolApi.Models
         public int ID { get; set; }
         public string Title { get; set; }
 
-        public string Prof {get; set;}
+        public int? ProfessorID {get; set;}
 
         public string Salle { get; set; }
 
@@ -33,6 +33,7 @@ namespace SchoolApi.Models
 
         public DateTime DateEnd {get ; set;}
 
+        public virtual User Professor {get;set;}
         public virtual Training Training {get; set;}
         public virtual Module Module {get; set;}
         public virtual Subject Subject {get; set;}

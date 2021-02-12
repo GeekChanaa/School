@@ -54,9 +54,7 @@ namespace SchoolApi.Controllers
                 return Unauthorized();
             
             var user = await _repo.GetUser(userFromRepo.ID);
-            
-            
-            
+                        
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.ID.ToString()),

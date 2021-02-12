@@ -42,4 +42,5 @@ export interface StudentTraining{
   trainingID : number ; 
   student: any;
   training: any;
+  studentTraining : any;
 }

@@ -37,7 +37,8 @@ namespace SchoolApi.Controllers
             Console.WriteLine("this is users api");
                 Console.WriteLine(userParams.Training);
                 if(userParams.Training != null){
-                    return await _context.Users.Where(u => u.StudentTraining.Training.Title == userParams.Training).ToListAsync();
+                    return await _context.Users.Where(u => u.StudentTraining.Training.Title == userParams.Training)
+                        .ToListAsync();
                 }
                 if(userParams.Rank != null){
                     return await _context.Users.Where(u => u.userPrivilege.Privilege.Title == userParams.Rank).ToListAsync();
@@ -45,7 +46,13 @@ namespace SchoolApi.Controllers
                 else {
 
                 Console.WriteLine("this is not right");
-                return await _context.Users.ToListAsync();
+                return await _context.Users
+                    .Include(u => u.Subjects)
+                    .Include(u => u.userPrivilege)
+                        .ThenInclude(p => p.Privilege)
+                    .Include(u => u.StudentTraining)
+                        .ThenInclude(s => s.Training)
+                    .ToListAsync();
                 }
             
         }
@@ -56,7 +63,16 @@ namespace SchoolApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users
+                .Include(u => u.Subjects)
+                .Include(u => u.userPrivilege)
+                    .ThenInclude(p => p.Privilege)
+                .Include(u => u.StudentTraining)
+                    .ThenInclude(s => s.Training)
+                        .ThenInclude(t => t.Modules)
+                            .ThenInclude(m => m.Subjects)
+                .Include(u => u.Grades)
+                .FirstOrDefaultAsync(u => u.ID == id);
 
             if (user == null)
             {

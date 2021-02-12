@@ -21,6 +21,10 @@ export class GradeService {
     return this.http.get<Grade[]>(this.baseUrl);
   }
 
+  getGradesByStudent(userid:number):Observable<Grade[]>{
+    return this.http.get<Grade[]>(this.baseUrl+"?userid="+userid);
+  }
+
   deleteGradeById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }
@@ -31,6 +35,10 @@ export class GradeService {
 
   getGrade(id:number){
     return this.http.get<Grade>(this.baseUrl+id);
+  }
+
+  getGradeBySubjectUserId(userId:number, subjectId:number){
+    return this.http.get<Grade>(this.baseUrl+"?userid="+userId+"&subjectid"+subjectId)
   }
 
   editGrade(id:number,model:any){

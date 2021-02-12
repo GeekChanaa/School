@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Helpers;
 
 namespace SchoolApi.Controllers
 {
@@ -23,7 +24,7 @@ namespace SchoolApi.Controllers
 
         // GET: api/Grade
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Grade>>> GetGrades()
+        public async Task<ActionResult<IEnumerable<Grade>>> GetGrades([FromQuery] GradeParams gradeParams)
         {
             return await _context.Grades.ToListAsync();
         }
@@ -40,6 +41,12 @@ namespace SchoolApi.Controllers
             }
 
             return grade;
+        }
+
+        // Getting by studentid and subjectid
+        [HttpGet("studentsubject")]
+        public async Task<ActionResult<Grade>> GetGradeByStudentAndSubject([FromQuery] GradeParams gradeParams){
+            return await _context.Grades.Where(g=> g.StudentID == gradeParams.UserId).Where(g => g.SubjectID == gradeParams.SubjectId).FirstOrDefaultAsync();
         }
 
         // PUT: api/Grade/5

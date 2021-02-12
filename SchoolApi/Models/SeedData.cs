@@ -39,6 +39,7 @@ namespace SchoolApi.Models
                         Title = "Guest"
                     }
                 );
+                context.SaveChanges();
 
                 context.Users.AddRange(
                     new Models.User{CIN = "KB123456",CNE = "KB123456",FirstName = "KB123456",LastName = "KB123456",CodeAppoge = "546540",date_birth = DateTime.Now,Email = "chanaa.projects@gmail.com",PasswordHash = passhash,PasswordSalt = passsalt},
@@ -71,318 +72,1461 @@ namespace SchoolApi.Models
                     new Models.User{CIN = "00027",CNE = "08051" , FirstName="mohammedamine", LastName = "bousslama", CodeAppoge = "1024", date_birth = DateTime.Now , Email="mohammedamine.bousslama@etu.uae.ac.ma", PasswordHash = passhash, PasswordSalt = passsalt},
                     new Models.User{CIN = "00028",CNE = "09051" , FirstName="mahmoud", LastName = "laal", CodeAppoge = "1025", date_birth = DateTime.Now , Email="mahmoud.laal@etu.uae.ac.ma", PasswordHash = passhash, PasswordSalt = passsalt},
                     new Models.User{CIN = "00029",CNE = "10051" , FirstName="Mourad", LastName = "chairi", CodeAppoge = "1026", date_birth = DateTime.Now , Email="Mourad.chairi@etu.uae.ac.ma", PasswordHash = passhash, PasswordSalt = passsalt}
-
                 );
 
                 context.SaveChanges();
                 // Seeding user Privileges
-                context.UserPrivileges.AddRange(
-                    new Models.UserPrivilege{UserID = 1,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 2,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 3,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 4,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 5,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 6,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 7,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 8,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 9,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 10,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 11,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 12,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 13,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 14,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 15,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 16,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 17,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 18,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 19,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 20,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 21,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 22,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 23,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 24,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 25,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 26,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 27,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 28,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 29,PrivilegeID = 3},
-                    new Models.UserPrivilege{UserID = 30,PrivilegeID = 3}
-                );
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 1,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 2,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 3,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 4,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 5,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 6,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 7,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 8,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 9,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 10,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 11,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 12,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 13,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 14,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 15,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 16,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 17,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 18,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 19,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 20,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 21,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 22,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 23,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 24,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 25,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 26,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 27,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 28,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 29,PrivilegeID = 3});
+                context.UserPrivileges.Add(new Models.UserPrivilege{UserID = 30,PrivilegeID = 3});
 
                 context.SaveChanges();
 
                 // Seeding Trainings
-                context.Trainings.AddRange(
-                    new Models.Training{ Title = "AP1"},
-                    new Models.Training{ Title = "AP2"},
-                    new Models.Training{ Title = "AP3"},
-                    new Models.Training{ Title = "AP4"},
-                    new Models.Training{ Title = "G3EI1"},
-                    new Models.Training{ Title = "G3EI2"},
-                    new Models.Training{ Title = "G3EI3"},
-                    new Models.Training{ Title = "G3EI4"},
-                    new Models.Training{ Title = "G3EI5"},
-                    new Models.Training{ Title = "GIND1"},
-                    new Models.Training{ Title = "GIND2"},
-                    new Models.Training{ Title = "GIND3"},
-                    new Models.Training{ Title = "GIND4"},
-                    new Models.Training{ Title = "GIND5"},
-                    new Models.Training{ Title = "GINF1"},
-                    new Models.Training{ Title = "GINF2"},
-                    new Models.Training{ Title = "GINF3"},
-                    new Models.Training{ Title = "GINF4"},
-                    new Models.Training{ Title = "GINF51"},
-                    new Models.Training{ Title = "GINF52"},
-                    new Models.Training{ Title = "GSEA1"},
-                    new Models.Training{ Title = "GSEA2"},
-                    new Models.Training{ Title = "GSEA3"},
-                    new Models.Training{ Title = "GSEA4"},
-                    new Models.Training{ Title = "GSEA51"},
-                    new Models.Training{ Title = "GSEA52"},
-                    new Models.Training{ Title = "GSTR1"},
-                    new Models.Training{ Title = "GSTR2"},
-                    new Models.Training{ Title = "GSTR3"},
-                    new Models.Training{ Title = "GSTR4"},
-                    new Models.Training{ Title = "GSTR51"},
-                    new Models.Training{ Title = "GSTR52"}
-                );
+                context.Trainings.Add(new Models.Training{ Title = "AP1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "AP2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "AP3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "AP4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "G3EI1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "G3EI2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "G3EI3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "G3EI4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "G3EI5"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GIND1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GIND2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GIND3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GIND4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GIND5"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF51"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GINF52"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA51"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSEA52"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR1"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR2"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR3"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR4"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR51"});
+                context.SaveChanges();
+                context.Trainings.Add(new Models.Training{ Title = "GSTR52"});
+                context.SaveChanges();
                 
                 context.SaveChanges();
 
                 // Seeding modules 
 
-                context.Modules.AddRange(
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Algebre1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Analyse1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Physique1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Mécanique1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Chimie" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "LC1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Algebre2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Analyse1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Physique2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Physique3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Info1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Algebre3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Analyse3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Mecanique2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Physique4" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Info2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "LC3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "analyse4" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Maths Appliquées" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Physique 5" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Physique 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Info 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Statistique et signal" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "electronique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Matériaux" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Informatique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Automatique 1 et Electrotechnique 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Management de l'entreprise 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Electrotechnique 2 et simulation" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Thermodynamique industrielle" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Machines Industrielles" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Thermodynamique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Energies et environnement" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Langue et communication 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Automatismes Industriels " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Technologie mécanique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Solaire Thermique et geothermie " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Energie eolienne" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Législation et droit de l'environnement " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Technologies Gazière et Thermique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Management Environnemental" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Maintenance et qualité" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Energies Photovoltaique et hydraulique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Managelent QHSE" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Management de l'entreprise 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Valorisation des déchets" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "REsponsabilité sociétale des entreprises " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Efficacité Energétique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Optimisation des sytèmes énergétiques hybrides" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Chauffage et climatisation " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Management de l'entreprise 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "statistiques et signal " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "electronique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "matériaux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "informatique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "automatique 1 et electrotechnique 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "Management de l'entreprise 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Resistance des matériaux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Fluides et structures" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Machines industrielles " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Simulation et métrologie" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Systèmes d'information" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "LC1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Automatisme et maintenance " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Commande industrielle " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Outils d'aide à la décision " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Fabrication mécanique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Conception mécanique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Modélisation & Implantatio n" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Gestion de production" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Maintenance et qualité " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Pilotage et amélioration continue " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "ERP & MES " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "LC3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "sypply chain & ordonnancement " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Logistique" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Sécurité et energie " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Qualité et environnement " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Controle & supervision " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Management de l'entreprise 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Maths pour l'ingénieur " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Signal " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Electronique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Programmation" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Bases de données & réseaux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "LC1 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Développement Informatique2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Bases de données : Développement et manipulation " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Théorie des graphes et recherche opérationnelle" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Réseaux 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Arhcitecture & Linux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Management de l'entreprise 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Programmation Orientée Objet & XML" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Qualité & Approche processus " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Modélisation orientée objet et IHM" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Bases de données avancées 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Administration et programmation système " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Technologies distribuées" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Bases de données avancées II & Cloud " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Traitement de l'image" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Programmation déclarative et TAV" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Sécurité & Cryptographie" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Management de l'enteprise 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Technologies NET et J2EE" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "IA Avancée et ingénierie de connaissance" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Systèmes d'information décisionnel et BI" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Management des systèmes d'information" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Web services et Applications" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Management de l'entreprise3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Technologies .NET et J2EE" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "IA Avancée et ingénierie de connaissance " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Systèmes d'information décisionnels et BI" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Qualité référentiels logiciel " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Test et fiabilité des logiciels " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Management de l'entreprise 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Mathématiques Appliquées" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Traitement du signal " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Electronique1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Ondes et propagation" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Automatique 1 et electrotech 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Langues et communication 1 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Assembleur, Microprocesseur et microcontroleur " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Electronique 3 et TP" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Electrotechnique 2 et installations électriques " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Instrumentation et automatique 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Informatique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Management de l'entreprise 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Antennes et Technologies" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Commandes numériques" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Robotique et langage C++" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Electronique de puissance" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Conception de systèmes électroniques" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "LC2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Automates et DSP" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Circuits et sys intégrés " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Traitement d'images et système de vision" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Programmation VHDL" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Qualité et maintenance " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Management de l'entreprise2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Systèmes embarqués" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Systèmes temps réel " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Vérification et développement mobile " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Association Conv / Machine et Modélisation " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Diagnostic des SA et modélisatio n" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Management de l'entreprise 3 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes embarqués " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes temps réel " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Vérification et développement mobile " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes de vision et optoélectronique " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Multimédia" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Management de l'entreprise 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Maths pour l'ingénieur" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Signal " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Electronique 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Telecom 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Automatique & réseaux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "LC1 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Electronique 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Info 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Théorie des graphes et Applications" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Réseaux 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Telecom 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Management de l'entreprise 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Réseaux 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 4" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 5" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Informatique 2 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "LC2 " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Telecom 6" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Traitement de l'image et de la parole " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux 4" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux Mobiles 1" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Management de l'entreprise 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Réseaux mobiles 2" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Sécurité et interconnexion des réseaux " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Telecom 7" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Info 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Telecom 8" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Management de l'entreprise 3" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Architectures matérielles et sécurité " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Objets communicants" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Déploiement d'infrastuctures et de services opérateurs " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Recherche et innovation" },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Mobile et développement " },
-                    new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Management de l'entreprise 3" }
-                );
-
-                // 
-
+                
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Algebre1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Analyse1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Physique1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Mécanique1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "Chimie" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 1, Title = "LC1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Algebre2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Analyse1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Physique2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Physique3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "Info1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 2, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Algebre3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Analyse3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Mecanique2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Physique4" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "Info2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 3, Title = "LC3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "analyse4" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Maths Appliquées" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Physique 5" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Physique 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "Info 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 4, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Statistique et signal" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "electronique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Matériaux" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Informatique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Automatique 1 et Electrotechnique 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 5, Title = "Management de l'entreprise 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Electrotechnique 2 et simulation" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Thermodynamique industrielle" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Machines Industrielles" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Thermodynamique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Energies et environnement" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 6, Title = "Langue et communication 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Automatismes Industriels " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Technologie mécanique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Solaire Thermique et geothermie " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Energie eolienne" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "Législation et droit de l'environnement " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 7, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Technologies Gazière et Thermique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Management Environnemental" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Maintenance et qualité" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Energies Photovoltaique et hydraulique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Managelent QHSE" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 8, Title = "Management de l'entreprise 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Valorisation des déchets" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "REsponsabilité sociétale des entreprises " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Efficacité Energétique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Optimisation des sytèmes énergétiques hybrides" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Chauffage et climatisation " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 9, Title = "Management de l'entreprise 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "statistiques et signal " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "electronique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "matériaux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "informatique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "automatique 1 et electrotechnique 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 10, Title = "Management de l'entreprise 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Resistance des matériaux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Fluides et structures" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Machines industrielles " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Simulation et métrologie" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "Systèmes d'information" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 11, Title = "LC1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Automatisme et maintenance " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Commande industrielle " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Outils d'aide à la décision " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Fabrication mécanique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "Conception mécanique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 12, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Modélisation & Implantatio n" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Gestion de production" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Maintenance et qualité " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "Pilotage et amélioration continue " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "ERP & MES " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 13, Title = "LC3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "sypply chain & ordonnancement " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Logistique" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Sécurité et energie " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Qualité et environnement " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Controle & supervision " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 14, Title = "Management de l'entreprise 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Maths pour l'ingénieur " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Signal " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Electronique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Programmation" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "Bases de données & réseaux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 15, Title = "LC1 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Développement Informatique2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Bases de données : Développement et manipulation " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Théorie des graphes et recherche opérationnelle" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Réseaux 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Arhcitecture & Linux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 16, Title = "Management de l'entreprise 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Programmation Orientée Objet & XML" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Qualité & Approche processus " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Modélisation orientée objet et IHM" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Bases de données avancées 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "Administration et programmation système " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 17, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Technologies distribuées" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Bases de données avancées II & Cloud " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Traitement de l'image" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Programmation déclarative et TAV" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Sécurité & Cryptographie" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 18, Title = "Management de l'enteprise 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Technologies NET et J2EE" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "IA Avancée et ingénierie de connaissance" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Systèmes d'information décisionnel et BI" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Management des systèmes d'information" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Web services et Applications" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 19, Title = "Management de l'entreprise3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Technologies .NET et J2EE" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "IA Avancée et ingénierie de connaissance " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Systèmes d'information décisionnels et BI" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Qualité référentiels logiciel " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Test et fiabilité des logiciels " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 20, Title = "Management de l'entreprise 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Mathématiques Appliquées" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Traitement du signal " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Electronique1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Ondes et propagation" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Automatique 1 et electrotech 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 21, Title = "Langues et communication 1 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Assembleur, Microprocesseur et microcontroleur " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Electronique 3 et TP" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Electrotechnique 2 et installations électriques " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Instrumentation et automatique 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Informatique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 22, Title = "Management de l'entreprise 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Antennes et Technologies" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Commandes numériques" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Robotique et langage C++" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Electronique de puissance" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "Conception de systèmes électroniques" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 23, Title = "LC2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Automates et DSP" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Circuits et sys intégrés " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Traitement d'images et système de vision" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Programmation VHDL" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Qualité et maintenance " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 24, Title = "Management de l'entreprise2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Systèmes embarqués" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Systèmes temps réel " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Vérification et développement mobile " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Association Conv / Machine et Modélisation " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Diagnostic des SA et modélisatio n" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 25, Title = "Management de l'entreprise 3 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes embarqués " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes temps réel " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Vérification et développement mobile " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Systèmes de vision et optoélectronique " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Multimédia" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 26, Title = "Management de l'entreprise 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Maths pour l'ingénieur" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Signal " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Electronique 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Telecom 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "Automatique & réseaux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 27, Title = "LC1 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Electronique 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Info 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Théorie des graphes et Applications" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Réseaux 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Telecom 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 28, Title = "Management de l'entreprise 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Réseaux 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 4" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Telecom 5" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "Informatique 2 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 29, Title = "LC2 " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Telecom 6" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Traitement de l'image et de la parole " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux 4" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Réseaux Mobiles 1" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 30, Title = "Management de l'entreprise 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Réseaux mobiles 2" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Sécurité et interconnexion des réseaux " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Telecom 7" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Info 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Telecom 8" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 31, Title = "Management de l'entreprise 3" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Architectures matérielles et sécurité " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Objets communicants" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Déploiement d'infrastuctures et de services opérateurs " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Recherche et innovation" });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Mobile et développement " });
+                context.SaveChanges();
+                context.Modules.Add(new Models.Module{ ChefID = 1 , TrainingID = 32, Title = "Management de l'entreprise 3" });
                 context.SaveChanges();
 
-                context.StudentTraining.AddRange(
-                    new Models.StudentTraining{ StudentID = 1 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 2 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 3 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 4 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 5 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 6 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 7 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 8 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 9 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 10 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 11 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 12 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 13 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 14 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 15 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 16 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 17 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 18 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 19 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 20 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 21 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 22 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 23 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 24 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 25 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 26 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 27 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 28 , TrainingID = 18},
-                    new Models.StudentTraining{ StudentID = 29 , TrainingID = 18}
-                );
 
+                // Populating Subjects
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =1   , Title = "Algebre 1"});
                 context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 2  , Title = "Analyse 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =3   , Title = "Electrocinétique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 3  , Title = "Instrumentation 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =4   , Title = "Mécanique du point "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 5  , Title = "Atomistique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 5 , Title = "Chimie organique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =6   , Title = "Français 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =6   , Title = "Activités d'ouvertures 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 7  , Title = "Algèbre 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 8  , Title = "Analyse 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  9 , Title = "Electrostatique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  9, Title = "Magnétostatique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  10 , Title = "Optique géométrique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =   10, Title = "Optique physique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 11  , Title = "Calcul formel"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  11 , Title = "Outils statistiques"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =   11, Title = "Algebre de boole et SN"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =12   , Title = "Français 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 12  , Title = "Anglais 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  12 , Title = "Sport "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 13  , Title = "Algebre 3"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =14   , Title = "Analyse 3"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =15   , Title = "Mécanique industrielle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =16   , Title = "Electromagnétisme"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =17   , Title = "Algorithme"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =17   , Title = "Compléxité"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =18   , Title = "Techniques d'expression et de communication 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =19   , Title = "Analyse 4"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =20   , Title = "Probabilités"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =20   , Title = "Analyse numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =21   , Title = "Electronique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =21   , Title = "Instrumentation 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =22   , Title = "Thermodynamique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =22   , Title = "Instrumentation 3"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =23   , Title = "Programmation en C "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =24   , Title = "Techniques d'expression et de communication 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =24   , Title = "Anglais 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =25   , Title = "Statistiques Appliquées "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =25   , Title = "Traitement du signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =26   , Title = "Electronique Analogique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =26   , Title = "Electronique numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =27   , Title = "Sciences des matériaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =27 , Title = "Dessing industriel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =28   , Title = "Bases de données "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =28   , Title = "Technologie Web "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =29   , Title = "Electrotechnique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =29 , Title = "Automatique Linéaires"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =30   , Title = "Organisation et gestion des entreprises "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =30   , Title = "Comptabilité 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =30   , Title = "Economie 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =31   , Title = "Simulation des systèmes industriels Labview"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =31   , Title = "Electrotechnique 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =31   , Title = "TP Electronique Numérique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =32   , Title = "Mécanique des fluides "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =32   , Title = "Thermodynamique appliquée"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =33   , Title = "Machines thermiques 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =33   , Title = "Machines hydrauliques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =33   , Title = "Installations Electriques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =34   , Title = "Transferts thermiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =34   , Title = "Métrologie et mesures thermiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =35   , Title = "Ecologie industrielle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =35   , Title = "Energies"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =35   , Title = "Conduite de projets énergies et environnement "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =36   , Title = "Développement personnel"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =36   , Title = "Méthodologie de pjt prof "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =36   , Title = "Anglais 1 & Espagnol"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =37   , Title = "Automatisme industriels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 37  , Title = "Supervision "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =38   , Title = "RDM"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =38   , Title = "Conception des sytèmes mécaniques et technologies "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =39   , Title = "Solaire thermique Basse température "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =39   , Title = "Solaire thermique HT"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =39 , Title = "Géothermie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =40   , Title = "Aérodynamique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =40   , Title = "Electronique de puissance"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =40   , Title = "Etude économique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =41   , Title = "Droit de l'environnement"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =41   , Title = "Techniques d'EIE"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =41   , Title = "Projets d'Etudes de cas EIE"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  42 , Title = "Allemand "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =42   , Title = "Anglais professionnel"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 42  , Title = "Techniques de communication "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =43   , Title = "Technologie gazière"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 43  , Title = "Machines Thermiques 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  43 , Title = "Technologie des cycles Combinés"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 44  , Title = "Développement durable"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  44 , Title = "SME ISO 14001"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 44  , Title = "Projet SME"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 45  , Title = "Maintenance et sureté de fonctionnement"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 45  , Title = "outils statistiques qualité "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 46  , Title = "Energie photovoltaîque"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 46  , Title = "Energie hydraulique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 46  , Title = "Techniques de stockage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 47  , Title = "Système de management de la qualité (ISO 9000)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 47  , Title = "Management du risque (OHSAS 18000)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 47  , Title = "Système de management intégré (QSE)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 48  , Title = "Economie et comptabilité 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 48  , Title = "Projet collectif interdisciplinaire 1 et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 48  , Title = "Management de projet "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 49  , Title = "Recyclage industriel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 49  , Title = "Biogaz"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 49  , Title = "Biomasse"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 50  , Title = "Outils RSE "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 50  , Title = "RSE : ISO 26000"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 50  , Title = "Législation de travail"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 51  , Title = "Efficacité energétique dans l'industrie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 51  , Title = "Outils d'efficacité energétique dans le batiment"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 51  , Title = "RTBM et simulation "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 52  , Title = "Systèmes d'information géographiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 52  , Title = "Optimisation des sytèmes énergétiques industriels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 52 , Title = "Systèmes hybrides à Energies renouvelables "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 53  , Title = "Systèmes de chauffage, acoustique et régulation"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 53  , Title = "Climatisation et conditionnement d'air "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 53  , Title = "Froid Industriel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 54  , Title = "Création d'entreprise : Entreprenariat et GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 54  , Title = "Séminaires, Stage et projet collectif interdisciblinaire 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 54  , Title = "Simulation d'entretien d'embauche et ethique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 55  , Title = "Statistiques appliquées "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 55  , Title = "traitement du signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 56  , Title = "Electronique Analogique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 56  , Title = "Electronique numérique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 57  , Title = "Sciences des matériaux"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 57  , Title = "Dessin industriel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 58  , Title = "Bases de données "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 58  , Title = "Technologie Web "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 59  , Title = "Electrotechnique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 59  , Title = "Automatique linéaire "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 60  , Title = "Organisation et gestion des entreprises "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 60  , Title = "Comptabilité 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 60  , Title = "Economie 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 61  , Title = "RDM"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 61  , Title = "TP RDM et project individuel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 62  , Title = "Structures et vibrations"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 62  , Title = "mécanique des fluides "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 63  , Title = "machines thermiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  63 , Title = "machines hydrauliques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 63  , Title = "installations electriques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 64  , Title = "capteurs et métrologie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 64  , Title = "tp electronique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 65  , Title = "systèmes d'information "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 65  , Title = "simulation des sytèmes industriels labview "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  66 , Title = "dév personnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =   66, Title = "Méthodologie Pjt. Prof."});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 66  , Title = "Anglais 1 & Espagnol "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 67  , Title = "automatisme industriels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 67  , Title = "Maintenance industrielle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 68  , Title = "Commande numérique des sytèmes industriels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  68 , Title = "Réseaux locaus industriels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 69  , Title = "Outils d'aide à la décision monocritère"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 69  , Title = "Théorie des graphes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 69 , Title ="Outils d'aide à la décision multicritère"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 70  , Title = "Procédés de fabrication "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  70 , Title = "CFAO (Catia)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 71  , Title = "Conception des systèmes mécaniques et technologies "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 71  , Title = "Analyse de la valeur1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  72 , Title = "Economie & comptabilité 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  72 , Title = "Project Collectifs & stages "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 72  , Title = "Management de projet "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  73 , Title = "Implantation des sytèmes de production "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 73  , Title = "Modélisation et simulation des sytèmes de production "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  74 , Title = "Gestion de production (GP)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 74  , Title = "GP avancée "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 75  , Title = "sûreté de fonctionnement et TP GMAO"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 75  , Title = "Outils statistiques de la qualité "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 75  , Title = "Analyse de la valeur 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 76  , Title = "Amélioration continue et actions de progrès "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 76  , Title = "Evaluation des performances et pilotage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 77  , Title = "ERP "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  77 , Title = "MES (Manufacturing Execution System )"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 78  , Title = "Espagnol 2, Allemand "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 78  , Title = "Anglais professionnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 78  , Title = "Techniques de communication"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =79, Title = "Supply chain management "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 79  , Title = "Ordonnancement "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  80 , Title = "Logistique industrielle et de transport "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 80  , Title = "Logistique maritime "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  80 , Title = "E-logistique / E-commerce"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 81  , Title = "Analyse des données industrielles "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 81  , Title = "Sécurité et Ergonomie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 81  , Title = "Economie d'energie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 82  , Title = "Développement durable et environnement "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  82 , Title = "Management de l'innovation "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 82  , Title = "Management de la qualité "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 83  , Title = "Contrôle de gestoin industrielle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 83  , Title = "Supervision "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 83  , Title = "Gestion industrielle avancée "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  84 , Title = "Création d'entreprise : Entreprenatiat & grh "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  84 , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 84  , Title = "Simulation d'entretien d'embauche et éthique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 85  , Title = "Analyse numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 85  , Title = "Optimisation"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 85  , Title = "statistiques"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  86 , Title = "Traitement du signal"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 86  , Title = "Probabilités "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  87 , Title = "Electronique Analogique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  87 , Title = "Electronique numérique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 88  , Title = "Structure de données / Langage C "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  88 , Title = "Programmation web PHP "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  89 , Title = "Bases de données relationnelles "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 89  , Title = "Concepts fondamentaux des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  90 , Title = "Méthodologie de pp "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 90  , Title = "Développement personnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 90  , Title = "Anglais 1 & Espagnol 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 91  , Title = "POO en C++"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 91  , Title = "Programmation web avec PHP 5"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  92 , Title = "Méthodes de modélisation de BD"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 92  , Title = "Manipulation et dév des BDR "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  92 , Title = "Programmation PLSQL "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  93 , Title = "Recherche opérationnelle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =93   , Title = "Théorie des graphes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 94  , Title = "Protocoles, et adressage des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 94  , Title = "Technologie des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 94  , Title = "TP réseaux (Cisco)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =95   , Title = "Micro-Architectures des processeurs "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  95 , Title = "OS Linux"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 95  , Title = "TP Assembleur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 96  , Title = "Gestion des entreprises 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 96  , Title = "Comptabilité 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 96  , Title = "Economie 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 97  , Title = "Programmation POO Java"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 97  , Title = "XML & applicatoins "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 98  , Title = "Assurance controle qualité (ISO9001)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 98  , Title = "Cycle de vie logiciel et méthodes agiles"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 98  , Title = "Maitries et optimisation des processus "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  99 , Title = "Modélisation orientée objet UML"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 99  , Title = "IHM"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 100  , Title = "Optimisation et qualité de BD"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 100  , Title = "Administration et sécurité des BD "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 100  , Title = "BD NoSQL"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 101  , Title = "Administration système"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 101  , Title = "Progrmmation système "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  102 , Title = "Espagnol 2, Allemand "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  102 , Title = "Anglais professionnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  102 , Title = "Techniques de communication "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  103 , Title = "Introduction à J2EE "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 103  , Title = "Programmation C#"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 104  , Title = "Gestion des données complexes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 104  , Title = "Gestion des données distribuées"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 104  , Title = "Cloud computing & infogérance "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 105  , Title = "TRaitemnt d'image "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 105  , Title = "Vision numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  105 , Title = "Processus stochastique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 106  , Title = "Programmation déclarative "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 106  , Title = "Technique algorithmique avancée "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 107  , Title = "Sécurité des sytèmes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  107 , Title = "Cryptographie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 108  , Title = "Economie & comptabilité 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 108  , Title = "Projets Collectifs & stages "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 108  , Title = "Management de projet "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 109  , Title = "Architectures J2EE : Framework & outils "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 109  , Title = "Programmation mobile Net "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 110  , Title = "IA Avanacée & web sémantique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 110  , Title = "Ingénierie de connaissances "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  111 , Title = "Datawarehouse"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 111  , Title = "Datamining"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 111  , Title = "BigData et applications "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =112   , Title = "Gouvernance des SI"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 112  , Title = "ERP & CRM "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 112  , Title = "Audit & sécurité des SI "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 113  , Title = "Développement Web en .Net "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 113  , Title = "Webservices "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 113  , Title = "E-commerce : technologies et applications "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 114  , Title = "Création d'entreprise entreprenariat & GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 114  , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 114  , Title = "Simulation d'entretien d'embauche et éthique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 115  , Title = "Architectures J2EE : Framework & outils "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 115  , Title = "Programmation mobile Net "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 116  , Title = "IA Avanacée & web sémantique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 116  , Title = "Ingénierie de connaissances "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 117  , Title = "Datawarehouse"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 117  , Title = "Datamining"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 117  , Title = "BigData et applications "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 118  , Title = "Conduite de projet logiciel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  118 , Title = "Qualité processus et produit "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 118  , Title = "Normes et référentiels logiciels "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 119  , Title = "AGL et métrologie logiciel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 119  , Title = "Vérification et validation "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 119  , Title = "Fiabilité et sureté de fonctionnement "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 120  , Title = "Création d'entreprise entreprenariat & GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 120  , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  120 , Title = "Simulation d'entretien d'embauche et éthique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 121  , Title = "Analyse numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  121 , Title = "Optimisation"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 121  , Title = "statistiques"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  122 , Title = "Traitement du signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 123  , Title = "Electronique Analogique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 123  , Title = "Electronique numérique"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  124 , Title = "Ondes Electromagnériques dans la matière "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 124  , Title = "Lignes de transmission"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 125  , Title = "Electrotechnique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 125  , Title = "Automatique linéaire "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 126  , Title = "Méthodologie de PP "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 126  , Title = "Développement Personnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 126  , Title = "Anglais 1 & Espagnol 1 "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 127  , Title = "Assembleur et sys à des microprocesseurs "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  127 , Title = "Microcontroleurs"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 127  , Title = "TP electronique num"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 128  , Title = "Electronique analogique 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 128  , Title = "Automatisme "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 128  , Title = "TP Electronique & automatisme "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 129  , Title = "Electrotechnique 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 129  , Title = "TP Electrotechnique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 129 , Title = "Installations Electriques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 130  , Title = "Métrologie instrumentation et LabView "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 130  , Title = "Automatique 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 131  , Title = "Bases de données relationnelles"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  131 , Title = "Programmation PHP"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 132  , Title = "Organisation et gestion des entreprises "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 132  , Title = "Comptabilité 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 132  , Title = "Economie 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 133  , Title = "Antennes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 133  , Title = "Traitement numérique du signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 134  , Title = "Chaînes d'acquisition"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 134  , Title = "Commandes numériques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 135  , Title = "Progrmmation C++"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 135  , Title = "Robotique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 136  , Title = "Electronique de puissance "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 136  , Title = "Machine tournantes"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 137  , Title = "Conception de systèmes electroniques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 137  , Title = "TP Conception de systèmes electroniques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 138  , Title = "Espagnol 2, Allemand "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 138  , Title = "Anglais Professionnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 138  , Title = "Techniques de communication "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 139  , Title = "Théorie des automates "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 139  , Title = "Automates programmables"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 139   , Title = "DSP "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 140  , Title = "Circuit et systèmes intégrés "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 141  , Title = "Traitement d'images "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 141  , Title = "Système de vision "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 142  , Title = "Programmation VHDL "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 143  , Title = "Outils et gestion de la qualité "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 143  , Title = "Maintenance & sureté de fonctionnement "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 144  , Title = "Economie & comptabilité 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 144  , Title = "Projets Collectifs & stages "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 144  , Title = "Management de projet "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 145  , Title = "Systèmes embarqués "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 146  , Title = "Systèmes Temps réel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 147  , Title = "Développement mobile "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 147  , Title = "Vérification de système temps Réel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 148  , Title = "Association conv/Machines "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 148  , Title = "QSE"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 149  , Title = "Diagnostic des sytèmes automatique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 149  , Title = "SYSML - UML "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 150  , Title = "Création d'entreprise : Entreprenariat et GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 150  , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 150  , Title = "Simulation d'entretien d'embauche et ethique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 151  , Title = "Systèmes embarqués "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 152  , Title = "Systèmes Temps réel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 153  , Title = "Développement mobile "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 153  , Title = "Vérification de système temps Réel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  154 , Title = "Systèmes de vision : du pixel à l'information"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 154  , Title = "Optoélectronique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  155 , Title = "Multimédia: gestion flux vidéo, image et parole "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 156  , Title = "Création d'entreprise : Entreprenariat et GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 156  , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 156  , Title = "Simulation d'entretien d'embauche et ethique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 157  , Title = "Analyse numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 157  , Title = "Optimisation "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 157  , Title = "Statistiques appliquées "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 158  , Title = "Traitement du signal"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 158  , Title = "TP signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 159  , Title = "Electronique analogique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 159  , Title = "Electronique numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 160  , Title = "Ondes Electromagnétiques dans la matière "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 160  , Title = "Lignes de transmission "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 161  , Title = "Automatique linéaire "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 161  , Title = "Concept fondamentaux des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 162  , Title = "Méthodologie de PP "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 162  , Title = "Développement personnel "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 162   , Title = "Anglais 1 & Espagnol 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 163  , Title = "Microarchitectures des processeurs & Assembleur"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 163  , Title = "OS Linux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  163 , Title = "TP Electronique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 164  , Title = "POO Java "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  164 , Title = "Bases de Données & UML "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 165  , Title = "Recherche Opérationnelle "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 165  , Title = "Théorie des Graphes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 166  , Title = "Protocoles, et adressage des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 166  , Title = "Technologie des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 166  , Title = "TP Réseaux (Cisco)"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 167  , Title = "Communication analogiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 168  , Title = "Théorie de l'information et codage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 169  , Title = "Gestion des entreprises 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 169  , Title = "Comptabilité 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 169  , Title = "Economie 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID = 170  , Title = "Traitement numérique du signal "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  170 , Title = "Communication numériques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  171 , Title = "Protocoles et concepts de routage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  171 , Title = "Commutation de réseau local "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  171 , Title = "Technologies WAN "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  172 , Title = "Guides d'ondes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  172 , Title = "Propagation Radio "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  172 , Title = "TP Telecom 1"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  173 , Title = "Antennes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  173 , Title = "Dispositifs Micro ondes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  174 , Title = "Architectures mobiles "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  174 , Title = "Programmation VHDL "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  174 , Title = "Développement Web , J2EE "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  175 , Title = "Espagnol 2, Allemand "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  175 , Title = "Anglais Professionnel"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  175 , Title = "Techniques de communication "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  176 , Title = "Fibres optiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  176 , Title = "Liasions Optiques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  176 , Title = "TP Telecom 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  177 , Title = "Traitement de l'image "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  177 , Title = "Traitement et codage de la parole "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  178 , Title = "Réseaux de transport "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  178 , Title = "Voix sur IP, PABX "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  178 , Title = "Architecture des centres de données "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  179 , Title = "Programmation Réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  179 , Title = "Administration réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  179 , Title = "Administration systèmes"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  180 , Title = "Economie & comptabilité 2"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  180 , Title = "Projet Collectifs & stages "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  180 , Title = "Management de projet "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  181 , Title = "Réseaux mobiles de nouvelle génération"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  181 , Title = "Techniques émergentes en communication numérique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  181 , Title = "Signalisation 2G/3G "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  182 , Title = "Sécurité des réseaux "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  182 , Title = "Cryptographie "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  182 , Title = "Interconnexion des réseaux privés: VPN/MPLS"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  183 , Title = "Réseaux des capteurs sans fils "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  183 , Title = "Télécommunications satellitaires "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  183 , Title = "Haut débit et technologies des réseaux tout-optique "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  184 , Title = "Fouille de données "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  184 , Title = "Développement mobile "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  185 , Title = "Architecture des sytèmes radio "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  185 , Title = "TP Telecom 3"});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  185 , Title = "Projets Télécom "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  186 , Title = "Création d'entreprise : Entreprenariat & GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  186 , Title = "Séminaires , projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  186 , Title = "Simulation d'entretien d'embauche et éthique de l'ingénieur "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  187 , Title = "Architectures matérielles sécurisées "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  187 , Title = "Circuits Logiques Configurables: applications en télécoms "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  187 , Title = "Conception de circuits logiques complexes "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  188 , Title = "Système electroniques communicants "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  188 , Title = "Smarts objets "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  189 , Title = "Gestion de projets télécoms et analyse des risques "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  189 , Title = "Architectures télécoms avancées "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  189 , Title = "Gestion de flux multimédia vidéo "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  190 , Title = "Projet Recherche et innovation "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  191 , Title = "Réseaux Mobiles de nouvelle génération "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  191 , Title = "Développement Mobile "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  192 , Title = "Création d'entreprise : entreprenariat & GRH "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  192 , Title = "Séminaires, projet libre et stage "});
+                context.SaveChanges();
+                context.Subjects.Add(new Models.Subject{ ChefID = 1, ModuleID =  192 , Title = "Simulation d'entretien d'embauche et éthique de l'ingénieur."});
+                context.SaveChanges();
+
+
+
+                // Populating some student trainings
+
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 1 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 2 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 3 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 4 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 5 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 6 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 7 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 8 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 9 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 10 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 11 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 12 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 13 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 14 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 15 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 16 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 17 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 18 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 19 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 20 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 21 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 22 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 23 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 24 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 25 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 26 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 27 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 28 , TrainingID = 18});
+                context.SaveChanges();
+                context.StudentTraining.Add(new Models.StudentTraining{ StudentID = 29 , TrainingID = 18});
+                context.SaveChanges();
+
+
+
             }
         }
     }

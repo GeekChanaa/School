@@ -32,15 +32,30 @@ namespace SchoolApi.Controllers
             Console.WriteLine("this is the course date api");
             Console.WriteLine(courseDateParams.Training);
             if(courseDateParams.Training != null)
-                return await _context.CourseDate.Where(c => c.Training.Title == courseDateParams.Training).ToListAsync();
-            return await _context.CourseDate.ToListAsync();
+                return await _context.CourseDate.Where(c => c.Training.Title == courseDateParams.Training)
+                    .Include(c=> c.Training )
+                        .ThenInclude(t => t.StudentTrainings)
+                            .ThenInclude(t=>t.Student).ToListAsync();
+            if(courseDateParams.ProfessorID != 0){
+                return await _context.CourseDate.Where(c => c.ProfessorID == courseDateParams.ProfessorID)
+                    .Include(c=> c.Training )
+                        .ThenInclude(t => t.StudentTrainings)
+                            .ThenInclude(t=>t.Student).ToListAsync();
+            }
+            return await _context.CourseDate
+                .Include(c=> c.Training )
+                    .ThenInclude(t => t.StudentTrainings)
+                        .ThenInclude(t=>t.Student).ToListAsync();
         }
 
         // GET: api/CourseDate/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CourseDate>> GetCourseDate(int id)
         {
-            var courseDate = await _context.CourseDate.FindAsync(id);
+            var courseDate = await _context.CourseDate
+                    .Include(c=> c.Training )
+                        .ThenInclude(t => t.StudentTrainings)
+                            .ThenInclude(t=>t.Student).FirstOrDefaultAsync(c=> c.ID == id);
 
             if (courseDate == null)
             {
@@ -86,14 +101,17 @@ namespace SchoolApi.Controllers
         [HttpPost]
         public async Task<ActionResult<CourseDate>> PostCourseDate([FromBody] CourseDateDto courseDateDto)
         {
+
+            Console.WriteLine("========== this is for test purposes =========");
             Console.WriteLine(courseDateDto.StartDate);
             Console.WriteLine(courseDateDto.EndDate);
+            Console.WriteLine(courseDateDto.ProfessorID);
             DateTime start = DateTime.ParseExact(courseDateDto.StartDate, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             DateTime end = DateTime.ParseExact(courseDateDto.EndDate, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
             CourseDate @courseDate = new CourseDate{
                 Title = courseDateDto.Title,
                 Salle = courseDateDto.Salle,
-                Prof = courseDateDto.Title,
+                ProfessorID = courseDateDto.ProfessorID,
                 Description = courseDateDto.Title,
                 DateStart = start,
                 DateEnd = end,

@@ -1,0 +1,31 @@
+<h1 mat-dialog-title>Add Grades By Student</h1>
+
+<form #loginForm="ngForm" class="" (ngSubmit)="create()">
+    <div mat-dialog-content>
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Subject Chef</mat-label>
+                <mat-select name="moduleId" [(ngModel)]="model.studentID"> 
+                <mat-option (onSelectionChange)="change($event)" *ngFor="let student of students" [value]="student.id">
+                    {{student.firstName}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </p>
+        <div>
+            <div *ngFor="let module of modules">
+                {{module.title}}
+                <p *ngFor="let subject of module.subjects">
+                    <input type="number" [(ngModel)]="studentGrades[subject.id]" name="studentGrades">
+                </p>
+            </div>
+        </div>
+
+        <button (click)="log()">go</button>
+
+    </div>
+    <div mat-dialog-actions>
+    <button mat-dialog-close mat-button type="submit">Save</button>
+    <button mat-dialog-close mat-button type="button">Close</button>
+    </div>
+</form>
