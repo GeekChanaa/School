@@ -21,6 +21,10 @@ export class AttendanceService {
     return this.http.get<Attendance[]>(this.baseUrl);
   }
 
+  getAttendancesByUser(userid:number): Observable<Attendance[]>{
+    return this.http.get<Attendance[]>(this.baseUrl+"?userid="+userid);
+  }
+
   deleteAttendanceById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

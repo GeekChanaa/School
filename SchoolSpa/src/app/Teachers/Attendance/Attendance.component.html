@@ -1,0 +1,29 @@
+<form action="" (ngSubmit)="create()">
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Courses</mat-label>
+    <mat-select name="moduleId" [(ngModel)]="model.chefId"> 
+      <mat-option *ngFor="let course of courseDates"  [value]="course.id" (onSelectionChange)="change($event)">
+        {{course.dateStart}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+
+
+<table>
+  <th>Student</th>
+  <th>Attended</th>
+  <tr *ngFor="let student of students">
+    <td>{{student.student.fullName}}</td>
+    <td>
+      <mat-checkbox name="attended" value="0" class="example-margin" [(ngModel)]="attended[student.student.id]"></mat-checkbox>
+    </td>
+  </tr>
+</table>
+
+<button type="submit" mat-button>Submit</button>
+
+</form>

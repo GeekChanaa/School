@@ -14,7 +14,7 @@ export class MarksComponent implements OnInit {
 
   ngOnInit() {
     this._userService.getUser(this._authService.decodedToken.nameid).subscribe((data) => {
-      data.grades.forEach(item => {
+      data.grades.forEach((item: { subjectID: string | number; }) => {
         this.grades[item.subjectID] = item;
       });
       console.log(this.grades);

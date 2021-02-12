@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Helpers;
 
 namespace SchoolApi.Controllers
 {
@@ -23,8 +24,11 @@ namespace SchoolApi.Controllers
 
         // GET: api/Attendance
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Attendance>>> GetAttendances()
+        public async Task<ActionResult<IEnumerable<Attendance>>> GetAttendances([FromQuery] AttendanceParams attendanceParams)
         {
+            if(attendanceParams.UserId != 0){
+                return await _context.Attendances.Where(a => a.UserID == attendanceParams.UserId).ToListAsync();
+            }
             return await _context.Attendances.ToListAsync();
         }
 
