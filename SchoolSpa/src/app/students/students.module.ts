@@ -16,6 +16,9 @@ import { CalendarComponent } from './Calendar/Calendar.component';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import timeGridPlugin from '@fullcalendar/timegrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin
+import { NavbarComponent } from './Navbar/Navbar.component';
+import { SidebarComponent } from './Sidebar/Sidebar.component';
+import { HomeComponent } from './Home/Home.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -35,11 +38,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatCardModule,
     MatMenuModule,
     FullCalendarModule,
-    
   ],
   declarations: [
     StudentsComponent,
-    CalendarComponent
+    NavbarComponent,
+    CalendarComponent,
+    SidebarComponent,
+    HomeComponent
   ]
 })
 export class StudentsModule { }

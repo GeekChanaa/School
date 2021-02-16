@@ -171,7 +171,7 @@ export class EnterStudentGradesComponent {
   create(){
     
     this.modules.forEach(item => {
-      item.subjects.forEach((iteme: { id: string | number; }) => {
+      item.subjects.forEach((iteme: { id: number; }) => {
         let grade = {
           value : this.studentGrades[iteme.id],
           studentID : this.model.studentID,

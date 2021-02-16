@@ -21,7 +21,7 @@ import { UserPrivilegeComponent } from './UserPrivileges/UserPrivileges.componen
 import { UsersComponent } from './Users/Users.component';
 
 const routes: Routes = [
-    { path : '' , component : HomeComponent, canActivate : [AdminGuard]},
+    { path : '' , component : HomeComponent},
     { path : 'users', component : UsersComponent},
     { path : 'events', component : EventsComponent},
     { path : 'faculties', component : FacultiesComponent},

@@ -34,6 +34,10 @@ export class DocumentRequestService {
   editDocumentRequest(id:number,model:any){
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
+
+  getDocumentRequestsByUser(userid:number){
+    return this.http.get(this.baseUrl+"?userid="+userid);
+  }
 }
 
 export interface DocumentRequest{
@@ -43,5 +47,6 @@ export interface DocumentRequest{
   type : string;
   training : string;
   student : any;
+  status : string;
 
 }

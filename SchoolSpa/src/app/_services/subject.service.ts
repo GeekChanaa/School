@@ -37,6 +37,11 @@ export class SubjectService {
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 
+  // Get Subjects By Teacher
+  getSubjectsByTeacher(userid:number){
+    return this.http.get(this.baseUrl+"?userid="+userid);
+  }
+
   
 }
 

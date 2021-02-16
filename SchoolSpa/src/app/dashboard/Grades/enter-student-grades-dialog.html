@@ -4,7 +4,7 @@
     <div mat-dialog-content>
         <p>
             <mat-form-field appearance="fill">
-                <mat-label>Subject Chef</mat-label>
+                <mat-label>Student</mat-label>
                 <mat-select name="moduleId" [(ngModel)]="model.studentID"> 
                 <mat-option (onSelectionChange)="change($event)" *ngFor="let student of students" [value]="student.id">
                     {{student.firstName}}
@@ -16,12 +16,13 @@
             <div *ngFor="let module of modules">
                 {{module.title}}
                 <p *ngFor="let subject of module.subjects">
-                    <input type="number" [(ngModel)]="studentGrades[subject.id]" name="studentGrades">
+                    <mat-form-field appearance="legacy">
+                    <mat-label>{{subject.title}}</mat-label>
+                    <input matInput name="studentGrades" [(ngModel)]="studentGrades[subject.id]" placeholder="Value">
+                    </mat-form-field>
                 </p>
             </div>
         </div>
-
-        <button (click)="log()">go</button>
 
     </div>
     <div mat-dialog-actions>

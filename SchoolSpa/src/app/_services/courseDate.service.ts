@@ -66,4 +66,5 @@ export interface CourseDate{
   startDate : string;
   endDate : string;
   professor: any;
+  training : any;
 }

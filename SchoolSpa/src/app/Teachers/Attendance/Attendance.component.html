@@ -2,6 +2,17 @@
 
 <p>
   <mat-form-field appearance="fill">
+    <mat-label>Subjects</mat-label>
+    <mat-select name="subjectId" [(ngModel)]="model.subjectId"> 
+      <mat-option *ngFor="let subject of subjects"  [value]="subject.id">
+        {{subject.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
     <mat-label>Courses</mat-label>
     <mat-select name="moduleId" [(ngModel)]="model.chefId"> 
       <mat-option *ngFor="let course of courseDates"  [value]="course.id" (onSelectionChange)="change($event)">
@@ -10,8 +21,6 @@
     </mat-select>
   </mat-form-field>
 </p>
-
-
 
 <table>
   <th>Student</th>

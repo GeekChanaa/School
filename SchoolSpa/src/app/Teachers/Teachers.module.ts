@@ -18,7 +18,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
-import { AbsenceComponent } from './Absence/Absence.component';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';

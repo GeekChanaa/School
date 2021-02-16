@@ -1,6 +1,8 @@
-<mat-card>
+<!-- <mat-card>
   <button mat-button color="primary" (click)="openDialog()">Add New Event</button>
-</mat-card>
+</mat-card> -->
+<h2 class="section-title">Events <a data-scroll="" (click)="openDialog()" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add Event"></a></h2>
+
 <div class="mat-elevation-z8">
   <table class="data-table" mat-table [dataSource]="dataSource">
 
@@ -38,7 +40,7 @@
     <ng-container matColumnDef="Actions">
 
       <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let element">
+      <td mat-cell *matCellDef="let element" class="td-action">
         <form #loginForm="ngForm" class="" (ngSubmit)="delete(element.id)">
           <button mat-button mat-icon-button type="submit">
             <mat-icon>delete</mat-icon>

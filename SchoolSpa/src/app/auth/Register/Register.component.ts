@@ -9,6 +9,8 @@ import { AuthService } from '../../_services/auth.service';
 export class RegisterComponent implements OnInit {
   
   model:any ={};
+  validationError = false;
+  errors : string = "";
 
   constructor(private _userService: AuthService) { }
 
@@ -16,8 +18,13 @@ export class RegisterComponent implements OnInit {
   }
 
   create(){
-    this._userService.register(this.model).subscribe(() => {
+    console.log(this.model);
+    this._userService.register(this.model).subscribe((next) => {
       console.log("created user");
+    }, error => {
+      console.log(error);
+      this.validationError = true;
+      this.errors = error;
     });
   }
 

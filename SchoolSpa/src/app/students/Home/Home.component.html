@@ -1,3 +1,55 @@
-<p>
-  Home works!
-</p>
+<!-- content -->
+
+
+<h1 class="h2 font-weight-light">Welcome back <b>{{user.firstName}} {{user.lasName}}</b></h1>
+
+<!-- alerts -->
+<section id="section-8">
+  <h2 class="section-title">Informations Personnelles <a data-scroll="" href="#section-8" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <div class="">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <p>
+          <b>CIN : </b>
+          {{user.cin}}
+        </p>
+        <p>
+          <b>CNE : </b>
+          {{user.cne}}
+        </p>
+        <p>
+          <b>Date of Birth : </b>
+          {{user.date_birth}}
+        </p>
+        <i class="icon-info-circle"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / alerts -->
+
+<section id="section-8">
+  <h2 class="section-title">Informations Professionnelles <a data-scroll="" href="#section-8" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <div class="">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <p>
+          <b>Email : </b>
+          {{user.email}}
+        </p>
+        <p>
+          <b>Training : </b>
+          {{user.studentTraining.training.title}}
+        </p>
+        <p>
+          <b>Code Appogée : </b>
+          {{user.codeAppoge}}
+        </p>
+        <i class="icon-info-circle"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

@@ -1,32 +1,73 @@
 
-<mat-card>
-  <form #requestForm="ngForm" class="" (ngSubmit)="createRequest()">
-    <mat-form-field appearance="fill">
-      <mat-label>Training</mat-label>
-      <mat-select name="training" [(ngModel)]="model.training"> 
-        <mat-option *ngFor="let training of trainings" [value]="training.title">
-          {{training.title}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Type</mat-label>
-      <mat-select name="type" [(ngModel)]="model.type"> 
-        <mat-option  value="releve">
-          Relevé de notes
-        </mat-option>
-        <mat-option  value="attestation de reussite">
-          Attestation de réussite
-        </mat-option>
-        <mat-option  value="attestation de scolarité">
-          Attestation de scolarité
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
 
-    <button mat-button type="submit">Save</button>
 
-    
-  </form>
-</mat-card>
+<section id="section-8">
+  <h2 class="section-title">Request a Document<a data-scroll="" href="#section-8" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <mat-card class="col-lg-6 offset-lg-3 text-center">
+    <form #requestForm="ngForm" class="" (ngSubmit)="createRequest()">
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Training</mat-label>
+          <mat-select name="training" [(ngModel)]="model.training"> 
+            <mat-option *ngFor="let training of trainings" [value]="training.title">
+              {{training.title}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Type</mat-label>
+          <mat-select name="type" [(ngModel)]="model.type"> 
+            <mat-option  value="releve">
+              Relevé de notes
+            </mat-option>
+            <mat-option  value="attestation de reussite">
+              Attestation de réussite
+            </mat-option>
+            <mat-option  value="attestation de scolarité">
+              Attestation de scolarité
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <input type="hidden" name="status" [(ngModel)]="model.status" value="processing">
+      
+      <p>
+        <button color="primary" mat-raised-button type="submit">Save</button>
+      </p>
+      
+  
+      
+    </form>
+  </mat-card>
+</section>
+
+<!-- table -->
+<section id="section-8">
+  <h2 class="section-title">My Requests <a data-scroll="" href="#section-4" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <div class="">
+    <div class="col">
+      <table class="table table-striped boxed">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Training</th>
+            <th scope="col">Type</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let request of requests">
+            <th scope="row">1</th>
+            <td>{{request.training}}</td>
+            <td>{{request.type}}</td>
+            <td>{{request.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- / table -->

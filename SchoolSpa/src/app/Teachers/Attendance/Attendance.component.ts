@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AttendanceService } from 'src/app/_services/attendance.service';
 import { AuthService } from 'src/app/_services/auth.service';
 import { CourseDateService } from 'src/app/_services/courseDate.service';
+import { SubjectService } from 'src/app/_services/subject.service';
 
 @Component({
   selector: 'app-Attendance',
@@ -15,8 +16,10 @@ export class AttendanceComponent implements OnInit {
   students : any[] = [];
   attended : any[] = [];
   cdid : number;
-  constructor(private _authService: AuthService, private _courseDateService : CourseDateService, private _attendanceService : AttendanceService) { 
+  subjects : any;
+  constructor(private _authService: AuthService, private _courseDateService : CourseDateService, private _attendanceService : AttendanceService, private _subjectService : SubjectService) { 
     this.InitCourseDates();
+    this.InitSubjects();
   }
 
   // Initialising necessary course dates for this teacher
@@ -33,7 +36,7 @@ export class AttendanceComponent implements OnInit {
         this.cdid = data.id;
         this.students = data.training.studentTrainings;
         
-        data.training.studentTrainings.forEach(item => {
+        data.training.studentTrainings.forEach((item: { student: { id: number; }; }) => {
           this.attended[item.student.id]=false;
         });
       });
@@ -49,6 +52,12 @@ export class AttendanceComponent implements OnInit {
         coursedateid : this.cdid, 
       }
       this._attendanceService.createAttendance(this.model).subscribe(() => console.log("created attendance"));
+    });
+  }
+
+  InitSubjects(){
+    this._subjectService.getSubjectsByTeacher(this._authService.decodedToken.nameid).subscribe((data)=> {
+      this.subjects = data;
     });
   }
 

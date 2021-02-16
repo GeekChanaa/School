@@ -12,7 +12,7 @@
 			<div class="vlt-gap-70--lg"></div>
 			<!--Animated Block-->
 			<div class="vlt-animated-block" data-animation-name="fadeInUpSm" style="animation-delay:.1s; animation-duration:700ms;">
-				<h4>Let's grab a coffee and jump on conversation <span class="has-accent-color">chat with me.</span></h4>
+				<h4>Register <span class="has-accent-color">.</span></h4>
 				<div class="vlt-gap-20"></div>
 				<form #loginForm="ngForm" class="form-create" (ngSubmit)="create()">
 					
@@ -40,15 +40,13 @@
                     <div class="vlt-form-group">
                         <input type="text"  name="password" [(ngModel)]="model.password" placeholder="Password">
 					</div>
+
+					<div *ngIf="validationError" class="message danger">{{errors}}</div>
                     
-        
-					
-					<div class="message success">Your message is successfully sent...</div>
-					<div class="message danger">Sorry something went wrong!</div>
 					<!--Button-->
 					<button class="vlt-btn vlt-btn--primary vlt-btn--md">Register</button>
 
-					<a href="/auth/register">Login</a>
+					<a style="margin-left: 5px;" class="vlt-btn vlt-btn--primary vlt-btn--md" href="/auth/register">Login</a>
 					
 				</form>
 			</div>

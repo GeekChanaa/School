@@ -14,7 +14,7 @@ export class MarksComponent implements OnInit {
 
   ngOnInit() {
     this._userService.getUser(this._authService.decodedToken.nameid).subscribe((data) => {
-      data.grades.forEach((item: { subjectID: string | number; }) => {
+      data.grades.forEach((item: { subjectID: number; }) => {
         this.grades[item.subjectID] = item;
       });
       console.log(this.grades);
@@ -23,13 +23,10 @@ export class MarksComponent implements OnInit {
         sum += item.subjects.length;
       });
       console.log("this is the sum :"+sum)
-      this.tiles = [
-        {text: data.studentTraining.training.title, cols: 1, rows: sum, color: 'lightblue'},
-      ];
       data.studentTraining.training.modules.forEach((item: { title: any; subjects: any[]; }) => {
         this.tiles.push({text: item.title, cols: 1, rows: item.subjects.length, color: 'lightblue'})
         item.subjects.forEach((item,index) => {
-          this.tiles.push({text: item.title, cols: 1, rows: 1, color: 'lightblue'})
+          this.tiles.push({text: item.title, cols: 2, rows: 1, color: 'lightblue'})
           if(this.grades[item.id]){
             this.tiles.push({text: this.grades[item.id].value, cols: 1, rows: 1, color: 'lightblue'})  
           } 
