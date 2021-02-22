@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Helpers;
 
 namespace SchoolApi.Controllers
 {
@@ -23,8 +24,11 @@ namespace SchoolApi.Controllers
 
         // GET: api/DocumentRequest
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DocumentRequest>>> GetDocumentRequest()
+        public async Task<ActionResult<IEnumerable<DocumentRequest>>> GetDocumentRequest([FromQuery] DocumentRequestParams documentRequestParams)
         {
+            if(documentRequestParams.Userid != 0){
+                return await _context.DocumentRequest.Where(d => d.StudentID == documentRequestParams.Userid).ToListAsync(); 
+            }
             return await _context.DocumentRequest.ToListAsync();
         }
 

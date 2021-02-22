@@ -31,13 +31,34 @@ namespace SchoolApi.Controllers
             // Validating request
 
             userForRegisterDto.Email = userForRegisterDto.Email.ToLower();
-
+            Console.WriteLine("USERDTO in the first thing");
+            Console.WriteLine(userForRegisterDto.FirstName);
+            Console.WriteLine(userForRegisterDto.Email);
             if(await _repo.UserExists(userForRegisterDto.Email)){
                 return BadRequest("Email already exists");
             }
+            
+            if(userForRegisterDto.CIN != null){
+                if(await _repo.CinExists(userForRegisterDto.CIN)){
+                    return BadRequest("CIN already exists");
+                }
+            }
+            
+
+            if(userForRegisterDto.CNE != null){
+                if(await _repo.UserExists(userForRegisterDto.CNE)){
+                    return BadRequest("CNE already exists");
+                }
+            }
 
             var userToCreate = new User{
-                Email = userForRegisterDto.Email
+                Email = userForRegisterDto.Email,
+                CIN= userForRegisterDto.CIN,
+                CNE= userForRegisterDto.CNE,
+                FirstName = userForRegisterDto.FirstName,
+                LastName = userForRegisterDto.LastName,
+                CodeAppoge = userForRegisterDto.CodeAppoge,
+                date_birth = userForRegisterDto.date_birth
             };
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);

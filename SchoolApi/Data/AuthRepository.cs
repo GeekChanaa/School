@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using SchoolApi.Models;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace SchoolApi.Data
 {
@@ -18,7 +19,9 @@ namespace SchoolApi.Data
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-
+            Console.WriteLine("THIS IS THE §USER : ");
+            Console.WriteLine(user.FirstName);
+            Console.WriteLine(user.Email);
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
@@ -59,8 +62,25 @@ namespace SchoolApi.Data
             return true;
         }
 
+        // Unicity of Email
         public async Task<bool> UserExists(string email){
             if(await _context.Users.AnyAsync(x => x.Email == email)){
+                return true;
+            }
+            return false;
+        }
+
+        // Unicity of CIN
+        public async Task<bool> CinExists(string cin){
+            if(await _context.Users.AnyAsync(x => x.CIN == cin)){
+                return true;
+            }
+            return false;
+        }
+
+        // Unicity of CNE
+        public async Task<bool> CneExists(string cne){
+            if(await _context.Users.AnyAsync(x => x.CNE == cne)){
                 return true;
             }
             return false;

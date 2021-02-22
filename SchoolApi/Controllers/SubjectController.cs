@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolApi.Data;
 using SchoolApi.Models;
+using SchoolApi.Helpers;
 
 namespace SchoolApi.Controllers
 {
@@ -23,8 +24,11 @@ namespace SchoolApi.Controllers
 
         // GET: api/Subject
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
+        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects([FromQuery] SubjectParams subjectParams)
         {
+            if(subjectParams.userid != 0){
+                return await _context.Subjects.Where(s => s.ChefID == subjectParams.userid).ToListAsync();
+            }
             return await _context.Subjects.ToListAsync();
         }
 

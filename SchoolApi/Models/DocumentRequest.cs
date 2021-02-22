@@ -8,6 +8,7 @@ namespace SchoolApi.Models
         public int StudentID {get; set;}
         public string Type {get ;set;}
         public string Training {get; set;}
+        public string Status {get; set;}
 
         public virtual User Student {get; set;}
     }

@@ -70,12 +70,12 @@ namespace SchoolApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     PasswordHash = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     PasswordSalt = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
-                    CIN = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CNE = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CIN = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CNE = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CodeAppoge = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CodeAppoge = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     date_birth = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -166,7 +166,8 @@ namespace SchoolApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StudentID = table.Column<int>(type: "int", nullable: false),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Training = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Training = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

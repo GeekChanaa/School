@@ -34,7 +34,6 @@ namespace SchoolApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers([FromQuery] UserParams userParams)
         {
-            Console.WriteLine("this is users api");
                 Console.WriteLine(userParams.Training);
                 if(userParams.Training != null){
                     return await _context.Users.Where(u => u.StudentTraining.Training.Title == userParams.Training)
@@ -132,7 +131,7 @@ namespace SchoolApi.Controllers
 
             var userToCreate = new User{
                 Email = userForRegisterDto.Email,
-                CIN=userForRegisterDto.CIN,
+                CIN= userForRegisterDto.CIN,
                 CNE= userForRegisterDto.CNE,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,

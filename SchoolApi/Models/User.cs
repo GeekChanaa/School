@@ -16,14 +16,14 @@ namespace SchoolApi.Models
         [Required]
         public byte[] PasswordSalt { get; set; }
 
-        [Required]
+
         [StringLength(50)]
         [Display(Name = "CIN")]
-        public string CIN { get; set; }
-        [Required]
+        public string? CIN { get; set; }
+
         [StringLength(50)]
         [Display(Name = "CNE")]
-        public string CNE {get ;set;}
+        public string? CNE {get ;set;}
         [Required]
         [StringLength(50)]
         [Display(Name = "First Name")]
@@ -36,10 +36,9 @@ namespace SchoolApi.Models
         [StringLength(50)]
         [Display(Name = "E-mail")]
         public string Email {get;set;}
-        [Required]
         [StringLength(50)]
         [Display(Name = "Code Appoge")]
-        public string CodeAppoge {get;set;}
+        public string? CodeAppoge {get;set;}
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
