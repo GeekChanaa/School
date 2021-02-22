@@ -57,6 +57,8 @@ export class AttendanceComponent implements OnInit {
 
   InitSubjects(){
     this._subjectService.getSubjectsByTeacher(this._authService.decodedToken.nameid).subscribe((data)=> {
+      console.log(this._authService.decodedToken.nameid);
+      console.log(data);
       this.subjects = data;
     });
   }
