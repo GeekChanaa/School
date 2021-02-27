@@ -8,6 +8,20 @@ namespace SchoolApi.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Announcement",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Announcement", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -34,6 +48,21 @@ namespace SchoolApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Groups", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "New",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_New", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -666,6 +695,9 @@ namespace SchoolApi.Migrations
                 name: "AbsenceJustifications");
 
             migrationBuilder.DropTable(
+                name: "Announcement");
+
+            migrationBuilder.DropTable(
                 name: "Assignments");
 
             migrationBuilder.DropTable(
@@ -685,6 +717,9 @@ namespace SchoolApi.Migrations
 
             migrationBuilder.DropTable(
                 name: "GroupMemberships");
+
+            migrationBuilder.DropTable(
+                name: "New");
 
             migrationBuilder.DropTable(
                 name: "StudentTraining");

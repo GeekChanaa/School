@@ -1,155 +1,205 @@
-========================================First Priority things ====================================
-## Admin Dashboard
-    For All Create / Edit / Delete Actions the table should be updated automatically
+First Page : 
+    Events
+        Display 6 first events
+        Event page
+        Event ability to add picture
+    Announcments
+        Display 4 last announcements
+        Announcement page
+        add picture
+    fix navbar (remove unused links and add important ones)
+        login to dashboard(by rank) if user is logged in
+    News
+        Display 6 last News
+        News Page
+        add picture
+    fix pictures of the first page
 
-    Redirect to home page after logout (done)
-    Middlewares to pages 
-    Fix design left sidebar 
-    --show User Picture in navbar (if there is none show the first letter of his firstName)
-
-    Main Page : 
-        Show number of students / teachers / Guests / Administrators 
-        Number of students by training 
-
-    Users : 
-        Validation Issues 
-        Check for Edit problems 
-        The user should not be forced to give his cne / cin 
-        The user should have cne / cin if he's a student 
-        teacher also should give his cin 
-
-    Events : 
-        Validation Issues
-        Edit Event
-        Event Should have a description 
+Dashboard
+    Services
+        count announcements
+        count assignments
+        count attendances (absentees and attendances)
+        count users (by rank also)
+        count classrooms
+        Crud on classrooms
+        count course dates
+        count document requests
+        count events
+        remove faculty from everything
+        count grades
+        remove posts and group comments
+        remove group membership and groups
+        count news
+        count modules
+        count privileges
+        count subjects
+        count trainings
+        remove weatherforecast completely
     
-    Trainings : 
-        Put Training Route in the sidebar (done)
+    Cleaning App module ( it will be a lot of work but it should be done )
 
-    Grades : 
-        Listing (done)
-        Create (done)
-        Delete (done)
-        Update 
+    Cleaning the project
+        Comment and clean login
+        comment and clean register
+        comment and clean auth component
     
-    Classrooms : 
-        Listing (done)
-        Create (done)
-        Delete (done)
-        Update
+    Cleaning the project (Dashboard)
+        comment and clean  announcements
+        Comment and clean  calendar
+        Comment and clean classrooms
+        Comment and clean coursedates
+        Comment and clean documentrequests
+        Comment and clean events
+        delete faculties
+        Comment and clean Grades
+        delet groupes
+        comment and clean home
+        comment and clean modules
+        comment and clean news
+        comment and clean privileges
+        comment and clean student trainings
+        comment and clean subjects
+        Comment and clean training modules
+        Comment and clean user privileges
+        Comment and clean users
 
-
-## Students Dashboard 
-    Students Middleware to all these routes
-    Home Page 
-        Informations About the student (Everything)
-        Design this page
-    Courses Page 
-        Listing Of Courses 
-        complete Design Of Course component
-        Design this page
-    Course Page 
-        Create Course Page
-        Show participants in the classroom
-        Show Assignments given in this classroom
-        Design this page
-    Calendar
-        Fix Calendar Design
-    Grades
-        Display all the modules then subjects of the student's training (done)
-        Display the grades of the student (if for a given subject no grade is given the grade will be none) (done)
-        Total will be calculated only if all grades are entered
-    Requests
-        Fix Requests Design 
-        The student should only see the trainings that he's allowed to take. (this could be tricky)
-        The student should see the requests that he has already made and their status
-    Attendances
-        The student can see his missed classes and he can give an absence justification for a given missed attendance
-        Add Attendance Component 
-        Add Attendance button to the sidebar
+    Cleaning and organizing project (Pages)
+        Comment and clean about
+        Comment and clean evets
+        Comment and clean footer
+        Comment and clean formations
+        Comment and clean home
+        Comment and clean navbar
+        Comment and clean news
+        Comment and clean profile
     
-## Teachers
-    Teacher Middleware to all of his routes
-    Courses
-        Every Teacher can create Courses related to his subjects
-        The Course Can be Assigned to multiple Trainings at the same time
-    Assignments
-        Every teacher can create Assignments (Course or HomeWork)
-    Attendance
-        A teacher can save attendances of his students
-    Grades
-        Teacher can grade the students of the training of the subject 
+    Cleaning and organizing students dashbaord
+        Comment and clean absence
+        Comment and clean attendance
+        Comment and clean calendar
+        Comment and clean courses
+        Comment and clean home
+        Comment and clean marks
+        Comment and clean navbar
+        Comment and clean requests
+        Comment and clean Sidebar
+
+    Put the sidenav component inside dashboard folder and fix issues
     
+    Cleaning and organizing teachers dashboard
+        Comment and clean Assignments
+        Comment and clean Attendances
+        Comment and clean Calendar
+        Comment and clean CourseCards
+        Comment and clean GradesT
+        Comment and clean Home
+        Comment and clean NavbarT
+        Comment and clean SidebarT
+        Comment and clean SubjectT
 
-
+    Teachers Dashboard
+        Fix navbar
+        Add courses (component)
+        Ability to add assignments inside these courses
+        Ability to check absences of other weeks
+        Ability to grade students by subject 
     
-
-
-    
-    
-    
-
-
-
-
-
-
-========================================Third Priority things ====================================
-## Home Page
-	First Section
-        Slider
-	Second Section
-        Announcments
-        Announcments Table database
-        Announcments Service
-    Third Section 
-        News
-        News Table database
-        News Service
-    Fourth Section 
+    Testing Dashboard
+        Announcements
+            add
+            Create
+            Delete
+            Update
+            Show
+        Classrooms
+            add
+            Create
+            Delete
+            Update
+            Show
+        CourseDate
+            add
+            Create
+            Delete
+            Update
+            Show
+        DocumentRequests
+            add
+            Create
+            Delete
+            Update
+            Show
         Events
-    Fix Footer Informations 
-
-## About Us
-    First Section 
-        Title and short description
-    Second Section 
-        Headmaster Word
-    Third Section 
-        Présentation
-    Fourth Section 
-        Mission & Valeurs
-    5 section 
-     Infrastructures
-    6 Section
-        Composants de l’ENSA
-    7 Section
-        Réglement Intérieur
-    8 Section
-        Manuel des procédures
-    Images to be implemented correctly
-
-Fix Dropdown Formations (DONE)
-
-## Partenariat
-    Convention double diplomation section 
-    Téléchargement pdf Convention de stage (formulaire)
-
-## Contact Us Page 
-    Create view
-    Implement Form
-    Mailing Contact us things
-    Storing messages in the database 
-
-## Login/Register  Page 
-    Redirect to dashboard based on rank (Done)
-    Validation Errors in login (done)
-    Fix Layout and design of the form 
-    Push image to the left 
-    Check responsiveness 
-    Validation Errors in register page 
-    Mail verification 
-
-
-## Low priority : 
-    Recherche Section 
+            add
+            Create
+            Delete
+            Update
+            Show
+        Grades
+            add
+            Create
+            Delete
+            Update
+            Show
+        Modules
+            add
+            Create
+            Delete
+            Update
+            Show
+        News
+            add
+            Create
+            Delete
+            Update
+            Show
+        Privileges
+            add
+            Create
+            Delete
+            Update
+            Show
+        StudentTrainings
+            add
+            Create
+            Delete
+            Update
+            Show
+        Subjects
+            add
+            Create
+            Delete
+            Update
+            Show
+        Training Modules
+            add
+            Create
+            Delete
+            Update
+            Show
+        Trainings
+            add
+            Create
+            Delete
+            Update
+            Show
+        User Privileges
+            add
+            Create
+            Delete
+            Update
+            Show
+        Users
+            add
+            Create
+            Delete
+            Update
+            Show
+        
+        Dashboard
+            Home page
+                Contains some info about the current user
+                Contains count of important things
+            Add all links to other crud systems
+            fix sidebar design (it should stick and should be scrollable with hidden scrollspy)

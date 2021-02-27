@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { SideNavComponent } from '../SideNav/SideNav.component';
+import { AuthService } from '../_services/auth.service';
 
 
 @Component({
@@ -10,9 +11,15 @@ import { SideNavComponent } from '../SideNav/SideNav.component';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { 
+  constructor(private _authService : AuthService) { 
     this.loadCSS();
     this.loadScripts();
+  }
+
+  //logging out
+  logout(){
+    console.log("ok");
+    this._authService.logout();
   }
 
   ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-pages',
@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { 
+  preloader = true;
+  constructor( private elem: ElementRef) { 
     this.loadCSS();
     this.loadScripts();
   }
@@ -38,7 +39,7 @@ export class PagesComponent implements OnInit {
         "/assets/vendors/jquery-3.5.1.min.js",
         "/assets/scripts/vlt-plugins.min.js",
         "/assets/scripts/vlt-helpers.js",
-        "/assets/scripts/vlt-controllers.min.js",
+        "/assets/scripts/vlt-controllers.js",
         "/assets/scripts/custom-script.js"
     ]; 
     for (let i = 0; i < dynamicScripts.length; i++) { 
@@ -51,6 +52,9 @@ export class PagesComponent implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.preloader=false;
+    }, 2000);
   }
 
 }

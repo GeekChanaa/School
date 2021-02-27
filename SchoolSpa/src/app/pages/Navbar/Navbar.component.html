@@ -11,11 +11,10 @@
           <nav class="vlt-default-menu__navigation">
             <!--Navigation-->
             <ul class="sf-menu">
-              <li data-menuanchor="Home"><a href="#Home">Home</a>
+              <li><a routerLink="/">Home</a>
               </li>
-              <li><a href="/About">About</a>
+              <li><a routerLink="/About">About</a>
               </li>
-              <
               <li class="nav-item">
                 <button mat-button [matMenuTriggerFor]="formations">FORMATIONS</button>
               <mat-menu #formations="matMenu">
@@ -75,7 +74,7 @@
               </li>
               <li data-menuanchor="Partners"><a href="#Partners">Contact</a>
               </li>
-              <li data-menuanchor="Blog"><a href="/auth/login">Login</a>
+              <li data-menuanchor="Blog"><a routerLink="/auth/login">Login</a>
               </li>
             </ul>
           </nav>

@@ -1,0 +1,40 @@
+<form action="" (ngSubmit)="create()">
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Subjects</mat-label>
+    <mat-select name="subjectId" [(ngModel)]="model.subjectId" > 
+      <mat-option *ngFor="let subject of subjects"  [value]="subject.id" (onSelectionChange)="changedSubject($event)">
+        {{subject.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Trainings</mat-label>
+    <mat-select name="trainingId" [(ngModel)]="model.subjectId"> 
+      <mat-option *ngFor="let training of trainings"  [value]="training.id" (onSelectionChange)="change($event)">
+        {{training.title}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+
+<table>
+  <th>Student</th>
+  <th>Grade</th>
+  <tr *ngFor="let student of students">
+    <td>{{student.student.fullName}}</td>
+    <td>
+        <mat-form-field appearance="fill">
+          <mat-label>Grade</mat-label>
+          <input matInput name="value" [(ngModel)]="grades[student.student.id]" placeholder="Value">
+        </mat-form-field>
+    </td>
+  </tr>
+</table>
+
+
+<button type="submit" mat-button>Submit</button>
+</form>

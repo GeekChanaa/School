@@ -1,13 +1,15 @@
+import { group } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TrainingService {
+export class AnnouncementService {
 
-  baseUrl = 'https://localhost:5001/api/trainings/';
+  baseUrl = 'https://localhost:5001/api/announcement/';
 
   constructor(private http: HttpClient) { }
 
@@ -15,31 +17,30 @@ export class TrainingService {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
   };
   
-  getTrainings(): Observable<Training[]>{
-    return this.http.get<Training[]>(this.baseUrl);
+  getAnnouncements(): Observable<Announcement[]>{
+    return this.http.get<Announcement[]>(this.baseUrl);
   }
 
-  deleteTrainingById(id: number) {
+  deleteAnnouncementById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }
 
-  createTraining(model:any){
+  createAnnouncement(model:any){
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
-  getTraining(id:number){
-    return this.http.get<Training>(this.baseUrl+id);
+  getAnnouncement(id:number){
+    return this.http.get<Announcement>(this.baseUrl+id);
   }
 
-  editTraining(id:number,model:any){
+  editAnnouncement(id:number,model:any){
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 
+  
 }
 
-
-export interface Training{
-  studentTrainings: any;
+export interface Announcement{
   id: number;
-  title: string;
+  
 }

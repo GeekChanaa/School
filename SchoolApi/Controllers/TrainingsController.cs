@@ -32,7 +32,10 @@ namespace SchoolApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Training>> GetTraining(int id)
         {
-            var training = await _context.Trainings.FindAsync(id);
+            var training = await _context.Trainings
+                .Include(u => u.StudentTrainings)
+                    .ThenInclude(st => st.Student)
+                .FirstOrDefaultAsync(u => u.ID == id);
 
             if (training == null)
             {

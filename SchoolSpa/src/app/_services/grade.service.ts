@@ -38,7 +38,7 @@ export class GradeService {
   }
 
   getGradeBySubjectUserId(userId:number, subjectId:number){
-    return this.http.get<Grade>(this.baseUrl+"?userid="+userId+"&subjectid"+subjectId)
+    return this.http.get<Grade>(this.baseUrl+"studentsubject?userid="+userId+"&subjectid="+subjectId)
   }
 
   editGrade(id:number,model:any){

@@ -1,13 +1,15 @@
+import { group } from '@angular/animations';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TrainingService {
+export class NewsService {
 
-  baseUrl = 'https://localhost:5001/api/trainings/';
+  baseUrl = 'https://localhost:5001/api/new/';
 
   constructor(private http: HttpClient) { }
 
@@ -15,31 +17,29 @@ export class TrainingService {
     headers: new HttpHeaders({'Content-Type':'application/json; charset=utf-8'})
   };
   
-  getTrainings(): Observable<Training[]>{
-    return this.http.get<Training[]>(this.baseUrl);
+  getNewss(): Observable<News[]>{
+    return this.http.get<News[]>(this.baseUrl);
   }
 
-  deleteTrainingById(id: number) {
+  deleteNewsById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }
 
-  createTraining(model:any){
+  createNews(model:any){
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }
 
-  getTraining(id:number){
-    return this.http.get<Training>(this.baseUrl+id);
+  getNews(id:number){
+    return this.http.get<News>(this.baseUrl+id);
   }
 
-  editTraining(id:number,model:any){
+  editNews(id:number,model:any){
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 
+  
 }
 
-
-export interface Training{
-  studentTrainings: any;
+export interface News{
   id: number;
-  title: string;
 }

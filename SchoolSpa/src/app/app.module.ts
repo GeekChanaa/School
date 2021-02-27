@@ -83,6 +83,7 @@ import { ClassroomsComponent, CreateClassroomDialog, EditClassroomDialog } from 
 import { MarksComponent } from './students/Marks/Marks.component';
 import { AttendanceComponent } from './Teachers/Attendance/Attendance.component';
 import { AbsenceComponent } from './students/Absence/Absence.component';
+import { GradesTComponent } from './Teachers/GradesT/GradesT.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -147,7 +148,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       MarksComponent,
       EnterStudentGradesComponent,
       AttendanceComponent,
-      AbsenceComponent
+      AbsenceComponent,
+      GradesTComponent
    ],
   imports: [
     FullCalendarModule,

@@ -20,6 +20,7 @@ export class AuthComponent implements OnInit {
       "/assets/css/vlt-plugins.min.css",
       '/assets/css/vlt-main.min.css',
       "/assets/css/custom.css",
+      
     ];
     for (let i = 0; i < dynamicScripts.length; i++) { 
       const node = document.createElement('link'); 
@@ -39,7 +40,7 @@ export class AuthComponent implements OnInit {
         "/assets/scripts/vlt-plugins.min.js",
         "/assets/scripts/vlt-helpers.js",
         "/assets/scripts/vlt-controllers.min.js",
-        "/assets/scripts/custom-script.js"
+        "/assets/scripts/custom-script.js",
     ]; 
     for (let i = 0; i < dynamicScripts.length; i++) { 
       const node = document.createElement('script'); 

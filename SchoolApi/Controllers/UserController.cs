@@ -12,9 +12,11 @@ using SchoolApi.Helpers;
 using AutoMapper;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore.Proxies;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SchoolApi.Controllers
 {
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase

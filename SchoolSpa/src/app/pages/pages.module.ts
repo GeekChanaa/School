@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NavbarComponent } from './Navbar/Navbar.component';
 import { HomeComponent } from './Home/Home.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatProgressSpinnerModule
   ],
   exports : [
     NavbarComponent,

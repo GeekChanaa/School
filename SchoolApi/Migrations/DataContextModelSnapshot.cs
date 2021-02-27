@@ -41,6 +41,24 @@ namespace SchoolApi.Migrations
                     b.ToTable("AbsenceJustifications");
                 });
 
+            modelBuilder.Entity("SchoolApi.Models.Announcement", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Announcement");
+                });
+
             modelBuilder.Entity("SchoolApi.Models.Assignment", b =>
                 {
                     b.Property<int>("ID")
@@ -370,6 +388,27 @@ namespace SchoolApi.Migrations
                     b.HasIndex("TrainingID");
 
                     b.ToTable("Modules");
+                });
+
+            modelBuilder.Entity("SchoolApi.Models.New", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("New");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Privilege", b =>
