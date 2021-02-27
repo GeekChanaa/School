@@ -15,12 +15,7 @@ namespace SchoolApi.Data
         public DbSet<Assignment> Assignments { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
         public DbSet<Event> Events { get; set; }
-        public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Grade> Grades { get; set; }
-        public DbSet<Group> Groups { get; set; }
-        public DbSet<GroupComment> GroupComments { get; set; }
-        public DbSet<GroupMembership> GroupMemberships { get; set; }
-        public DbSet<GroupPost> GroupPosts { get; set; }
         public DbSet<Module> Modules { get; set; }
         public DbSet<Privilege> Privileges { get; set; }
         public DbSet<Subject> Subjects { get; set; }
@@ -38,12 +33,7 @@ namespace SchoolApi.Data
             modelBuilder.Entity<Assignment>().ToTable("Assignments");
             modelBuilder.Entity<Attendance>().ToTable("Attendances");
             modelBuilder.Entity<Event>().ToTable("Events");
-            modelBuilder.Entity<Faculty>().ToTable("Faculties");
             modelBuilder.Entity<Grade>().ToTable("Grades");
-            modelBuilder.Entity<Group>().ToTable("Groups");
-            modelBuilder.Entity<GroupComment>().ToTable("GroupComments");
-            modelBuilder.Entity<GroupMembership>().ToTable("GroupMemberships");
-            modelBuilder.Entity<GroupPost>().ToTable("GroupPosts");
             modelBuilder.Entity<Module>().ToTable("Modules");
             modelBuilder.Entity<Privilege>().ToTable("Privileges");
             modelBuilder.Entity<Subject>().ToTable("Subjects");

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
-import { SideNavComponent } from '../SideNav/SideNav.component';
 import { AuthService } from '../_services/auth.service';
 
 

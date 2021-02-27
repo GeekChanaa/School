@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { RouterModule } from '@angular/router';
 import { DashboardRoutingModule } from './dashboard.routing';
-import { SideNavComponent } from '../SideNav/SideNav.component';
+import { SideNavComponent } from './SideNav/SideNav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';

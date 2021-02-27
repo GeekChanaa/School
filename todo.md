@@ -26,16 +26,12 @@ Dashboard
         count course dates
         count document requests
         count events
-        remove faculty from everything
         count grades
-        remove posts and group comments
-        remove group membership and groups
         count news
         count modules
         count privileges
         count subjects
         count trainings
-        remove weatherforecast completely
     
     Cleaning App module ( it will be a lot of work but it should be done )
 
@@ -51,9 +47,7 @@ Dashboard
         Comment and clean coursedates
         Comment and clean documentrequests
         Comment and clean events
-        delete faculties
         Comment and clean Grades
-        delet groupes
         comment and clean home
         comment and clean modules
         comment and clean news

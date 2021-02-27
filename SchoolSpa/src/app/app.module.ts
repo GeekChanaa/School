@@ -16,8 +16,7 @@ import { MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './_services/auth.service';
-import { RouterModule } from '@angular/router';
-import { appRoutes, AppRoutingModule } from './routes';
+import { AppRoutingModule } from './routes';
 
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
@@ -60,15 +59,12 @@ import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 import { CreateUserDialog, EditUserDialog, UsersComponent } from './dashboard/Users/Users.component';
 import { CreateEventDialog, EditEventDialog, EventsComponent } from './dashboard/Events/Events.component';
-import { CreateFacultyDialog, EditFacultyDialog, FacultiesComponent } from './dashboard/Faculties/Faculties.component';
 import { CreateGradeDialog, EditGradeDialog, EnterStudentGradesComponent, GradesComponent } from './dashboard/Grades/Grades.component';
-import { CreateGroupDialog, EditGroupDialog, GroupsComponent } from './dashboard/Groups/Groups.component';
 import { CreateModuleDialog, EditModuleDialog, ModulesComponent } from './dashboard/Modules/Modules.component';
 import { CreatePrivilegeDialog, EditPrivilegeDialog, PrivilegesComponent } from './dashboard/Privileges/Privileges.component';
 import { CreateSubjectDialog, EditSubjectDialog, SubjectsComponent } from './dashboard/Subjects/Subjects.component';
 import { createUserPrivilegeDialog, EditUserPrivilegesDialog, UserPrivilegeComponent } from './dashboard/UserPrivileges/UserPrivileges.component';
 import { LoginComponent } from './auth/Login/Login.component';
-import { LogoutComponent } from './auth/Logout/Logout.component';
 import { RegisterComponent } from './auth/Register/Register.component';
 import { RequestPasswordComponent } from './auth/RequestPassword/RequestPassword.component';
 import { ResetPasswordComponent } from './auth/ResetPassword/ResetPassword.component';
@@ -98,9 +94,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       TrainingsComponent,
       EventsComponent,
       EventsComponent,
-      FacultiesComponent,
       GradesComponent,
-      GroupsComponent,
       ModulesComponent,
       PrivilegesComponent,
       SubjectsComponent,
@@ -108,17 +102,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       CreateUserDialog,
       EditUserDialog,
       CreateEventDialog,
-      CreateFacultyDialog,
       CreateGradeDialog,
-      CreateGroupDialog,
       CreatePrivilegeDialog,
       CreateSubjectDialog,
       CreateModuleDialog,
       CreateTrainingDialog,
       EditEventDialog,
-      EditFacultyDialog,
       EditGradeDialog,
-      EditGroupDialog,
       EditPrivilegeDialog,
       EditSubjectDialog,
       EditModuleDialog,
@@ -126,7 +116,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       EditUserPrivilegesDialog,
       createUserPrivilegeDialog,
       LoginComponent,
-      LogoutComponent,
       RegisterComponent,
       RequestPasswordComponent,
       ResetPasswordComponent,

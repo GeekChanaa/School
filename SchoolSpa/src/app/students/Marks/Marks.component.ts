@@ -24,7 +24,7 @@ export class MarksComponent implements OnInit {
         sum += item.subjects.length;
       });
       // foreach module subjects loop
-      data.studentTraining.training.modules.forEach((item: { title: any; subjects: any[]; } , i) => {
+      data.studentTraining.training.modules.forEach((item: { title: any; subjects: any[]; } , i: number) => {
         this.tiles.push({text: item.title, cols: 1, rows: item.subjects.length, color: 'lightblue'});
         this.mtotal[i] = 0;
         let numsubjects=0;

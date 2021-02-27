@@ -7,9 +7,7 @@ import { ClassroomsComponent } from './Classrooms/Classrooms.component';
 import { CourseDateComponent } from './CourseDate/CourseDate.component';
 import { DocumentRequestsComponent } from './DocumentRequests/DocumentRequests.component';
 import { EventsComponent } from './Events/Events.component';
-import { FacultiesComponent } from './Faculties/Faculties.component';
 import { GradesComponent } from './Grades/Grades.component';
-import { GroupsComponent } from './Groups/Groups.component';
 import { HomeComponent } from './Home/Home.component';
 import { ModulesComponent } from './Modules/Modules.component';
 import { PrivilegesComponent } from './Privileges/Privileges.component';
@@ -24,9 +22,7 @@ const routes: Routes = [
     { path : '' , component : HomeComponent},
     { path : 'users', component : UsersComponent},
     { path : 'events', component : EventsComponent},
-    { path : 'faculties', component : FacultiesComponent},
     { path : 'grades', component : GradesComponent},
-    { path : 'groups', component : GroupsComponent},
     { path : 'modules', component : ModulesComponent},
     { path : 'privileges', component : PrivilegesComponent},
     { path : 'subjects', component : SubjectsComponent},
