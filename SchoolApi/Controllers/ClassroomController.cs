@@ -100,6 +100,13 @@ namespace SchoolApi.Controllers
             return NoContent();
         }
 
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.Classroom.CountAsync();
+            return number;
+        }
+
         private bool ClassroomExists(int id)
         {
             return _context.Classroom.Any(e => e.ID == id);

@@ -14,7 +14,8 @@ namespace SchoolApi.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -30,24 +31,12 @@ namespace SchoolApi.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DateStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Events", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Groups",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Groups", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
@@ -58,7 +47,8 @@ namespace SchoolApi.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -110,28 +100,6 @@ namespace SchoolApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GroupPosts",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    GroupID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GroupPosts", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_GroupPosts_Groups_GroupID",
-                        column: x => x.GroupID,
-                        principalTable: "Groups",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,53 +172,6 @@ namespace SchoolApi.Migrations
                     table.ForeignKey(
                         name: "FK_DocumentRequest_Users_StudentID",
                         column: x => x.StudentID,
-                        principalTable: "Users",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Faculties",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ChefID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Faculties", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Faculties_Users_ChefID",
-                        column: x => x.ChefID,
-                        principalTable: "Users",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GroupMemberships",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    GroupID = table.Column<int>(type: "int", nullable: false),
-                    Rank = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GroupMemberships", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_GroupMemberships_Groups_GroupID",
-                        column: x => x.GroupID,
-                        principalTable: "Groups",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_GroupMemberships_Users_UserID",
-                        column: x => x.UserID,
                         principalTable: "Users",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
@@ -331,27 +252,6 @@ namespace SchoolApi.Migrations
                         name: "FK_UserPrivileges_Users_UserID",
                         column: x => x.UserID,
                         principalTable: "Users",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GroupComments",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UserID = table.Column<int>(type: "int", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PostID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GroupComments", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_GroupComments_GroupPosts_PostID",
-                        column: x => x.PostID,
-                        principalTable: "GroupPosts",
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -601,11 +501,6 @@ namespace SchoolApi.Migrations
                 column: "StudentID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Faculties_ChefID",
-                table: "Faculties",
-                column: "ChefID");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Grades_StudentID",
                 table: "Grades",
                 column: "StudentID");
@@ -614,26 +509,6 @@ namespace SchoolApi.Migrations
                 name: "IX_Grades_SubjectID",
                 table: "Grades",
                 column: "SubjectID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GroupComments_PostID",
-                table: "GroupComments",
-                column: "PostID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GroupMemberships_GroupID",
-                table: "GroupMemberships",
-                column: "GroupID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GroupMemberships_UserID",
-                table: "GroupMemberships",
-                column: "UserID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_GroupPosts_GroupID",
-                table: "GroupPosts",
-                column: "GroupID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Modules_ChefID",
@@ -707,16 +582,7 @@ namespace SchoolApi.Migrations
                 name: "DocumentRequest");
 
             migrationBuilder.DropTable(
-                name: "Faculties");
-
-            migrationBuilder.DropTable(
                 name: "Grades");
-
-            migrationBuilder.DropTable(
-                name: "GroupComments");
-
-            migrationBuilder.DropTable(
-                name: "GroupMemberships");
 
             migrationBuilder.DropTable(
                 name: "New");
@@ -737,16 +603,10 @@ namespace SchoolApi.Migrations
                 name: "Events");
 
             migrationBuilder.DropTable(
-                name: "GroupPosts");
-
-            migrationBuilder.DropTable(
                 name: "Privileges");
 
             migrationBuilder.DropTable(
                 name: "CourseDates");
-
-            migrationBuilder.DropTable(
-                name: "Groups");
 
             migrationBuilder.DropTable(
                 name: "Subjects");

@@ -16,7 +16,7 @@ import { AnnouncementService } from '../../_services/announcement.service';
 })
 export class AnnouncementComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['ID','Title','Prof','Salle','Start Date','End Date'];
+  displayedColumns: string[] = ['ID','Title','Date'];
   dataSource :any;
   courseDates: any;
   makes: any[] = [];
@@ -88,46 +88,22 @@ export interface Announcement{
 })
 export class CreateAnnouncementDialog {
   model:any ={};
-  trainings : any;
-  modules : any;
-  subjects : any;
-  teachers : any;
   /**
    *
    */
-  constructor(private _userService : UserService,private _courseDateService: AnnouncementService, private _moduleService : ModuleService, private _trainingService: TrainingService, private _subjectService: SubjectService) {
+  constructor(private _userService : UserService,private _announcementService: AnnouncementService) {
     
   }
 
   ngOnInit(){
-    this.initModules();
-    this.initSubjects();
-    this.initTrainings();
-    this._userService.getTeachers().subscribe((data)=> {
-      this.teachers = data;
-    });
   }
 
-  // init Trainings property 
-  initTrainings(){
-    this._trainingService.getTrainings().subscribe((data) => { this.trainings = data;});
-  }
 
-  // init Modules property
-  initModules(){
-    this._moduleService.getModules().subscribe((data) => { this.modules = data;});
-  }
-
-  // init Subjects property
-  initSubjects(){
-    this._subjectService.getSubjects().subscribe((data) => { this.subjects = data});
-  }
-
-  // Creating a courseDate
+  // Creating an Announcement
   create(){
     console.log(this.model);
-    this._courseDateService.createAnnouncement(this.model).subscribe(() => {
-      console.log("created courseDate");
+    this._announcementService.createAnnouncement(this.model).subscribe(() => {
+      console.log("created announcement");
     });
   }
 }
@@ -137,8 +113,8 @@ export class CreateAnnouncementDialog {
 
 @Component({
   selector: 'edit-course-date-dialog',
-  templateUrl: 'edit-course-date-dialog.html',
-  styleUrls: ['./Announcement.component.sass']
+  templateUrl: 'edit-announcements-dialog.html',
+  styleUrls: ['./Announcements.component.sass']
 })
 export class EditAnnouncementDialog {
   model:any ={};

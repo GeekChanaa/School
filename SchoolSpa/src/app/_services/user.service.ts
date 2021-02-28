@@ -26,6 +26,10 @@ export class UserService {
     return this.http.get<User[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteUserById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

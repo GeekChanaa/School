@@ -12,13 +12,26 @@
         <p>
             <mat-form-field appearance="legacy">
             <mat-label>Start Date</mat-label>
-            <input matInput type="date" name="date" [(ngModel)]="model.startDate" placeholder="Date">
+            <input matInput type="date" name="startDate" [(ngModel)]="model.startDate" placeholder="Date">
             </mat-form-field>
         </p>
         <p>
             <mat-form-field appearance="legacy">
             <mat-label>Start Time</mat-label>
-            <input matInput type="time" name="time" [(ngModel)]="model.startTime" placeholder="Time">
+            <input matInput type="time" name="startTime" [(ngModel)]="model.startTime" placeholder="Time">
+            </mat-form-field>
+        </p>
+
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>End Date</mat-label>
+            <input matInput type="date" name="endDate" [(ngModel)]="model.endDate" placeholder="Date">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="legacy">
+            <mat-label>End Time</mat-label>
+            <input matInput type="time" name="endTime" [(ngModel)]="model.endTime" placeholder="Time">
             </mat-form-field>
         </p>
         

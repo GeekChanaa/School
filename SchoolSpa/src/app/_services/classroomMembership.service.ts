@@ -21,6 +21,10 @@ export class ClassroomMembershipService {
     return this.http.get<ClassroomMembership[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteClassroomMembershipById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

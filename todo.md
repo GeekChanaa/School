@@ -17,12 +17,12 @@ First Page :
 
 Dashboard
     Services
+        Crud on classrooms
         count announcements
         count assignments
         count attendances (absentees and attendances)
         count users (by rank also)
         count classrooms
-        Crud on classrooms
         count course dates
         count document requests
         count events

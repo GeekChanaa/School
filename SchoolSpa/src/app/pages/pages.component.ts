@@ -37,6 +37,7 @@ export class PagesComponent implements OnInit {
     // This array contains all the files/CDNs 
     const dynamicScripts = [ 
         "/assets/vendors/jquery-3.5.1.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js",
         "/assets/scripts/vlt-plugins.min.js",
         "/assets/scripts/vlt-helpers.js",
         "/assets/scripts/vlt-controllers.js",

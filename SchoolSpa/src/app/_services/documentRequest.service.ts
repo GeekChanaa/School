@@ -19,6 +19,10 @@ export class DocumentRequestService {
     return this.http.get<DocumentRequest[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteDocumentRequestById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

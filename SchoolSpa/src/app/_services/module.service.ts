@@ -21,6 +21,10 @@ export class ModuleService {
     return this.http.get<Module[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteModuleById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

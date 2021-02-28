@@ -7,5 +7,7 @@ namespace SchoolApi.Models
         public DateTime Date { get; set; }
         public int ID { get; set; }
         public String Content { get; set; }
+
+        public String Title { get; set; }
     }
 }

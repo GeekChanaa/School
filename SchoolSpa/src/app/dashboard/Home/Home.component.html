@@ -1,35 +1,109 @@
 <!-- content -->
 
 
-<h1 class="h2 font-weight-light">Your <b>documentation</b> template can look like this. Check it out.</h1>
+<h1 class="h2 font-weight-light">Welcome  to your <b>Dashboard</b></h1>
 
+<!-- alerts -->
+<section id="section-8">
+  <h2 class="section-title">Informations Personnelles <a data-scroll="" href="#section-8" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <div class="">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <p>
+          <b>Date of Birth : </b>
+          {{user.date_birth}}
+        </p>
+        <i class="icon-info-circle"></i>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- / alerts -->
 
+<section id="section-8">
+  <h2 class="section-title">Informations Professionnelles <a data-scroll="" href="#section-8" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
+  <div class="">
+    <div class="col">
+      <div class="alert alert-info" role="alert">
+        <p>
+          <b>Email : </b>
+          {{user.email}}
+        </p>
+        <i class="icon-info-circle"></i>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- typogrpahy -->
 <section id="section-1">
-  <h2 class="section-title">Typography <a data-scroll="" href="#section-1" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt rerum minima a possimus, amet perferendis, temporibus obcaecati pariatur. Reprehenderit magnam necessitatibus vel culpa provident quas nesciunt sunt aut cupiditate fugiat!</p>
+  <h2 class="section-title">Numbers <a data-scroll="" href="#section-1" class="anchor" data-toggle="tooltip" data-placement="top" title="" data-original-title="Copy URL"></a></h2>
   <div class="row gutter-3">
     <div class="col-6 col-md-4">
       <div class="type boxed">
         <div>
-          <span class="badge badge-primary">New</span>
-          <h5 class="type-title">Open Sans</h5>
+          <h5 class="type-title">Users Count</h5>
           <div class="type-example">
-            <span>Ab</span>
+            <span>{{numUsers}}</span>
           </div>
         </div>
       </div>
     </div>
+
     <div class="col-6 col-md-4">
-      <div class="type bordered">
+      <div class="type boxed">
         <div>
-          <h5 class="type-title">Open Sans Bold</h5>
+          <h5 class="type-title">Trainings Count</h5>
           <div class="type-example">
-            <span class="font-weight-bold">Ab</span>
+            <span>{{numTrainings}}</span>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="col-6 col-md-4">
+      <div class="type boxed">
+        <div>
+          <h5 class="type-title">Modules Count</h5>
+          <div class="type-example">
+            <span>{{numModules}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4">
+      <div class="type boxed">
+        <div>
+          <h5 class="type-title">Subjects Count</h5>
+          <div class="type-example">
+            <span>{{numSubjects}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4">
+      <div class="type boxed">
+        <div>
+          <h5 class="type-title">Document Requests Count</h5>
+          <div class="type-example">
+            <span>{{numDocumentRequests}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-md-4">
+      <div class="type boxed">
+        <div>
+          <h5 class="type-title">Privileges Count</h5>
+          <div class="type-example">
+            <span>{{numPrivileges}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
 </section>
 <!-- / typography -->

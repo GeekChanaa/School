@@ -19,6 +19,10 @@ export class TrainingModuleService {
     return this.http.get<TrainingModule[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteTrainingModuleById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

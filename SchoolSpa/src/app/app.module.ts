@@ -80,6 +80,8 @@ import { MarksComponent } from './students/Marks/Marks.component';
 import { AttendanceComponent } from './Teachers/Attendance/Attendance.component';
 import { AbsenceComponent } from './students/Absence/Absence.component';
 import { GradesTComponent } from './Teachers/GradesT/GradesT.component';
+import { AnnouncementComponent, CreateAnnouncementDialog, EditAnnouncementDialog } from './dashboard/Announcements/Announcements.component';
+import { CreateNewDialog, EditNewDialog, NewComponent } from './dashboard/News/News.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -138,7 +140,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
       EnterStudentGradesComponent,
       AttendanceComponent,
       AbsenceComponent,
-      GradesTComponent
+      GradesTComponent,
+      AnnouncementComponent,
+      CreateAnnouncementDialog,
+      EditAnnouncementDialog,
+      NewComponent,
+      CreateNewDialog,
+      EditNewDialog
    ],
   imports: [
     FullCalendarModule,
@@ -191,7 +199,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatTreeModule,
     OverlayModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [
     AuthService,

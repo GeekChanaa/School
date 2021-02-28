@@ -100,6 +100,13 @@ namespace SchoolApi.Controllers
             return NoContent();
         }
 
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.Privileges.CountAsync();
+            return number;
+        }
+
         private bool PrivilegeExists(int id)
         {
             return _context.Privileges.Any(e => e.ID == id);

@@ -19,6 +19,10 @@ export class EventService {
     return this.http.get<Event[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteEventById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

@@ -21,6 +21,10 @@ export class AttendanceService {
     return this.http.get<Attendance[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   getAttendancesByUser(userid:number): Observable<Attendance[]>{
     return this.http.get<Attendance[]>(this.baseUrl+"?userid="+userid);
   }

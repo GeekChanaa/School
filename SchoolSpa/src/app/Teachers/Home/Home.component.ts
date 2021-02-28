@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
     var userid = this._authService.decodedToken.nameid;
     this._userService
     this._userService.loggedInUser()?.subscribe(data => {
-    this.subjects = data.subjects;
-    this.user = data
+      this.subjects = data.subjects;
+      this.user = data
     });
   }
 

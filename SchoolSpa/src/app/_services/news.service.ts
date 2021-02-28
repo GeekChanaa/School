@@ -25,6 +25,10 @@ export class NewsService {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   createNews(model:any){
     return this.http.post(this.baseUrl,model,this.httpOptions);
   }

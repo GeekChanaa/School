@@ -54,6 +54,9 @@ namespace SchoolApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Announcement");
@@ -214,6 +217,9 @@ namespace SchoolApi.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DateEnd")
                         .HasColumnType("datetime2");
 
@@ -229,26 +235,6 @@ namespace SchoolApi.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Events");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("ChefID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("ChefID");
-
-                    b.ToTable("Faculties");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Grade", b =>
@@ -274,95 +260,6 @@ namespace SchoolApi.Migrations
                     b.HasIndex("SubjectID");
 
                     b.ToTable("Grades");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.Group", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Groups");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupComment", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PostID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("PostID");
-
-                    b.ToTable("GroupComments");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupMembership", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("GroupID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Rank")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("GroupID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("GroupMemberships");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Content")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GroupID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("GroupID");
-
-                    b.ToTable("GroupPosts");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Module", b =>
@@ -405,6 +302,9 @@ namespace SchoolApi.Migrations
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
@@ -689,17 +589,6 @@ namespace SchoolApi.Migrations
                     b.Navigation("Student");
                 });
 
-            modelBuilder.Entity("SchoolApi.Models.Faculty", b =>
-                {
-                    b.HasOne("SchoolApi.Models.User", "Chef")
-                        .WithMany()
-                        .HasForeignKey("ChefID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Chef");
-                });
-
             modelBuilder.Entity("SchoolApi.Models.Grade", b =>
                 {
                     b.HasOne("SchoolApi.Models.User", "Student")
@@ -715,47 +604,6 @@ namespace SchoolApi.Migrations
                     b.Navigation("Student");
 
                     b.Navigation("Subject");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupComment", b =>
-                {
-                    b.HasOne("SchoolApi.Models.GroupPost", "Post")
-                        .WithMany("GroupComments")
-                        .HasForeignKey("PostID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Post");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupMembership", b =>
-                {
-                    b.HasOne("SchoolApi.Models.Group", "Group")
-                        .WithMany("GroupMemberships")
-                        .HasForeignKey("GroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SchoolApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
-                {
-                    b.HasOne("SchoolApi.Models.Group", "Group")
-                        .WithMany("GroupsPosts")
-                        .HasForeignKey("GroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Group");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Module", b =>
@@ -848,18 +696,6 @@ namespace SchoolApi.Migrations
             modelBuilder.Entity("SchoolApi.Models.Classroom", b =>
                 {
                     b.Navigation("Classrooms");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.Group", b =>
-                {
-                    b.Navigation("GroupMemberships");
-
-                    b.Navigation("GroupsPosts");
-                });
-
-            modelBuilder.Entity("SchoolApi.Models.GroupPost", b =>
-                {
-                    b.Navigation("GroupComments");
                 });
 
             modelBuilder.Entity("SchoolApi.Models.Module", b =>

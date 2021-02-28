@@ -45,6 +45,10 @@ export class GradeService {
     return this.http.put(this.baseUrl+id,model,this.httpOptions);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   
 }
 

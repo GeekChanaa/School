@@ -39,13 +39,13 @@ export class GradesTComponent implements OnInit {
         this.cdid = data.id;
         this.students = data.studentTrainings;
         console.log(this.students);
-        this.students.forEach((student: { student: { id: number; }; }) => {
-          console.log(student.student.id);
-          this._gradeService.getGradeBySubjectUserId(student.student.id,this.subjectid).subscribe((grade)=>{
-            this.grades[student.student.id] = grade.value;
-            console.log(this.grades);
-          })
-        });
+        // this.students.forEach((student: { student: { id: number; }; }) => {
+        //   console.log(student.student.id);
+        //   this._gradeService.getGradeBySubjectUserId(student.student.id,this.subjectid).subscribe((grade)=>{
+        //     this.grades[student.student.id] = grade.value;
+        //     console.log(this.grades);
+        //   })
+        // });
         
       });
       

@@ -99,6 +99,12 @@ namespace SchoolApi.Controllers
 
             return NoContent();
         }
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.AbsenceJustifications.CountAsync();
+            return number;
+        }
 
         private bool AbsenceJustificationExists(int id)
         {

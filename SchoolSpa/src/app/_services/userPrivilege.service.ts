@@ -22,6 +22,10 @@ export class UserPrivilegeService {
     return this.http.get<UserPrivilege[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteUserPrivilegeById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

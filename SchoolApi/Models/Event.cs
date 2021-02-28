@@ -18,5 +18,7 @@ namespace SchoolApi.Models
         [Display(Name = "Type")]
         public string Type { get; set; }
 
+        public String Content { get; set; }
+
     }
 }

@@ -21,6 +21,10 @@ export class SubjectService {
     return this.http.get<Subject[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteSubjectById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }

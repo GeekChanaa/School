@@ -142,6 +142,13 @@ namespace SchoolApi.Controllers
             return NoContent();
         }
 
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.CourseDate.CountAsync();
+            return number;
+        }
+
         private bool CourseDateExists(int id)
         {
             return _context.CourseDate.Any(e => e.ID == id);

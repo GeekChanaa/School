@@ -104,6 +104,13 @@ namespace SchoolApi.Controllers
             return NoContent();
         }
 
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.DocumentRequest.CountAsync();
+            return number;
+        }
+
         private bool DocumentRequestExists(int id)
         {
             return _context.DocumentRequest.Any(e => e.ID == id);

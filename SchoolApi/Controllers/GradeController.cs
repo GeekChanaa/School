@@ -107,6 +107,13 @@ namespace SchoolApi.Controllers
             return NoContent();
         }
 
+        // Count : api/User/count
+        [HttpGet("count")]
+        public async Task<ActionResult<int>> Count(){
+            var number =  await _context.Grades.CountAsync();
+            return number;
+        }
+
         private bool GradeExists(int id)
         {
             return _context.Grades.Any(e => e.ID == id);

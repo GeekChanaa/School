@@ -27,6 +27,10 @@ export class CourseDateService {
     }
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   getCourseDatesByTeacher(teacherId:number):Observable<CourseDate[]>{
     return this.http.get<CourseDate[]>(this.baseUrl+"?professorid="+teacherId);
   }

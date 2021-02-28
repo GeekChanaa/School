@@ -19,6 +19,10 @@ export class StudentTrainingService {
     return this.http.get<StudentTraining[]>(this.baseUrl);
   }
 
+  count(){
+    return this.http.get<number>(this.baseUrl+"count");
+  }
+
   deleteStudentTrainingById(id: number) {
     return this.http.delete(this.baseUrl+id, this.httpOptions);
   }
