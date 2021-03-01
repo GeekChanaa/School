@@ -30,8 +30,17 @@ export class MarksComponent implements OnInit {
         let numsubjects=0;
         // loop for each subject of the module
         item.subjects.forEach((item,index) => {
+          console.log(this.grades);
+          console.log(item);
           // calculating the total of the module
+          if(this.grades[item.id]){
+            
           this.mtotal[i] += this.grades[item.id].value;
+          }
+          else{
+            
+          this.mtotal[i] += -50;
+          }
           
           numsubjects++;
           
@@ -48,8 +57,12 @@ export class MarksComponent implements OnInit {
       });
       
       this.tiles.push({text:"Total",cols:3,rows:1,color: 'lightblue'});
-      this.tiles.push({text: this.total/6,cols:1,rows:1,color: 'lightblue'});
-      
+      if(this.total < 0){  
+       this.tiles.push({text: "None",cols:1,rows:1,color: 'lightblue'});
+      }
+      else{
+       this.tiles.push({text: this.total/6,cols:1,rows:1,color: 'lightblue'});
+      }
     })
   }
 

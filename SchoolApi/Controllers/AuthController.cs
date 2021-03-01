@@ -18,11 +18,13 @@ namespace SchoolApi.Controllers
     {
         private readonly IAuthRepository _repo;
         private readonly IConfiguration _config;
+        private readonly DataContext _context;
 
-        public AuthController(IAuthRepository repo, IConfiguration config)
+        public AuthController(IAuthRepository repo, IConfiguration config, DataContext context)
         {
             _repo = repo;
             _config = config;
+            _context = context;
         }
 
         [HttpPost("Register")]
@@ -31,9 +33,6 @@ namespace SchoolApi.Controllers
             // Validating request
 
             userForRegisterDto.Email = userForRegisterDto.Email.ToLower();
-            Console.WriteLine("USERDTO in the first thing");
-            Console.WriteLine(userForRegisterDto.FirstName);
-            Console.WriteLine(userForRegisterDto.Email);
             if(await _repo.UserExists(userForRegisterDto.Email)){
                 return BadRequest("Email already exists");
             }
@@ -63,6 +62,14 @@ namespace SchoolApi.Controllers
 
             var createdUser = await _repo.Register(userToCreate, userForRegisterDto.Password);
 
+            var userPrivilege = new UserPrivilege{
+                UserID = createdUser.ID,
+                PrivilegeID = 4
+            };
+
+            var createdUserPrivilege = await this._context.UserPrivileges.AddAsync(userPrivilege);
+            await _context.SaveChangesAsync();
+
             return StatusCode(201);
         }
 
@@ -75,7 +82,7 @@ namespace SchoolApi.Controllers
                 return Unauthorized();
             
             var user = await _repo.GetUser(userFromRepo.ID);
-                        
+
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.ID.ToString()),

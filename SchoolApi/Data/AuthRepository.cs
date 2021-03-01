@@ -19,9 +19,6 @@ namespace SchoolApi.Data
 
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-            Console.WriteLine("THIS IS THE §USER : ");
-            Console.WriteLine(user.FirstName);
-            Console.WriteLine(user.Email);
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 

@@ -46,7 +46,7 @@ namespace SchoolApi.Controllers
                 }
                 else {
 
-                Console.WriteLine("this is not right");
+                //Console.WriteLine("this is not right");
                 return await _context.Users
                     .Include(u => u.Subjects)
                     .Include(u => u.userPrivilege)
@@ -92,13 +92,7 @@ namespace SchoolApi.Controllers
 
             
             User user = await _repo.GetUser(id);
-
-
             _mapper.Map(userToUpdateDto,user);
-
-            Console.WriteLine(user);
-            
-            
             _context.Entry(user).State = EntityState.Modified;
             try
             {

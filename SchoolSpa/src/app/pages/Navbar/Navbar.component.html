@@ -4,7 +4,7 @@
     <div class="vlt-navbar-background"></div>
     <div class="vlt-navbar-inner">
       <div class="vlt-navbar-inner--left">
-        <!--Logo--><a class="vlt-navbar-logo" href="index.html"><img src="assets/img/root/logo.svg" alt="Gilber"></a>
+        <!--Logo--> ENSAT
       </div>
       <div class="vlt-navbar-inner--center">
         <div class="container">
@@ -68,27 +68,20 @@
               </mat-menu>
               <mat-menu></mat-menu>
               </li>
-              <li data-menuanchor="Education"><a href="#Education">Recherche</a>
+              <li *ngIf="!loggedIn" data-menuanchor="Blog"><a href="/auth/login">Login</a>
               </li>
-              <li data-menuanchor="Testimonials"><a href="#Testimonials">Partenariat</a>
+              <li *ngIf="student" data-menuanchor="Blog"><a href="/students">Student's Dashboard</a>
               </li>
-              <li data-menuanchor="Partners"><a href="#Partners">Contact</a>
+              <li *ngIf="teacher" data-menuanchor="Blog"><a href="/teachers">Teacher's Dashboard</a>
               </li>
-              <li data-menuanchor="Blog"><a routerLink="/auth/login">Login</a>
+              <li *ngIf="admin" data-menuanchor="Blog"><a href="/dashboard">Admin's Dashboard</a>
               </li>
             </ul>
           </nav>
         </div>
       </div>
       <div class="vlt-navbar-inner--right">
-        <div class="d-flex align-items-center">
-          <!--Contacts-->
-          <div class="vlt-navbar-contacts"><a href="tel:+72126742510">+7 (212) 674-25-10</a></div>
-          <!--Menu Burger--><a class="vlt-menu-burger js-offcanvas-menu-open" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="18" x2="21" y2="18" /></svg></a>
-        </div>
+        
       </div>
     </div>
   </div>

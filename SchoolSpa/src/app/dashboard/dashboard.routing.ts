@@ -17,6 +17,7 @@ import { StudentTrainingsComponent } from './StudentTrainings/StudentTrainings.c
 import { SubjectsComponent } from './Subjects/Subjects.component';
 import { TrainingModulesComponent } from './TrainingModules/TrainingModules.component';
 import { TrainingsComponent } from './Trainings/Trainings.component';
+import { UploadComponent } from './Upload/Upload.component';
 import { UserPrivilegeComponent } from './UserPrivileges/UserPrivileges.component';
 import { UsersComponent } from './Users/Users.component';
 
@@ -37,6 +38,7 @@ const routes: Routes = [
     { path : 'courseDates', component : CourseDateComponent},
     { path : 'documentRequests', component : DocumentRequestsComponent},
     { path : 'studentTrainings', component : StudentTrainingsComponent},
+    { path : 'upload', component : UploadComponent},
     { path : 'classrooms', component : ClassroomsComponent},
 ];
 

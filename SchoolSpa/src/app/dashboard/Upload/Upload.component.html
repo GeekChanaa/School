@@ -1,0 +1,13 @@
+<p>
+  <input type="file" #file placeholder="choose file" (change)="uploadFile(file.files)">
+  <button class="btn btn-primary" (click) = "file.click()">Upload File</button>
+</p>
+
+<div class="col-lg-6">
+  <span class="upload" *ngIf="progress > 0">
+    {{progress}}%
+  </span>
+  <span class="upload" *ngIf="message">
+    {{message}}
+  </span>
+</div>
